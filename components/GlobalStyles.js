@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
@@ -11,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+
 `;
 
 export default GlobalStyles;
@@ -27,4 +29,13 @@ export const StyledHeader = styled.header`
   p {
     margin-top: 1px;
   }
+`;
+
+export const StyledMain = styled.main`
+  display: flex;
+`;
+
+export const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
 `;
