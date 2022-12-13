@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Footer from "../components/Footer/Footer";
 import { StyledLink } from "../components/GlobalStyles";
 import Header from "../components/Header/Header";
 import { events } from "../data/events";
@@ -7,12 +8,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
-        <CardContainer>{EventList}</CardContainer>
-      </main>
+      <StyledMain>
+        <StyledCardContainer>{EventList}</StyledCardContainer>
+      </StyledMain>
+      <Footer />
     </>
   );
 }
+
+export const StyledMain = styled.main`
+  height: 80vh;
+  overflow: scroll;
+`;
 
 export const EventList = events.map((event) => (
   <article>
@@ -20,10 +27,11 @@ export const EventList = events.map((event) => (
       <StyledLink href="/">{event.name}</StyledLink>
     </li>
     <p>{event.date}</p>
+    <p>Level: {event.category}</p>
   </article>
 ));
 
-export const CardContainer = styled.section`
+export const StyledCardContainer = styled.section`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -31,11 +39,11 @@ export const CardContainer = styled.section`
   gap: 20px;
 
   article {
-    border: 1px solid black;
     background-color: #245669;
     border-radius: 20px;
     width: 60%;
     padding-left: 20px;
+    box-shadow: 5px 6px 22px 4px #245669;
   }
 
   li {
@@ -44,10 +52,6 @@ export const CardContainer = styled.section`
     list-style-type: none;
     margin-top: 10px;
   }
-  li:link {
-    color: white;
-  }
-
   p {
     margin-top: 5px;
     color: whitesmoke;

@@ -27,7 +27,7 @@ export const StyledHeader = styled.header`
   }
 
   p {
-    margin-top: 1px;
+    margin: 10px, 10px, 10px, 10px;
   }
 `;
 
