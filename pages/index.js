@@ -1,22 +1,22 @@
-import { useState } from "react";
+import Image from "next/image";
 import styled from "styled-components";
-import { StyledButton } from "../components/Button/StyledButton";
-import Footer from "../components/Footer/Footer";
+import Footer, { StyledButton } from "../components/Footer/Footer";
 import { StyledLink } from "../components/GlobalStyles";
 import Header from "../components/Header/Header";
 import { events } from "../data/events";
 
 export default function Home() {
-  const [bookmark, setBookmark] = useState(false);
-
-  function toggleBookmark() {
-    setBookmark(!bookmark);
-  }
-
   const EventList = events.map((event) => (
     <StyledLink href="/">
       <article>
-        <StyledButton onClick={toggleBookmark}>♡</StyledButton>
+        <StyledButton>
+          <Image
+            width={30}
+            height={30}
+            alt="bookmark"
+            src={"/assets/icons8-bookmark-outline.svg"}
+          />
+        </StyledButton>
         <h3 key={event.id}>{event.name}</h3>
         <div>
           <p>{event.date}</p>
@@ -36,6 +36,7 @@ export default function Home() {
     </>
   );
 }
+
 export const StyledMain = styled.main`
   height: 80vh;
   overflow: scroll;
@@ -58,9 +59,12 @@ export const StyledCardSection = styled.section`
   article {
     background-color: #245669;
     border-radius: 20px;
-    width: 80vw;
+    width: 70vw;
     box-shadow: 5px 6px 22px 4px #245669;
     padding: 15px 15px 15px 15px;
+  }
+  img {
+    float: right;
   }
 
   h3 {
