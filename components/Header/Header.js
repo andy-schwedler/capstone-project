@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export default function Header() {
   return (
-    <>
-      <StyledHeader>
-        <h1>Beaver Fit</h1>
-        <p>🦫 dam strong 🦫</p>
-      </StyledHeader>
-    </>
+    <StyledHeader>
+      <h1>Beaver Fit</h1>
+      <p>🦫 dam strong 🦫</p>
+    </StyledHeader>
   );
 }
 
@@ -21,6 +19,6 @@ export const StyledHeader = styled.header`
   }
 
   p {
-    margin: 10px, 10px, 10px, 10px;
+    margin: 10px;
   }
 `;

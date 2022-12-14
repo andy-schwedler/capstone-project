@@ -3,31 +3,29 @@ import styled from "styled-components";
 
 export default function Footer() {
   return (
-    <>
-      <StyledFooterList>
-        <StyledIconContainer>
-          <StyledButton>
-            <Image
-              width={40}
-              height={40}
-              src={"/assets/icons8-calendar-24.png"}
-            />
-          </StyledButton>
-          <p>Schedule</p>
-        </StyledIconContainer>
-        <StyledIconContainer>
-          <StyledButton>
-            <Image
-              width={40}
-              height={40}
-              alt="bookmark"
-              src={"/assets/icons8-bookmark-outline.svg"}
-            />
-          </StyledButton>
-          <p>bookmark</p>
-        </StyledIconContainer>
-      </StyledFooterList>
-    </>
+    <StyledFooterList>
+      <StyledIconContainer>
+        <StyledButton>
+          <Image
+            width={40}
+            height={40}
+            src={"/assets/icons8-calendar-24.png"}
+          />
+        </StyledButton>
+        <p>Schedule</p>
+      </StyledIconContainer>
+      <StyledIconContainer>
+        <StyledButton>
+          <Image
+            width={40}
+            height={40}
+            alt="bookmark"
+            src={"/assets/icons8-bookmark-outline.svg"}
+          />
+        </StyledButton>
+        <p>bookmark</p>
+      </StyledIconContainer>
+    </StyledFooterList>
   );
 }
 
