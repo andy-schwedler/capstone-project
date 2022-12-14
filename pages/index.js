@@ -12,7 +12,7 @@ export default function Home() {
       <StyledMain>
         <StyledCardSection>
           {events.map((event) => (
-            <StyledLink href="/">
+            <StyledLink href="/" key={event.id}>
               <article>
                 <StyledButton>
                   <Image
