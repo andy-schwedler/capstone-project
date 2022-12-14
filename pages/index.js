@@ -16,12 +16,7 @@ export default function Home() {
   );
 }
 
-export const StyledMain = styled.main`
-  height: 80vh;
-  overflow: scroll;
-`;
-
-export const EventList = events.map((event) => (
+const EventList = events.map((event) => (
   <article>
     <li key={event.id}>
       <StyledLink href="/">{event.name}</StyledLink>
@@ -30,6 +25,11 @@ export const EventList = events.map((event) => (
     <p>Level: {event.category}</p>
   </article>
 ));
+
+export const StyledMain = styled.main`
+  height: 80vh;
+  overflow: scroll;
+`;
 
 export const StyledCardContainer = styled.section`
   display: flex;

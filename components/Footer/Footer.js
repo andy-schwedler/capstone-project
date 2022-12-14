@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { StyledButton } from "../Button/StyledButton";
 
 export default function Footer() {
   return (
     <>
       <StyledFooterList>
-        <li>Schedule-icon</li>
-        <li>Bookmarks-icon</li>
+        <StyledButton>🗓️</StyledButton>
+        <StyledButton>❤️</StyledButton>
       </StyledFooterList>
     </>
   );
@@ -16,7 +17,6 @@ export const StyledFooterList = styled.ul`
   width: 100vw;
   display: flex;
   margin: 0;
-  margin-top: 30px;
   position: fixed;
   bottom: 0;
   background-color: white;
