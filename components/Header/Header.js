@@ -1,4 +1,4 @@
-import { StyledHeader } from "../GlobalStyles";
+import styled from "styled-components";
 
 export default function Header() {
   return (
@@ -10,3 +10,17 @@ export default function Header() {
     </>
   );
 }
+
+export const StyledHeader = styled.header`
+  width: 100vw;
+  text-align: center;
+  color: #629fb5;
+
+  h1 {
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin: 10px, 10px, 10px, 10px;
+  }
+`;
