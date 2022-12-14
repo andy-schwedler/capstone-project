@@ -7,23 +7,24 @@ export default function Footer() {
       <StyledIconContainer>
         <StyledButton>
           <Image
-            width={40}
-            height={40}
+            alt="schedule"
+            width={30}
+            height={30}
             src={"/assets/icons8-calendar-24.png"}
           />
+          <p>Schedule</p>
         </StyledButton>
-        <p>Schedule</p>
       </StyledIconContainer>
       <StyledIconContainer>
         <StyledButton>
           <Image
-            width={40}
-            height={40}
+            width={30}
+            height={30}
             alt="bookmark"
             src={"/assets/icons8-bookmark-outline.svg"}
           />
+          <p>bookmark</p>
         </StyledButton>
-        <p>bookmark</p>
       </StyledIconContainer>
     </StyledFooterList>
   );
@@ -52,16 +53,11 @@ const StyledIconContainer = styled.div`
   color: #245669;
   font-weight: bold;
   width: 65px;
-  height: 65px;
+  height: auto;
   margin-bottom: 2px;
 
-  img {
-    width: 45px;
-    height: 45px;
-  }
-
   p {
-    font-size: 0.8em;
+    font-size: 0.4em;
     margin-top: 0px;
     margin-bottom: 0px;
   }

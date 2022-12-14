@@ -1,46 +1,41 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Footer, { StyledButton } from "../components/Footer/Footer";
-import { StyledLink } from "../components/GlobalStyles";
+import { StyledLink, StyledMain } from "../components/GlobalStyles";
 import Header from "../components/Header/Header";
 import { events } from "../data/events";
 
 export default function Home() {
-  const EventList = events.map((event) => (
-    <StyledLink href="/">
-      <article>
-        <StyledButton>
-          <Image
-            width={30}
-            height={30}
-            alt="bookmark"
-            src={"/assets/icons8-bookmark-outline.svg"}
-          />
-        </StyledButton>
-        <h3 key={event.id}>{event.name}</h3>
-        <div>
-          <p>{event.date}</p>
-          <p>{event.category}</p>
-        </div>
-      </article>
-    </StyledLink>
-  ));
-
   return (
     <>
       <Header />
       <StyledMain>
-        <StyledCardSection>{EventList}</StyledCardSection>
+        <StyledCardSection>
+          {events.map((event) => (
+            <StyledLink href="/">
+              <article>
+                <StyledButton>
+                  <Image
+                    width={30}
+                    height={30}
+                    alt="bookmark"
+                    src={"/assets/icons8-bookmark-outline.svg"}
+                  />
+                </StyledButton>
+                <h3 key={event.id}>{event.name}</h3>
+                <div>
+                  <p>{event.date}</p>
+                  <p>{event.category}</p>
+                </div>
+              </article>
+            </StyledLink>
+          ))}
+        </StyledCardSection>
       </StyledMain>
       <Footer />
     </>
   );
 }
-
-export const StyledMain = styled.main`
-  height: 80vh;
-  overflow: scroll;
-`;
 
 export const StyledCardSection = styled.section`
   display: flex;
