@@ -1,8 +1,9 @@
+import Link from "next/link";
 import styled from "styled-components";
 import BookmarkIcon from "../Icons/Bookmark";
 import ScheduleIcon from "../Icons/Schedule";
 
-export default function Footer() {
+function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
@@ -12,14 +13,18 @@ export default function Footer() {
         </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
-        <StyledButton>
-          <BookmarkIcon />
-          <p>bookmark</p>
-        </StyledButton>
+        <Link href={"../bookmarks"}>
+          <StyledButton>
+            <BookmarkIcon />
+            <p>bookmark</p>
+          </StyledButton>
+        </Link>
       </StyledIconContainer>
     </StyledFooterList>
   );
 }
+
+export default Footer;
 
 const StyledFooterList = styled.ul`
   list-style-type: none;

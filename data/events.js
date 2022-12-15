@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import { StyledLink } from "../components/GlobalStyles";
 import BookmarkButton from "../components/Icons/BookmarkButton";
 
-export const events = [
+export const initialEvents = [
   { id: nanoid(), name: "Beaverletics", date: "24.12.2023", category: "easy" },
   {
     id: nanoid(),
@@ -24,7 +24,7 @@ export const events = [
 
 export const Eventlist = (
   <>
-    {events.map((event) => (
+    {initialEvents.map((event) => (
       <StyledLink href="/" key={event.id}>
         <article>
           <BookmarkButton />
