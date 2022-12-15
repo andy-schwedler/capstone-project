@@ -1,4 +1,4 @@
-import { StyledCardSection } from "../components/CardSection/StyledCardSection";
+import { StyledCardSection } from "../components/StyledCardSection";
 import Footer from "../components/Footer";
 import { StyledLink, StyledMain } from "../components/GlobalStyles";
 import Header from "../components/Header";
