@@ -1,32 +1,25 @@
 import Link from "next/link";
 import styled from "styled-components";
-import BookmarkIcon from "../Icons/Bookmark";
-import ScheduleIcon from "../Icons/Schedule";
+import ScheduleIcon from "./Icons/Schedule";
 
-function Footer() {
+export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-        <Link href={"/"}>
-          <StyledButton>
-            <ScheduleIcon />
-            <p>Schedule</p>
-          </StyledButton>
-        </Link>
+        <StyledButton>
+          <ScheduleIcon />
+          <p>Overview</p>
+        </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
-        <Link href={"/"}>
-          <StyledButton>
-            <BookmarkIcon />
-            <p>bookmark</p>
-          </StyledButton>
-        </Link>
+        <StyledButton>
+          <BookmarkIcon />
+          <p>Bookmarks</p>
+        </StyledButton>
       </StyledIconContainer>
     </StyledFooterList>
   );
 }
-
-export default Footer;
 
 const StyledFooterList = styled.ul`
   list-style-type: none;
