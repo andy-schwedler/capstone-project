@@ -1,7 +1,8 @@
-import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
-import Footer, { StyledButton } from "../components/Footer/Footer";
+import BookmarkIcon from "../components/Icons/Bookmark";
+import BookmarkFilledIcon from "../components/Icons/BookmarkFilled";
+import Footer from "../components/Footer/Footer";
 import { StyledLink, StyledMain } from "../components/GlobalStyles";
 import Header from "../components/Header/Header";
 import { events } from "../data/events";
@@ -21,23 +22,7 @@ export default function Home() {
           {events.map((event) => (
             <StyledLink href="/" key={event.id}>
               <article>
-                <StyledButton onClick={toggleFavorite}>
-                  {isFavorite ? (
-                    <Image
-                      width={30}
-                      height={30}
-                      alt="bookmark"
-                      src={"/assets/bookmark-filled.svg"}
-                    />
-                  ) : (
-                    <Image
-                      width={30}
-                      height={30}
-                      alt="bookmark"
-                      src={"/assets/bookmark-outline.svg"}
-                    />
-                  )}
-                </StyledButton>
+                {isFavorite ? <BookmarkFilledIcon /> : <BookmarkIcon />}
                 <h3 key={event.id}>{event.name}</h3>
                 <div>
                   <p>{event.date}</p>

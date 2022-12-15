@@ -1,30 +1,19 @@
-import Image from "next/image";
 import styled from "styled-components";
+import BookmarkIcon from "../Icons/Bookmark";
+import ScheduleIcon from "../Icons/Schedule";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
         <StyledButton>
-          <Image
-            alt="schedule"
-            width={30}
-            height={30}
-            aria-label="schedule"
-            src={"/assets/icons8-calendar-24.png"}
-          />
+          <ScheduleIcon />
           <p>Schedule</p>
         </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
         <StyledButton>
-          <Image
-            width={30}
-            height={30}
-            alt="bookmark"
-            aria-label="bookmark"
-            src={"/assets/bookmark-outline.svg"}
-          />
+          <BookmarkIcon />
           <p>bookmark</p>
         </StyledButton>
       </StyledIconContainer>
