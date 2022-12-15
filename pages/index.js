@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { StyledCardSection } from "../components/CardSection/StyledCardSection";
 import Footer from "../components/Footer/Footer";
 import { StyledMain } from "../components/GlobalStyles";
