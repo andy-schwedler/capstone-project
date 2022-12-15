@@ -1,18 +1,15 @@
 import Link from "next/link";
+import Image from "next/Image";
 import styled from "styled-components";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-        <StyledButton>
           <p>Overview</p>
-        </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
-        <StyledButton>
           <p>Bookmarks</p>
-        </StyledButton>
       </StyledIconContainer>
     </StyledFooterList>
   );

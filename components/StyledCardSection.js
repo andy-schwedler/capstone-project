@@ -8,10 +8,10 @@ export const StyledCardSection = styled.section`
   gap: 40px;
 
   :first-child {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   :last-child {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   article {
@@ -41,5 +41,10 @@ export const StyledCardSection = styled.section`
     display: flex;
     gap: 30px;
     padding-top: 20px;
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
   }
 `;
