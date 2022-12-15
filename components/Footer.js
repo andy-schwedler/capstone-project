@@ -1,19 +1,15 @@
-import Link from "next/link";
 import styled from "styled-components";
-import ScheduleIcon from "./Icons/Schedule";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
         <StyledButton>
-          <ScheduleIcon />
           <p>Overview</p>
         </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
         <StyledButton>
-          <BookmarkIcon />
           <p>Bookmarks</p>
         </StyledButton>
       </StyledIconContainer>
