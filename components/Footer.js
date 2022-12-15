@@ -10,7 +10,7 @@ export default function Footer() {
       </StyledIconContainer>
       <StyledIconContainer>
         <StyledButton>
-          <p>Bookmarks</p>
+          <p>Bla bla</p>
         </StyledButton>
       </StyledIconContainer>
     </StyledFooterList>
