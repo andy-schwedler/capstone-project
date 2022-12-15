@@ -13,7 +13,7 @@ export default function Schedule() {
           {initialEvents.map((event) => (
             <StyledLink href="/" key={event.id}>
               <article>
-                <h3 key={event.id}>{event.name}</h3>
+                <h3>{event.name}</h3>
                 <div>
                   <p>{event.date}</p>
                   <p>{event.category}</p>
