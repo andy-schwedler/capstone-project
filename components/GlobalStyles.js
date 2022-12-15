@@ -32,7 +32,8 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledMain = styled.main`
-  display: flex;
+  height: 80vh;
+  overflow: scroll;
 `;
 
 export const StyledLink = styled(Link)`
