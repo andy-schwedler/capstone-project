@@ -10,6 +10,7 @@ export default function Footer() {
             alt="schedule"
             width={30}
             height={30}
+            aria-label="schedule"
             src={"/assets/icons8-calendar-24.png"}
           />
           <p>Schedule</p>
@@ -21,7 +22,8 @@ export default function Footer() {
             width={30}
             height={30}
             alt="bookmark"
-            src={"/assets/icons8-bookmark-outline.svg"}
+            aria-label="bookmark"
+            src={"/assets/bookmark-outline.svg"}
           />
           <p>bookmark</p>
         </StyledButton>
@@ -40,8 +42,8 @@ const StyledFooterList = styled.ul`
   background-color: white;
   height: 8vh;
   justify-content: space-around;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 30%;
+  padding-right: 30%;
   align-items: center;
 `;
 
@@ -66,7 +68,7 @@ const StyledIconContainer = styled.div`
 export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
-  font-size: xx-large;
+  font-size: x-large;
   padding: 0;
   margin: 0;
 `;

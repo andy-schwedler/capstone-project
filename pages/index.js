@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import styled from "styled-components";
 import Footer, { StyledButton } from "../components/Footer/Footer";
 import { StyledLink, StyledMain } from "../components/GlobalStyles";
@@ -6,6 +7,12 @@ import Header from "../components/Header/Header";
 import { events } from "../data/events";
 
 export default function Home() {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  function toggleFavorite() {
+    setIsFavorite(!isFavorite);
+  }
+
   return (
     <>
       <Header />
@@ -14,13 +21,22 @@ export default function Home() {
           {events.map((event) => (
             <StyledLink href="/" key={event.id}>
               <article>
-                <StyledButton>
-                  <Image
-                    width={30}
-                    height={30}
-                    alt="bookmark"
-                    src={"/assets/icons8-bookmark-outline.svg"}
-                  />
+                <StyledButton onClick={toggleFavorite}>
+                  {isFavorite ? (
+                    <Image
+                      width={30}
+                      height={30}
+                      alt="bookmark"
+                      src={"/assets/bookmark-filled.svg"}
+                    />
+                  ) : (
+                    <Image
+                      width={30}
+                      height={30}
+                      alt="bookmark"
+                      src={"/assets/bookmark-outline.svg"}
+                    />
+                  )}
                 </StyledButton>
                 <h3 key={event.id}>{event.name}</h3>
                 <div>
