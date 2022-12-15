@@ -21,9 +21,6 @@ export const StyledCardSection = styled.section`
     box-shadow: 5px 6px 22px 4px #245669;
     padding: 15px;
   }
-  img {
-    float: right;
-  }
 
   h3 {
     font-size: 1.5rem;
@@ -43,7 +40,7 @@ export const StyledCardSection = styled.section`
     padding-top: 20px;
   }
 
-  a{
+  a {
     text-decoration: none;
     color: white;
   }
