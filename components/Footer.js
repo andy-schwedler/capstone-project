@@ -6,10 +6,10 @@ export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-          <p>Overview</p>
+          <p>⌗</p>
       </StyledIconContainer>
       <StyledIconContainer>
-          <p>Bookmarks</p>
+          <p>📌</p>
       </StyledIconContainer>
     </StyledFooterList>
   );
@@ -42,7 +42,7 @@ const StyledIconContainer = styled.div`
   margin-bottom: 2px;
 
   p {
-    font-size: 0.4em;
+    font-size: 2em;
     margin-top: 0px;
     margin-bottom: 0px;
   }
