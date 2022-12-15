@@ -1,19 +1,11 @@
-import { useState } from "react";
 import styled from "styled-components";
-import BookmarkIcon from "../components/Icons/Bookmark";
-import BookmarkFilledIcon from "../components/Icons/BookmarkFilled";
 import Footer from "../components/Footer/Footer";
 import { StyledLink, StyledMain } from "../components/GlobalStyles";
 import Header from "../components/Header/Header";
 import { events } from "../data/events";
+import BookmarkButton from "../components/Icons/BookmarkButton";
 
 export default function Home() {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  function toggleFavorite() {
-    setIsFavorite(!isFavorite);
-  }
-
   return (
     <>
       <Header />
@@ -22,7 +14,7 @@ export default function Home() {
           {events.map((event) => (
             <StyledLink href="/" key={event.id}>
               <article>
-                {isFavorite ? <BookmarkFilledIcon /> : <BookmarkIcon />}
+                <BookmarkButton />
                 <h3 key={event.id}>{event.name}</h3>
                 <div>
                   <p>{event.date}</p>
@@ -57,7 +49,7 @@ export const StyledCardSection = styled.section`
     border-radius: 20px;
     width: 70vw;
     box-shadow: 5px 6px 22px 4px #245669;
-    padding: 15px 15px 15px 15px;
+    padding: 15px;
   }
   img {
     float: right;
