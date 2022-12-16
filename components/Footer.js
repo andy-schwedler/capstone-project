@@ -17,7 +17,7 @@ export default function Footer() {
         </Link>
       </StyledIconContainer>
       <StyledIconContainer>
-        <Link href={"/"}>
+        <Link href={"/bookmarks"}>
           <Image
             aria-label="bookmark"
             alt="bookmark"

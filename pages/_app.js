@@ -4,7 +4,6 @@ import { initialEvents } from "../data/events";
 
 function MyApp({ Component, pageProps }) {
   const [events, setEvents] = useState(initialEvents);
-  console.log(events);
 
   function handleToggleFavorite(id) {
     setEvents(
