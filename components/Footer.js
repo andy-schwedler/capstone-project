@@ -1,17 +1,26 @@
+import Image from "next/image";
 import styled from "styled-components";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-        <StyledButton>
-          <p>🗓️</p>
-        </StyledButton>
+        <Image
+          aria-label="overview"
+          alt="overview"
+          src={"/assets/calendar.svg"}
+          width={20}
+          height={20}
+        />
       </StyledIconContainer>
       <StyledIconContainer>
-        <StyledButton>
-          <p>📌</p>
-        </StyledButton>
+        <Image
+          aria-label="bookmark"
+          alt="bookmark"
+          src={"/assets/bookmark-filled.svg"}
+          width={20}
+          height={20}
+        />
       </StyledIconContainer>
     </StyledFooterList>
   );
@@ -55,8 +64,4 @@ export const StyledButton = styled.button`
   border: none;
   padding: 0;
   margin: 0;
-
-  p {
-    font-size: xx-large;
-  }
 `;
