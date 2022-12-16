@@ -5,12 +5,12 @@ export default function Footer() {
     <StyledFooterList>
       <StyledIconContainer>
         <StyledButton>
-          <p>Overview</p>
+          <p>🗓️</p>
         </StyledButton>
       </StyledIconContainer>
       <StyledIconContainer>
         <StyledButton>
-          <p>Bla bla</p>
+          <p>📌</p>
         </StyledButton>
       </StyledIconContainer>
     </StyledFooterList>
@@ -53,7 +53,10 @@ const StyledIconContainer = styled.div`
 export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
-  font-size: x-large;
   padding: 0;
   margin: 0;
+
+  p {
+    font-size: xx-large;
+  }
 `;

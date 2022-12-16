@@ -15,7 +15,8 @@ export const StyledHeader = styled.header`
   text-align: center;
   color: #629fb5;
 
-  h1 {
+  h1,
+  p {
     margin: 0;
   }
 `;

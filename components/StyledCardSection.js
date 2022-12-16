@@ -8,10 +8,10 @@ export const StyledCardSection = styled.section`
   gap: 40px;
 
   :first-child {
-    margin-top: 80px;
+    margin-top: 70px;
   }
   :last-child {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
   }
 
   article {
