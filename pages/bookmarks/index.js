@@ -5,21 +5,19 @@ import Footer from "../../components/Footer";
 import { StyledMain } from "../../components/GlobalStyles";
 import Header from "../../components/Header";
 
-export default function Bookmarks({ events }) {
+export default function Bookmarks({ events, onToggleFavorite }) {
+  const favEvents = events.filter((event) => event.isFavorite === true);
+
   return (
     <>
       <Header />
       <StyledMain>
         <StyledCardSection>
-          {events.find((event) => event.isFavorite === true) ? (
-            <Fragment>
-              <h1>true</h1>
+          {favEvents.map((favEvent) => (
+            <Fragment key={favEvent.id}>
+              <EventCard event={favEvent} onToggleFavorite={onToggleFavorite} />
             </Fragment>
-          ) : (
-            <Fragment>
-              <h1>false</h1>
-            </Fragment>
-          )}
+          ))}
         </StyledCardSection>
       </StyledMain>
       <Footer />
