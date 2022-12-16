@@ -1,6 +1,6 @@
 import { StyledCardSection } from "../components/StyledCardSection";
 import Footer from "../components/Footer";
-import { StyledLink, StyledMain } from "../components/GlobalStyles";
+import { StyledMain } from "../components/GlobalStyles";
 import { useState } from "react";
 import { Fragment } from "react";
 import Header from "../components/Header";
@@ -16,7 +16,7 @@ export default function Home() {
       <StyledMain>
         <StyledCardSection>
           {events.map((event) => (
-            <Fragment href="/" key={event.id}>
+            <Fragment key={event.id}>
               <EventCard event={event} />
             </Fragment>
           ))}

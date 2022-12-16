@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -39,4 +40,9 @@ export const StyledMain = styled.main`
 export const StyledLink = styled(Link)`
   color: white;
   text-decoration: none;
+`;
+
+export const StyledButtonFrame = styled.button`
+  background-color: transparent;
+  border: none;
 `;
