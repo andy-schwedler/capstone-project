@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { StyledCardSection } from "..";
 import EventCard from "../../components/EventCard";
 import Footer from "../../components/Footer";
@@ -10,9 +11,14 @@ export default function Bookmarks({ events }) {
       <Header />
       <StyledMain>
         <StyledCardSection>
-          {events.map(
-            (event) =>
-              event.isFavorite && <EventCard key={event.id} event={event} />
+          {events.find((event) => event.isFavorite === true) ? (
+            <Fragment>
+              <h1>true</h1>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <h1>false</h1>
+            </Fragment>
           )}
         </StyledCardSection>
       </StyledMain>
