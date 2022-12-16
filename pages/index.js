@@ -9,6 +9,11 @@ import styled from "styled-components";
 
 export default function Home() {
   const [events, setEvents] = useState(initialEvents);
+  const [isActive, setIsActive] = useState(false);
+
+  function handleToggle() {
+    setIsActive(!isActive);
+  }
 
   return (
     <>
@@ -17,7 +22,11 @@ export default function Home() {
         <StyledCardSection>
           {events.map((event) => (
             <Fragment key={event.id}>
-              <EventCard event={event} />
+              <EventCard
+                event={event}
+                isActive={isActive}
+                onToggle={handleToggle}
+              />
             </Fragment>
           ))}
         </StyledCardSection>

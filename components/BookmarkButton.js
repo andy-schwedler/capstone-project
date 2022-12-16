@@ -1,17 +1,10 @@
 import Image from "next/image";
-import { useState } from "react";
 import { StyledButtonFrame } from "./GlobalStyles";
 
-export default function BookmarkButton() {
-  const [isActive, setIsActive] = useState(false);
-
-  function handleToggle() {
-    setIsActive(!isActive);
-  }
-
+export default function BookmarkButton({ isActive, onToggle }) {
   return (
     <>
-      <StyledButtonFrame onClick={handleToggle}>
+      <StyledButtonFrame onClick={onToggle}>
         {isActive ? (
           <Image
             aria-label="bookmark"
