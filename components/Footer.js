@@ -1,21 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import ScheduleIcon from "./Icons/Schedule";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-        <StyledButton>
-          <ScheduleIcon />
-          <p>Overview</p>
-        </StyledButton>
+        <Link href={"/"}>
+          <Image
+            aria-label="overview"
+            alt="overview"
+            src={"/assets/calendar.svg"}
+            width={20}
+            height={20}
+          />
+        </Link>
       </StyledIconContainer>
       <StyledIconContainer>
-        <StyledButton>
-          <BookmarkIcon />
-          <p>Bookmarks</p>
-        </StyledButton>
+        <Link href={"/bookmarks"}>
+          <Image
+            aria-label="bookmark"
+            alt="bookmark"
+            src={"/assets/bookmark-filled.svg"}
+            width={20}
+            height={20}
+          />
+        </Link>
       </StyledIconContainer>
     </StyledFooterList>
   );
@@ -26,9 +36,6 @@ const StyledFooterList = styled.ul`
   width: 100vw;
   display: flex;
   margin: 0;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
   height: 8vh;
   justify-content: space-around;
   padding-left: 30%;
@@ -57,7 +64,6 @@ const StyledIconContainer = styled.div`
 export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
-  font-size: x-large;
   padding: 0;
   margin: 0;
 `;

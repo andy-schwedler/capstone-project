@@ -17,26 +17,17 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const StyledHeader = styled.header`
-  width: 100vw;
-  text-align: center;
-  color: #629fb5;
-
-  h1 {
-    margin-bottom: 5px;
-  }
-
-  p {
-    margin: 10px;
-  }
-`;
-
 export const StyledMain = styled.main`
-  height: 80vh;
+  height: 75vh;
   overflow: scroll;
 `;
 
 export const StyledLink = styled(Link)`
   color: white;
   text-decoration: none;
+`;
+
+export const StyledButtonFrame = styled.button`
+  background-color: transparent;
+  border: none;
 `;
