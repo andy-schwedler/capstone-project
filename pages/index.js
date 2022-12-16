@@ -68,5 +68,7 @@ export const StyledCardSection = styled.section`
     display: flex;
     gap: 30px;
     padding-top: 20px;
+    color: white;
+    font-style: italic;
   }
 `;

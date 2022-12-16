@@ -1,26 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
-        <Image
-          aria-label="overview"
-          alt="overview"
-          src={"/assets/calendar.svg"}
-          width={20}
-          height={20}
-        />
+        <Link href={"/"}>
+          <Image
+            aria-label="overview"
+            alt="overview"
+            src={"/assets/calendar.svg"}
+            width={20}
+            height={20}
+          />
+        </Link>
       </StyledIconContainer>
       <StyledIconContainer>
-        <Image
-          aria-label="bookmark"
-          alt="bookmark"
-          src={"/assets/bookmark-filled.svg"}
-          width={20}
-          height={20}
-        />
+        <Link href={"/"}>
+          <Image
+            aria-label="bookmark"
+            alt="bookmark"
+            src={"/assets/bookmark-filled.svg"}
+            width={20}
+            height={20}
+          />
+        </Link>
       </StyledIconContainer>
     </StyledFooterList>
   );
@@ -31,9 +36,6 @@ const StyledFooterList = styled.ul`
   width: 100vw;
   display: flex;
   margin: 0;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
   height: 8vh;
   justify-content: space-around;
   padding-left: 30%;
