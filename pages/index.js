@@ -1,9 +1,9 @@
-import { StyledCardSection } from "../components/StyledCardSection";
-import Footer from "../components/Footer";
-import { StyledMain } from "../components/GlobalStyles";
 import { useState } from "react";
 import { Fragment } from "react";
 import Header from "../components/Header";
+import { StyledCardSection } from "../components/StyledCardSection";
+import Footer from "../components/Footer";
+import { StyledMain } from "../components/GlobalStyles";
 import { initialEvents } from "../data/events";
 import EventCard from "../components/EventCard";
 

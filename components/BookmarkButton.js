@@ -8,6 +8,7 @@ export default function BookmarkButton() {
   function handleToggle() {
     setIsActive(!isActive);
   }
+
   return (
     <>
       <StyledButtonFrame onClick={handleToggle}>
