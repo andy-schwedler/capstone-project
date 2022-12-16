@@ -1,19 +1,11 @@
-import { useState } from "react";
 import { Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { StyledMain } from "../components/GlobalStyles";
-import { initialEvents } from "../data/events";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
 
-export default function Overview({ events }) {
-  const [isActive, setIsActive] = useState(false);
-
-  function handleToggle(id) {
-    setIsActive(!isActive);
-  }
-
+export default function Overview({ events, onToggleFavorite }) {
   return (
     <>
       <Header />
@@ -21,11 +13,7 @@ export default function Overview({ events }) {
         <StyledCardSection>
           {events.map((event) => (
             <Fragment key={event.id}>
-              <EventCard
-                event={event}
-                isActive={isActive}
-                onToggle={handleToggle}
-              />
+              <EventCard event={event} onToggleFavorite={onToggleFavorite} />
             </Fragment>
           ))}
         </StyledCardSection>

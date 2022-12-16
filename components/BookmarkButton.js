@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { StyledButtonFrame } from "./GlobalStyles";
 
-export default function BookmarkButton({ isActive, onToggle }) {
+export default function BookmarkButton({ id, isFavorite, onToggleFavorite }) {
   return (
     <>
-      <StyledButtonFrame onClick={onToggle}>
-        {isActive ? (
+      <StyledButtonFrame onClick={() => onToggleFavorite(id)}>
+        {isFavorite ? (
           <Image
             aria-label="bookmark"
             alt="bookmark"
