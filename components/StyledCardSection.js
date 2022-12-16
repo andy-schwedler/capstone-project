@@ -8,7 +8,7 @@ export const StyledCardSection = styled.section`
   gap: 40px;
 
   :first-child {
-    margin-top: 70px;
+    margin-top: 50px;
   }
   :last-child {
     margin-bottom: 70px;
