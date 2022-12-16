@@ -7,11 +7,10 @@ import { initialEvents } from "../data/events";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
 
-export default function Home() {
-  const [events, setEvents] = useState(initialEvents);
+export default function Overview({ events }) {
   const [isActive, setIsActive] = useState(false);
 
-  function handleToggle() {
+  function handleToggle(id) {
     setIsActive(!isActive);
   }
 
