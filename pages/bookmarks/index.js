@@ -7,7 +7,6 @@ import Header from "../../components/Header";
 
 export default function Bookmarks({ events, onToggleFavorite }) {
   const favEvents = events.filter((event) => event.isFavorite === true);
-
   return (
     <>
       <Header />

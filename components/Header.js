@@ -1,17 +1,20 @@
 import styled from "styled-components";
+import { StyledLink } from "./GlobalStyles";
 
 export default function Header() {
   return (
-    <StyledHeader>
-      <h1>Beaver Fit</h1>
-      <p>🦫 dam strong 🦫</p>
-    </StyledHeader>
+    <StyledLink href={"/"}>
+      <StyledHeader>
+        <h1>Beaver Fit</h1>
+        <p>🦫 dam strong 🦫</p>
+      </StyledHeader>
+    </StyledLink>
   );
 }
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
   color: #629fb5;
 
