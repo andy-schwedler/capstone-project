@@ -23,7 +23,6 @@ export const StyledMain = styled.main`
 `;
 
 export const StyledLink = styled(Link)`
-  color: white;
   text-decoration: none;
 `;
 

@@ -12,8 +12,8 @@ export default function Footer({ sampleEvents }) {
             aria-label="overview"
             alt="overview"
             src={"/assets/calendar.svg"}
-            width={50}
-            height={50}
+            width={55}
+            height={55}
           />
         </Link>
       </StyledIconContainer>
@@ -23,8 +23,8 @@ export default function Footer({ sampleEvents }) {
             aria-label="bookmark"
             alt="bookmark"
             color="blue"
-            width={50}
-            height={50}
+            width={55}
+            height={55}
           />
         </Link>
       </StyledIconContainer>
