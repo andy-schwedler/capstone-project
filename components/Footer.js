@@ -2,18 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { BookmarkIcon } from "./BookmarkButton";
+import ScheduleIcon from "./Icons";
 
-export default function Footer({ sampleEvents }) {
+export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
         <Link href={"/"}>
-          <Image
+          <ScheduleIcon
             aria-label="overview"
             alt="overview"
-            src={"/assets/calendar.svg"}
-            width={55}
-            height={55}
+            fill="#245669"
+            width={40}
+            height={40}
           />
         </Link>
       </StyledIconContainer>
@@ -22,9 +23,9 @@ export default function Footer({ sampleEvents }) {
           <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            color="blue"
-            width={55}
-            height={55}
+            color="#245669"
+            width={40}
+            height={40}
           />
         </Link>
       </StyledIconContainer>
