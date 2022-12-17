@@ -1,5 +1,7 @@
+import { SERVER_DIRECTORY } from "next/dist/shared/lib/constants";
 import { Fragment } from "react";
 import { StyledCardSection } from "..";
+import ErrorMessage from "../../components/ErrorMessage";
 import EventCard from "../../components/EventCard";
 import Footer from "../../components/Footer";
 import { StyledMain } from "../../components/GlobalStyles";
@@ -9,19 +11,24 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
   const favEvents = sampleEvents.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
+
   return (
     <>
       <Header />
       <StyledMain>
         <StyledCardSection>
-          {favEvents.map((favEvent) => (
-            <Fragment key={favEvent.id}>
-              <EventCard
-                sampleEvent={favEvent}
-                onToggleFavorite={onToggleFavorite}
-              />
-            </Fragment>
-          ))}
+          {favEvents.length === 0 ? (
+            <ErrorMessage message={"no bookmarks"} />
+          ) : (
+            favEvents.map((favEvent) => (
+              <Fragment key={favEvent.id}>
+                <EventCard
+                  sampleEvent={favEvent}
+                  onToggleFavorite={onToggleFavorite}
+                />
+              </Fragment>
+            ))
+          )}
         </StyledCardSection>
       </StyledMain>
       <Footer />
