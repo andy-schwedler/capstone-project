@@ -33,13 +33,12 @@ export default function Footer() {
   );
 }
 
-const StyledFooterList = styled.ul`
+const StyledFooterList = styled.footer`
   list-style-type: none;
   width: 100vw;
   display: flex;
   margin: 0;
   justify-content: space-around;
-
   align-items: center;
 `;
 
