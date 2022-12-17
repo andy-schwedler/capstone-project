@@ -1,17 +1,17 @@
 import BookmarkButton from "./BookmarkButton";
 
-export default function EventCard({ event, onToggleFavorite }) {
+export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
     <article>
       <BookmarkButton
-        isFavorite={event.isFavorite}
-        id={event.id}
+        isFavorite={sampleEvent.isFavorite}
+        id={sampleEvent.id}
         onToggleFavorite={onToggleFavorite}
       />
-      <h3>{event.name}</h3>
+      <h3>{sampleEvent.name}</h3>
       <div>
-        <p>{event.date}</p>
-        <p>{event.category}</p>
+        <p>{sampleEvent.date}</p>
+        <p>{sampleEvent.category}</p>
       </div>
     </article>
   );

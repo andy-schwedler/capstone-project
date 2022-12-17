@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { BookmarkIcon } from "./BookmarkButton";
 
-export default function Footer() {
+export default function Footer({ sampleEvents }) {
   return (
     <StyledFooterList>
       <StyledIconContainer>
@@ -11,19 +12,19 @@ export default function Footer() {
             aria-label="overview"
             alt="overview"
             src={"/assets/calendar.svg"}
-            width={20}
-            height={20}
+            width={50}
+            height={50}
           />
         </Link>
       </StyledIconContainer>
       <StyledIconContainer>
         <Link href={"/bookmarks"}>
-          <Image
+          <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            src={"/assets/bookmark-filled.svg"}
-            width={20}
-            height={20}
+            color="blue"
+            width={50}
+            height={50}
           />
         </Link>
       </StyledIconContainer>
@@ -36,10 +37,8 @@ const StyledFooterList = styled.ul`
   width: 100vw;
   display: flex;
   margin: 0;
-  height: 8vh;
   justify-content: space-around;
-  padding-left: 30%;
-  padding-right: 30%;
+
   align-items: center;
 `;
 
@@ -50,15 +49,8 @@ const StyledIconContainer = styled.div`
   align-items: center;
   color: #245669;
   font-weight: bold;
-  width: 65px;
   height: auto;
   margin-bottom: 2px;
-
-  p {
-    font-size: 0.4em;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
 `;
 
 export const StyledButton = styled.button`

@@ -5,21 +5,24 @@ import { StyledMain } from "../components/GlobalStyles";
 import EventCard from "../components/EventCard";
 import styled from "styled-components";
 
-export default function Overview({ events, onToggleFavorite }) {
+export default function Overview({ sampleEvents, onToggleFavorite }) {
   return (
     <>
       <Header />
 
       <StyledMain>
         <StyledCardSection>
-          {events.map((event) => (
-            <Fragment key={event.id}>
-              <EventCard event={event} onToggleFavorite={onToggleFavorite} />
+          {sampleEvents.map((sampleEvent) => (
+            <Fragment key={sampleEvent.id}>
+              <EventCard
+                sampleEvent={sampleEvent}
+                onToggleFavorite={onToggleFavorite}
+              />
             </Fragment>
           ))}
         </StyledCardSection>
       </StyledMain>
-      <Footer />
+      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }
@@ -30,9 +33,10 @@ export const StyledCardSection = styled.section`
   width: 100vw;
   align-items: center;
   gap: 40px;
+  overflow: scroll;
 
   :first-child {
-    margin-top: 50px;
+    margin-top: 30px;
   }
   :last-child {
     margin-bottom: 70px;
@@ -42,7 +46,7 @@ export const StyledCardSection = styled.section`
     background-color: #245669;
     border-radius: 20px;
     width: 70vw;
-    box-shadow: 5px 6px 22px 4px #245669;
+    /* box-shadow: 5px 6px 22px 4px #245669; */
     padding: 15px;
   }
   img {

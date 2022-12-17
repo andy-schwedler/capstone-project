@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  height: 75vh;
+  height: 80vh;
   overflow: scroll;
 `;
 
