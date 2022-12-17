@@ -9,7 +9,6 @@ export default function Overview({ sampleEvents, onToggleFavorite }) {
   return (
     <>
       <Header />
-
       <StyledMain>
         <StyledCardSection>
           {sampleEvents.map((sampleEvent) => (

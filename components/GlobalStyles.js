@@ -6,19 +6,24 @@ const GlobalStyles = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     * {
         box-sizing: border-box;
     }
 
+:root{
+  --biber-blue-color: #245669;
+}
+
+
 `;
 
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  height: 80vh;
+  height: 82vh;
   overflow: scroll;
 `;
 

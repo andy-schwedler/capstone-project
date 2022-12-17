@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { BookmarkIcon } from "./BookmarkButton";
@@ -12,7 +11,7 @@ export default function Footer() {
           <ScheduleIcon
             aria-label="overview"
             alt="overview"
-            fill="#245669"
+            fill="var(--biber-blue-color)"
             width={40}
             height={40}
           />

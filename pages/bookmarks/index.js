@@ -1,4 +1,3 @@
-import { SERVER_DIRECTORY } from "next/dist/shared/lib/constants";
 import { Fragment } from "react";
 import { StyledCardSection } from "..";
 import ErrorMessage from "../../components/ErrorMessage";
@@ -18,7 +17,7 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
       <StyledMain>
         <StyledCardSection>
           {favEvents.length === 0 ? (
-            <ErrorMessage message={"no bookmarks"} />
+            <ErrorMessage message={"pick a favorite beaver event"} />
           ) : (
             favEvents.map((favEvent) => (
               <Fragment key={favEvent.id}>

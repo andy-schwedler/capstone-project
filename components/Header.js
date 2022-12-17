@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledLink href={"/"}>
-        <h1>Beaver Fit</h1>
+        <h1>Beaver ⚕️ health</h1>
         <p>🦫 dam strong 🦫</p>
       </StyledLink>
     </StyledHeader>

@@ -5,5 +5,6 @@ export default function ErrorMessage({ message }) {
 }
 
 const StyledErrorMessage = styled.h1`
-  color: blue;
+  font-style: italic;
+  font-weight: 100;
 `;
