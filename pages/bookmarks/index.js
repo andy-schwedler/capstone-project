@@ -1,9 +1,8 @@
 import { Fragment } from "react";
-import { StyledCardSection } from "../../components/EventCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import EventCard from "../../components/EventCard";
 import Footer from "../../components/Footer";
-import { StyledMain } from "../../components/GlobalStyles";
+import { StyledMain, StyledCardSection } from "../../components/GlobalStyles";
 import Header from "../../components/Header";
 
 export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
