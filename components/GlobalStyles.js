@@ -17,29 +17,29 @@ const GlobalStyles = createGlobalStyle`
   --biber-blue-color: #245669;
 }
 
-
 `;
 
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  height: 82vh;
+  justify-content: center;
+  height: 80vh;
   overflow: scroll;
 `;
 
 export const StyledCardSection = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100vw;
   align-items: center;
   gap: 40px;
   overflow: scroll;
+  color: white;
 
   :first-child {
-    margin-top: 30px;
+    padding-top: 30px;
   }
   :last-child {
-    margin-bottom: 70px;
+    padding-bottom: 40px;
   }
 
   article {

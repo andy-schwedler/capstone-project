@@ -14,7 +14,7 @@ export default function Header() {
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  margin-top: 10px;
+  padding: 10px;
   text-align: center;
 
   h1,
