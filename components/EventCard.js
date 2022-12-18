@@ -1,8 +1,9 @@
 import BookmarkButton from "./BookmarkButton";
+import { StyledCard } from "./GlobalStyles";
 
 export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
-    <article>
+    <StyledCard>
       <BookmarkButton
         isFavorite={sampleEvent.isFavorite}
         id={sampleEvent.id}
@@ -13,6 +14,6 @@ export default function EventCard({ sampleEvent, onToggleFavorite }) {
         <p>{sampleEvent.date}</p>
         <p>{sampleEvent.category}</p>
       </div>
-    </article>
+    </StyledCard>
   );
 }
