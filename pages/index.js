@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { StyledMain } from "../components/GlobalStyles";
-import EventCard, { StyledCardSection } from "../components/EventCard";
+import { StyledMain, StyledCardSection } from "../components/GlobalStyles";
+import EventCard from "../components/EventCard";
 
 export default function Overview({ sampleEvents, onToggleFavorite }) {
   return (

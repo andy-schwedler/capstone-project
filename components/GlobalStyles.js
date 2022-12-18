@@ -27,6 +27,42 @@ export const StyledMain = styled.main`
   overflow: scroll;
 `;
 
+export const StyledCardSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  gap: 40px;
+  overflow: scroll;
+
+  :first-child {
+    margin-top: 30px;
+  }
+  :last-child {
+    margin-bottom: 70px;
+  }
+
+  article {
+    background-color: #245669;
+    border-radius: 20px;
+    width: 70vw;
+    /* box-shadow: 5px 6px 22px 4px #245669; */
+    padding: 15px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: white;
+    list-style-type: none;
+    margin: 0px;
+  }
+
+  button {
+    color: #ffd3a3;
+    float: right;
+  }
+`;
+
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
