@@ -23,19 +23,16 @@ export default GlobalStyles;
 
 export const StyledMain = styled.main`
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  height: 80vh;
-  overflow: scroll;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
 `;
 
 export const StyledCardSection = styled.section`
-  grid-column-start: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 40px;
   overflow: scroll;
-  color: white;
+  justify-content: flex-start;
 
   :first-child {
     padding-top: 30px;
@@ -45,9 +42,10 @@ export const StyledCardSection = styled.section`
   }
 
   article {
+    align-self: center;
+    width: 50%;
     background-color: #245669;
     border-radius: 20px;
-    width: 70vw;
     /* box-shadow: 5px 6px 22px 4px #245669; */
     padding: 15px;
   }
@@ -60,7 +58,6 @@ export const StyledCardSection = styled.section`
   }
 
   button {
-    color: #ffd3a3;
     float: right;
   }
 `;

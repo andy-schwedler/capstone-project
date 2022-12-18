@@ -12,8 +12,8 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
 
   return (
     <>
-      <Header />
       <StyledMain>
+        <Header />
         <StyledCardSection>
           {favEvents.length === 0 ? (
             <ErrorMessage message={"pick a favorite beaver event"} />
@@ -28,8 +28,8 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
             ))
           )}
         </StyledCardSection>
+        <Footer />
       </StyledMain>
-      <Footer />
     </>
   );
 }

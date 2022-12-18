@@ -7,8 +7,8 @@ import EventCard from "../components/EventCard";
 export default function Overview({ sampleEvents, onToggleFavorite }) {
   return (
     <>
-      <Header />
       <StyledMain>
+        <Header />
         <StyledCardSection>
           {sampleEvents.map((sampleEvent) => (
             <Fragment key={sampleEvent.id}>
@@ -19,8 +19,8 @@ export default function Overview({ sampleEvents, onToggleFavorite }) {
             </Fragment>
           ))}
         </StyledCardSection>
+        <Footer sampleEvents={sampleEvents} />
       </StyledMain>
-      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }
