@@ -1,6 +1,6 @@
 import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
-import { initialEvents } from "../data/events";
+import { initialEvents } from "../data/sampleEvents";
 
 function MyApp({ Component, pageProps }) {
   const [sampleEvents, setSampleEvents] = useState(initialEvents);
