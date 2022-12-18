@@ -27,18 +27,6 @@ export const StyledMain = styled.main`
   overflow: scroll;
 `;
 
-export const StyledCard = styled.article`
-  h3 {
-    color: white;
-    font-size: medium;
-  }
-
-  p {
-    font-size: small;
-    color: darkgray;
-  }
-`;
-
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;

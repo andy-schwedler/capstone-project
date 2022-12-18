@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { StyledCardSection } from "..";
+import { StyledCardSection } from "../../components/EventCard";
 import ErrorMessage from "../../components/ErrorMessage";
 import EventCard from "../../components/EventCard";
 import Footer from "../../components/Footer";

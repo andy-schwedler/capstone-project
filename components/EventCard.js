@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import BookmarkButton from "./BookmarkButton";
-import { StyledCard } from "./GlobalStyles";
 
 export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
@@ -43,7 +42,7 @@ export const StyledCardSection = styled.section`
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: white;
     list-style-type: none;
     margin: 0px;
@@ -60,5 +59,17 @@ export const StyledCardSection = styled.section`
     padding-top: 20px;
     color: white;
     font-style: italic;
+  }
+`;
+
+export const StyledCard = styled.article`
+  h3 {
+    color: white;
+    font-size: medium;
+  }
+
+  p {
+    font-size: small;
+    color: darkgray;
   }
 `;
