@@ -22,12 +22,14 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   height: 80vh;
   overflow: scroll;
 `;
 
 export const StyledCardSection = styled.section`
+  grid-column-start: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
