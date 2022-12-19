@@ -35,10 +35,8 @@ export const StyledCardSection = styled.section`
   justify-content: flex-start;
 
   :first-child {
-    padding-top: 30px;
   }
   :last-child {
-    padding-bottom: 40px;
   }
 
   article {
