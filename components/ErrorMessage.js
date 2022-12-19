@@ -5,8 +5,7 @@ export default function ErrorMessage({ message }) {
 }
 
 const StyledErrorMessage = styled.h1`
-  font-style: italic;
   font-weight: 100;
-  font-size: 0.9rem;
+  font-size: 2rem;
   align-self: center;
 `;

@@ -16,7 +16,7 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
         <Header />
         <StyledCardSection>
           {favEvents.length === 0 ? (
-            <ErrorMessage message={"pick a favorite beaver event"} />
+            <ErrorMessage message={"🥕 🦫 🥦"} />
           ) : (
             favEvents.map((favEvent) => (
               <Fragment key={favEvent.id}>
