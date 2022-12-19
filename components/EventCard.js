@@ -9,10 +9,23 @@ export default function EventCard({ sampleEvent, onToggleFavorite }) {
           id={sampleEvent.id}
           onToggleFavorite={onToggleFavorite}
         />
-        <h3>{sampleEvent.name}</h3>
-        <p>{sampleEvent.date}</p>
-        <p>{sampleEvent.category}</p>
+        <h3>{sampleEvent.date}</h3>
+        <h4>{sampleEvent.name}</h4>
+        <p>more text</p>
       </article>
     </>
   );
 }
+
+// Eventcard small
+
+// <article>
+//         <BookmarkButton
+//           isFavorite={sampleEvent.isFavorite}
+//           id={sampleEvent.id}
+//           onToggleFavorite={onToggleFavorite}
+//         />
+//         <h3>{sampleEvent.date}</h3>
+//         <p>{sampleEvent.name}</p>
+//         <p>{sampleEvent.category}</p>
+//       </article>

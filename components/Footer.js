@@ -11,7 +11,7 @@ export default function Footer() {
           <ScheduleIcon
             aria-label="overview"
             alt="overview"
-            fill="var(--biber-blue-color)"
+            fill="var(--biber)"
             width={40}
             height={40}
           />

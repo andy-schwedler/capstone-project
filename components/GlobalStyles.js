@@ -14,7 +14,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
 :root{
-  --biber-blue-color: #245669;
+  --biber: #245669;
+  --biber2: #694C2E;
+  --biber3: #FFD3A3;
 }
 
 `;
@@ -33,16 +35,12 @@ export const StyledCardSection = styled.section`
   gap: 40px;
   overflow: scroll;
   justify-content: flex-start;
-
-  :first-child {
-  }
-  :last-child {
-  }
+  color: var(--biber3);
 
   article {
     align-self: center;
     width: 50%;
-    background-color: #245669;
+    background-color: var(--biber);
     border-radius: 20px;
     /* box-shadow: 5px 6px 22px 4px #245669; */
     padding: 15px;
