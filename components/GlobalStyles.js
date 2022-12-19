@@ -6,24 +6,61 @@ const GlobalStyles = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     * {
         box-sizing: border-box;
     }
 
+:root{
+  --biber-blue-color: #245669;
+}
+
 `;
 
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  height: 75vh;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+`;
+
+export const StyledCardSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   overflow: scroll;
+  justify-content: flex-start;
+
+  :first-child {
+  }
+  :last-child {
+  }
+
+  article {
+    align-self: center;
+    width: 50%;
+    background-color: #245669;
+    border-radius: 20px;
+    /* box-shadow: 5px 6px 22px 4px #245669; */
+    padding: 15px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: white;
+    list-style-type: none;
+    margin: 0px;
+  }
+
+  button {
+    float: right;
+  }
 `;
 
 export const StyledLink = styled(Link)`
-  color: white;
   text-decoration: none;
 `;
 

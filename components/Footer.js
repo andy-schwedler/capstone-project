@@ -1,29 +1,30 @@
-import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { BookmarkIcon } from "./BookmarkButton";
+import ScheduleIcon from "./Icons";
 
 export default function Footer() {
   return (
     <StyledFooterList>
       <StyledIconContainer>
         <Link href={"/"}>
-          <Image
+          <ScheduleIcon
             aria-label="overview"
             alt="overview"
-            src={"/assets/calendar.svg"}
-            width={20}
-            height={20}
+            fill="var(--biber-blue-color)"
+            width={40}
+            height={40}
           />
         </Link>
       </StyledIconContainer>
       <StyledIconContainer>
         <Link href={"/bookmarks"}>
-          <Image
+          <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            src={"/assets/bookmark-filled.svg"}
-            width={20}
-            height={20}
+            color="#245669"
+            width={40}
+            height={40}
           />
         </Link>
       </StyledIconContainer>
@@ -31,15 +32,14 @@ export default function Footer() {
   );
 }
 
-const StyledFooterList = styled.ul`
+const StyledFooterList = styled.footer`
   list-style-type: none;
+  background-color: lightblue;
   width: 100vw;
   display: flex;
   margin: 0;
-  height: 8vh;
+  padding: 5px;
   justify-content: space-around;
-  padding-left: 30%;
-  padding-right: 30%;
   align-items: center;
 `;
 
@@ -50,15 +50,8 @@ const StyledIconContainer = styled.div`
   align-items: center;
   color: #245669;
   font-weight: bold;
-  width: 65px;
   height: auto;
   margin-bottom: 2px;
-
-  p {
-    font-size: 0.4em;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
 `;
 
 export const StyledButton = styled.button`

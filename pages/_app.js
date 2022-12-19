@@ -1,14 +1,16 @@
 import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
-import { initialEvents } from "../data/events";
+import { initialEvents } from "../data/sampleEvents";
 
 function MyApp({ Component, pageProps }) {
-  const [events, setEvents] = useState(initialEvents);
+  const [sampleEvents, setSampleEvents] = useState(initialEvents);
 
   function handleToggleFavorite(id) {
-    setEvents(
-      events.map((event) =>
-        event.id === id ? { ...event, isFavorite: !event.isFavorite } : event
+    setSampleEvents(
+      sampleEvents.map((sampleEvent) =>
+        sampleEvent.id === id
+          ? { ...sampleEvent, isFavorite: !sampleEvent.isFavorite }
+          : sampleEvent
       )
     );
   }
@@ -18,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyles />
       <Component
         {...pageProps}
-        events={events}
+        sampleEvents={sampleEvents}
         onToggleFavorite={handleToggleFavorite}
       />
     </>
