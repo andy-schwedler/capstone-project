@@ -4,11 +4,6 @@ import { StyledLocationLink } from "./GlobalStyles";
 export default function EventCardDetails({ currentEvent, onToggleFavorite }) {
   return (
     <article>
-      {/* <BookmarkButton
-        isFavorite={currentEvent.isFavorite}
-        id={currentEvent.id}
-        onToggleFavorite={onToggleFavorite}
-      /> */}
       <h4>{currentEvent.name}</h4>
       <p>date: {currentEvent.date}</p>
       <StyledLocationLink
@@ -16,16 +11,7 @@ export default function EventCardDetails({ currentEvent, onToggleFavorite }) {
       >
         <p>Location: {currentEvent.location}</p>
       </StyledLocationLink>
-      <p>
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text more text more text more text more text more text
-        more text more text
-      </p>
+      <p>more text</p>
     </article>
   );
 }

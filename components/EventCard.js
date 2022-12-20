@@ -19,16 +19,3 @@ export default function EventCard({ sampleEvent, onToggleFavorite }) {
     </>
   );
 }
-
-// Eventcard small
-
-// <article>
-//         <BookmarkButton
-//           isFavorite={sampleEvent.isFavorite}
-//           id={sampleEvent.id}
-//           onToggleFavorite={onToggleFavorite}
-//         />
-//         <h3>{sampleEvent.date}</h3>
-//         <p>{sampleEvent.name}</p>
-//         <p>{sampleEvent.category}</p>
-//       </article>
