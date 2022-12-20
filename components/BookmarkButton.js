@@ -2,7 +2,6 @@ import { StyledButtonFrame } from "./GlobalStyles";
 import { BookmarkIcon } from "./Icons";
 
 export default function BookmarkButton({ id, isFavorite, onToggleFavorite }) {
-  console.log("BookmarkButton", "Property", isFavorite, "id", id);
   return (
     <>
       <StyledButtonFrame onClick={() => onToggleFavorite(id)}>
