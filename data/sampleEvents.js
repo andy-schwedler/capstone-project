@@ -7,6 +7,7 @@ export const initialEvents = [
     date: "24.12.2023",
     category: "sport",
     isFavorite: false,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -14,6 +15,7 @@ export const initialEvents = [
     date: "25.12.2023",
     category: "children",
     isFavorite: true,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -21,6 +23,7 @@ export const initialEvents = [
     date: "26.12.2023",
     category: "hard",
     isFavorite: false,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -28,6 +31,7 @@ export const initialEvents = [
     date: "27.12.2023",
     category: "health",
     isFavorite: false,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -35,6 +39,7 @@ export const initialEvents = [
     date: "28.12.2023",
     category: "sport",
     isFavorite: false,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -42,6 +47,7 @@ export const initialEvents = [
     date: "29.12.2023",
     category: "gold",
     isFavorite: false,
+    location: "München",
   },
   {
     id: nanoid(),
@@ -49,5 +55,6 @@ export const initialEvents = [
     date: "30.12.2023",
     category: "gold",
     isFavorite: false,
+    location: "München",
   },
 ];
