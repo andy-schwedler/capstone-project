@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
 import { initialEvents } from "../data/sampleEvents";
@@ -17,6 +18,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <title>🦫 Memories 💭</title>
+      </Head>
       <GlobalStyles />
       <Component
         {...pageProps}
