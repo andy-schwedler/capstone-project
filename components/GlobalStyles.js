@@ -34,7 +34,6 @@ export const StyledCardSection = styled.section`
   flex-direction: column;
   gap: 40px;
   overflow: scroll;
-  justify-content: flex-start;
   color: var(--biber3);
 
   article {
@@ -60,6 +59,11 @@ export const StyledCardSection = styled.section`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+
+  :link,
+  :visited {
+    color: inherit;
+  }
 `;
 
 export const StyledButtonFrame = styled.button`
