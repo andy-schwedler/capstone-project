@@ -14,10 +14,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
 :root{
-  --biber: #245669;
-  --biber1: #629FB5;
-  --biber2: #694C2E;
-  --biber3: #FFD3A3;
+  --beaver: #245669;
+  --beaver1: #629FB5;
+  --beaver2: #694C2E;
+  --beaver3: #FFD3A3;
 }
 
 `;
@@ -35,12 +35,12 @@ export const StyledCardSection = styled.section`
   flex-direction: column;
   gap: 40px;
   overflow: scroll;
-  color: var(--biber3);
+  color: var(--beaver3);
 
   article {
     align-self: center;
     width: 50%;
-    background-color: var(--biber);
+    background-color: var(--beaver);
     border-radius: 20px;
     /* box-shadow: 5px 6px 22px 4px #245669; */
     padding: 15px;
@@ -78,7 +78,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledLocationLink = styled(Link)`
   text-decoration: none;
-  color: var(--biber1);
+  color: var(--beaver1);
 `;
 
 export const StyledButtonFrame = styled.button`
