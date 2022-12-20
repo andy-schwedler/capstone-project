@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { BookmarkIcon } from "./Icons";
+import { AddIcon, BookmarkIcon } from "./Icons";
 import ScheduleIcon from "./Icons";
 
 export default function Footer() {
@@ -9,6 +9,17 @@ export default function Footer() {
       <StyledIconContainer>
         <Link href={"/"}>
           <ScheduleIcon
+            aria-label="overview"
+            alt="overview"
+            fill="var(--beaver)"
+            width={40}
+            height={40}
+          />
+        </Link>
+      </StyledIconContainer>{" "}
+      <StyledIconContainer>
+        <Link href={"/"}>
+          <AddIcon
             aria-label="overview"
             alt="overview"
             fill="var(--beaver)"
