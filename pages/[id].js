@@ -1,19 +1,28 @@
 import { useRouter } from "next/router";
-import { initialEvents } from "../data/sampleEvents";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import EventCardDetails from "../components/EventCardDetails";
-import { StyledCardSection, StyledMain } from "../components/GlobalStyles";
+import {
+  StyledCardSection,
+  StyledLocationLink,
+  StyledMain,
+} from "../components/GlobalStyles";
+import ErrorMessage from "../components/ErrorMessage";
 
-export default function EventCardOverview({ onToggleFavorite }) {
+export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const currentEvent = initialEvents.find(
-    (initialEvent) => initialEvent.id === id
+  const currentEvent = sampleEvents.find(
+    (sampleEvent) => sampleEvent.id === id
   );
   if (!currentEvent) {
-    return null;
+    return (
+      <>
+        <ErrorMessage message={"ID does not match"} />
+        <StyledLocationLink href={"/"}>Back to overview</StyledLocationLink>
+      </>
+    );
   }
 
   return (
@@ -21,7 +30,10 @@ export default function EventCardOverview({ onToggleFavorite }) {
       <StyledMain>
         <Header />
         <StyledCardSection>
-          <EventCardDetails currentEvent={currentEvent} />
+          <EventCardDetails
+            currentEvent={currentEvent}
+            onToggleFavorite={onToggleFavorite}
+          />
         </StyledCardSection>
         <Footer />
       </StyledMain>
