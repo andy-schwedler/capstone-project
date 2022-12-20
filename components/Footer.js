@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { AddIcon, BookmarkIcon } from "./Icons";
+import { AddIcon, BookmarkIcon, SearchIcon } from "./Icons";
 import ScheduleIcon from "./Icons";
 
 export default function Footer() {
@@ -20,6 +20,17 @@ export default function Footer() {
       <StyledIconContainer>
         <Link href={"/"}>
           <AddIcon
+            aria-label="add button"
+            alt="add button"
+            fill="var(--beaver)"
+            width={40}
+            height={40}
+          />
+        </Link>
+      </StyledIconContainer>
+      <StyledIconContainer>
+        <Link href={"/"}>
+          <SearchIcon
             aria-label="overview"
             alt="overview"
             fill="var(--beaver)"
@@ -33,7 +44,7 @@ export default function Footer() {
           <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            color="#245669"
+            fill="var(--beaver)"
             width={40}
             height={40}
           />

@@ -9,7 +9,7 @@ export default function BookmarkButton({ id, isFavorite, onToggleFavorite }) {
           <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            color="red"
+            fill="red"
             width={20}
             height={20}
           />
@@ -17,7 +17,7 @@ export default function BookmarkButton({ id, isFavorite, onToggleFavorite }) {
           <BookmarkIcon
             aria-label="bookmark"
             alt="bookmark"
-            color="white"
+            fill="white"
             width={20}
             height={20}
           />
