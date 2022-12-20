@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
 :root{
   --biber: #245669;
+  --biber1: #629FB5;
   --biber2: #694C2E;
   --biber3: #FFD3A3;
 }
@@ -45,15 +46,24 @@ export const StyledCardSection = styled.section`
     padding: 15px;
   }
 
-  h3 {
+  h3,
+  h4 {
     font-size: 1.1rem;
+    margin-bottom: 0px;
+    margin-top: 5px;
+  }
+
+  h3 {
     color: white;
-    list-style-type: none;
-    margin: 0px;
   }
 
   button {
     float: right;
+  }
+
+  p {
+    font-size: x-small;
+    font-style: italic;
   }
 `;
 
@@ -64,6 +74,11 @@ export const StyledLink = styled(Link)`
   :visited {
     color: inherit;
   }
+`;
+
+export const StyledLocationLink = styled(Link)`
+  text-decoration: none;
+  color: var(--biber1);
 `;
 
 export const StyledButtonFrame = styled.button`

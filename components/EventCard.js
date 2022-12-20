@@ -5,15 +5,15 @@ export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
     <>
       <article>
+        <BookmarkButton
+          isFavorite={sampleEvent.isFavorite}
+          id={sampleEvent.id}
+          onToggleFavorite={onToggleFavorite}
+        />
         <StyledLink href={`/${sampleEvent.id}`}>
-          <BookmarkButton
-            isFavorite={sampleEvent.isFavorite}
-            id={sampleEvent.id}
-            onToggleFavorite={onToggleFavorite}
-          />
           <h3>{sampleEvent.date}</h3>
           <h4>{sampleEvent.name}</h4>
-          <p>more text</p>
+          <p>more text more text more text</p>
         </StyledLink>
       </article>
     </>
