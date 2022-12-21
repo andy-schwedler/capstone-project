@@ -5,20 +5,20 @@ import { StyledMain, StyledCardSection } from "../components/GlobalStyles";
 import EventCard from "../components/EventCard";
 
 export default function Overview({ sampleEvents, onToggleFavorite }) {
+  const allEvents = sampleEvents.map((sampleEvent) => (
+    <Fragment key={sampleEvent.id}>
+      <EventCard
+        sampleEvent={sampleEvent}
+        onToggleFavorite={onToggleFavorite}
+      />
+    </Fragment>
+  ));
+
   return (
     <>
       <StyledMain>
         <Header />
-        <StyledCardSection>
-          {sampleEvents.map((sampleEvent) => (
-            <Fragment key={sampleEvent.id}>
-              <EventCard
-                sampleEvent={sampleEvent}
-                onToggleFavorite={onToggleFavorite}
-              />
-            </Fragment>
-          ))}
-        </StyledCardSection>
+        <StyledCardSection>{allEvents}</StyledCardSection>
         <Footer sampleEvents={sampleEvents} />
       </StyledMain>
     </>
