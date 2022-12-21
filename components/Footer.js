@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BookmarkIcon, CreateIcon } from "./Icons";
 import ScheduleIcon from "./Icons";
-import { StyledLink } from "./GlobalStyles";
+import { StyledButtonFrame, StyledLink } from "./GlobalStyles";
 
 export default function Footer() {
   return (
@@ -15,15 +15,15 @@ export default function Footer() {
           height={40}
         />
       </StyledLink>
-      <StyledLink href={"/bookmarks"}>
+      <StyledButtonFrame>
         <CreateIcon
-          aria-label="bookmark"
-          alt="bookmark"
+          aria-label="add new memory"
+          alt="add button"
           color="var(--beaver)"
           width={40}
           height={40}
         />
-      </StyledLink>
+      </StyledButtonFrame>
       <StyledLink href={"/bookmarks"}>
         <BookmarkIcon
           aria-label="bookmark"
