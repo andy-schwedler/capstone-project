@@ -3,7 +3,7 @@ import { BookmarkIcon, CreateIcon } from "./Icons";
 import ScheduleIcon from "./Icons";
 import { StyledButtonFrame, StyledLink } from "./GlobalStyles";
 
-export default function Footer() {
+export default function Footer({ onHandleIsCreating }) {
   return (
     <StyledFooterList>
       <StyledLink href={"/"}>
@@ -15,7 +15,7 @@ export default function Footer() {
           height={40}
         />
       </StyledLink>
-      <StyledButtonFrame>
+      <StyledButtonFrame onClick={onHandleIsCreating}>
         <CreateIcon
           aria-label="add new memory"
           alt="add button"
