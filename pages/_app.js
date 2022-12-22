@@ -30,13 +30,14 @@ function MyApp({ Component, pageProps }) {
     event.preventDefault();
     const date = event.target.date.value;
     const memory = event.target.memory.value;
+    const isFavorite = event.target.isFavorite.checked;
 
     const newEntry = {
       id: nanoid(),
       name: memory,
       date: date,
       category: new Date(),
-      isFavorite: false,
+      isFavorite: isFavorite,
     };
 
     setSampleEvents([...sampleEvents, newEntry]);

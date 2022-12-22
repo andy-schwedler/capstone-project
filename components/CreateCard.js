@@ -6,9 +6,11 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
     <StyledCreatePage>
       <StyledButtonFrame onClick={onHandleIsCreating}>❌</StyledButtonFrame>
       <form onSubmit={onAddCreateCard}>
-        <label htmlFor="date">date</label>
-        <label htmlFor="memory">your thought</label>
-        <label htmlFor="isFavorite">favorite?</label>
+        <div>
+          <label htmlFor="date">date</label>
+          <label htmlFor="memory">your thought</label>
+          <label htmlFor="isFavorite">favorite?</label>
+        </div>
         <div>
           <input type="date" name="date" />
           <input type="checkbox" name="isFavorite" />
@@ -26,9 +28,7 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
 const StyledCreatePage = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 10vh;
-  justify-content: center;
-  align-items: center;
+  height: 50vh;
   background-color: var(--beaver3);
 
   form {
