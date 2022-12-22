@@ -30,6 +30,7 @@ export const StyledMain = styled.main`
   grid-template-rows: auto 1fr auto;
 `;
 
+// second row grid
 export const StyledCardSection = styled.section`
   display: flex;
   flex-direction: column;

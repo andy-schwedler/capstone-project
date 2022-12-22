@@ -4,15 +4,8 @@ import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
 import { initialEvents } from "../data/sampleEvents";
 
-const Schmarrrn = {
-  id: nanoid(),
-  name: "Beaverletics",
-  date: "24.12.2023",
-  isFavorite: false,
-  text: "thoughts",
-};
-
 function MyApp({ Component, pageProps }) {
+  // dummy data state
   const [sampleEvents, setSampleEvents] = useState(initialEvents);
 
   function handleToggleFavorite(id) {
@@ -24,11 +17,22 @@ function MyApp({ Component, pageProps }) {
       )
     );
   }
+
+  //add a memory
   function handleAddCreateCard(event) {
     event.preventDefault();
     const date = event.target.date.value;
     const memory = event.target.memory.value;
-    console.log("text:", date, "memory:", memory);
+
+    const newEntry = {
+      id: nanoid(),
+      name: memory,
+      date: date,
+      category: new Date(),
+      isFavorite: false,
+    };
+
+    setSampleEvents([...sampleEvents, newEntry]);
   }
   return (
     <>
