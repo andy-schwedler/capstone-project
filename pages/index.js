@@ -10,13 +10,9 @@ export default function Overview({
   sampleEvents,
   onToggleFavorite,
   onAddCreateCard,
+  isCreating,
+  onHandleIsCreating,
 }) {
-  const [isCreating, setIsCreating] = useState(false);
-
-  function handleIsCreating() {
-    setIsCreating(!isCreating);
-  }
-
   const allEvents = sampleEvents.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <EventCard
@@ -35,12 +31,12 @@ export default function Overview({
           <CreateCard
             onAddCreateCard={onAddCreateCard}
             sampleEvents={sampleEvents}
-            onHandleIsCreating={handleIsCreating}
           />
         ) : null}
         <Footer
           sampleEvents={sampleEvents}
-          onHandleIsCreating={handleIsCreating}
+          onHandleIsCreating={onHandleIsCreating}
+          isCreating={isCreating}
         />
       </StyledMain>
     </>

@@ -8,6 +8,13 @@ function MyApp({ Component, pageProps }) {
   // dummy data state
   const [sampleEvents, setSampleEvents] = useState(initialEvents);
 
+  // show create page
+  const [isCreating, setIsCreating] = useState(false);
+
+  function handleIsCreating() {
+    setIsCreating(!isCreating);
+  }
+
   function handleToggleFavorite(id) {
     setSampleEvents(
       sampleEvents.map((sampleEvent) =>
@@ -45,6 +52,8 @@ function MyApp({ Component, pageProps }) {
         sampleEvents={sampleEvents}
         onToggleFavorite={handleToggleFavorite}
         onAddCreateCard={handleAddCreateCard}
+        isCreating={isCreating}
+        onHandleIsCreating={handleIsCreating}
       />
     </>
   );
