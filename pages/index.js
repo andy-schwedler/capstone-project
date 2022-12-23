@@ -12,6 +12,7 @@ export default function Overview({
   isCreating,
   onHandleIsCreating,
 }) {
+  // render memory list
   const allEvents = sampleEvents.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <EventCard

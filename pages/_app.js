@@ -11,10 +11,12 @@ function MyApp({ Component, pageProps }) {
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
+  // toggle show create page
   function handleIsCreating() {
     setIsCreating(!isCreating);
   }
 
+  // favorite Button
   function handleToggleFavorite(id) {
     setSampleEvents(
       sampleEvents.map((sampleEvent) =>
@@ -25,7 +27,7 @@ function MyApp({ Component, pageProps }) {
     );
   }
 
-  //add a memory
+  // add a memory
   function handleAddCreateCard(event) {
     event.preventDefault();
     const date = event.target.date.value;
