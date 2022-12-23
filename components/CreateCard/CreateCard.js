@@ -6,22 +6,24 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
     <StyledCreatePage>
       <StyledButtonFrame onClick={onHandleIsCreating}>❌</StyledButtonFrame>
       <form onSubmit={onAddCreateCard}>
-        <div>
-          <label htmlFor="date">date</label>
-          <input type="date" name="date" />
-        </div>
-        <div>
-          <label htmlFor="isFavorite">favorite?</label>
-          <input type="checkbox" name="isFavorite" />
-        </div>
-        <div>
-          <label htmlFor="memory">your memory</label>
-          <input placeholder="your favorite moment" name="memory" />
-        </div>
-        <div>
-          <StyledButtonFrame type="submit">create</StyledButtonFrame>
-          <StyledButtonFrame type="reset">reset</StyledButtonFrame>
-        </div>
+        <fieldset>
+          <div>
+            <label htmlFor="date">date</label>
+            <input type="date" name="date" />
+          </div>
+          <div>
+            <label htmlFor="isFavorite">favorite?</label>
+            <input type="checkbox" name="isFavorite" />
+          </div>
+          <div>
+            <label htmlFor="memory">your memory</label>
+            <input placeholder="your favorite moment" name="memory" />
+          </div>
+          <div>
+            <StyledButtonFrame type="submit">create</StyledButtonFrame>
+            <StyledButtonFrame type="reset">reset</StyledButtonFrame>
+          </div>
+        </fieldset>
       </form>
     </StyledCreatePage>
   );

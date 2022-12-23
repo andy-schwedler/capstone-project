@@ -38,7 +38,6 @@ export default function Bookmarks({
         {isCreating ? (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
-            sampleEvents={sampleEvents}
             onHandleIsCreating={onHandleIsCreating}
           />
         ) : null}

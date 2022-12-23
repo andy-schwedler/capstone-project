@@ -26,26 +26,31 @@ function MyApp({ Component, pageProps }) {
       )
     );
   }
-
-  // add a memory
+  // id: nanoid(),
+  // name: "Beaverletics",
+  // date: "24.12.2023",
+  // category: "sport",
+  // isFavorite: false,
+  // location: "München",
+  // add a memory card
   function handleAddCreateCard(event) {
     event.preventDefault();
     const date = event.target.date.value;
     const memory = event.target.memory.value;
-    const isFavorite = event.target.isFavorite.checked;
+    const isFavoriteCheckbox = event.target.isFavorite.checked;
 
     const newEntry = {
       id: nanoid(),
       name: memory,
       date: date,
-      category: new Date(),
-      isFavorite: isFavorite,
+      category: "empty",
+      isFavorite: isFavoriteCheckbox,
     };
 
     setSampleEvents([...sampleEvents, newEntry]);
 
     event.target.reset();
-    event.target.memory.focus();
+    handleIsCreating();
   }
   return (
     <>

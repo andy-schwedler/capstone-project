@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCreatePage = styled.div`
+export const StyledCreatePage = styled.section`
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 30vh;
