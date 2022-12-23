@@ -1,5 +1,5 @@
-import BookmarkButton from "./BookmarkButton";
-import { StyledLocationLink } from "./GlobalStyles";
+import BookmarkButton from "../BookmarkButton";
+import { StyledLocationLink } from "../GlobalStyles";
 
 export default function EventCardDetails({ currentEvent, onToggleFavorite }) {
   return (
