@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledCardSection } from "../components/GlobalStyles";
-import EventCard from "../components/EventCard";
-import CreateCard from "../components/CreateCard";
+import EventCard from "../components/MemoryCard/EventCard";
+import CreateCard from "../components/CreateCard/CreateCard";
 
 export default function Overview({
   sampleEvents,

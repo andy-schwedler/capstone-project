@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import { BookmarkIcon, CreateIcon } from "./Icons";
-import ScheduleIcon from "./Icons";
-import { StyledButtonFrame, StyledLink } from "./GlobalStyles";
+import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
+import { BookmarkIcon } from "../Icons/BookmarkIcon";
+import ScheduleIcon from "../Icons/ScheduleIcon";
+import { CreateIcon } from "../Icons/CreateIcon";
+import { StyledFooterList } from "./StyledFooterList";
 
 export default function Footer({ onHandleIsCreating }) {
   return (
@@ -36,13 +37,3 @@ export default function Footer({ onHandleIsCreating }) {
     </StyledFooterList>
   );
 }
-
-const StyledFooterList = styled.footer`
-  display: flex;
-  justify-content: space-around;
-  background-color: var(--beaver1);
-  list-style-type: none;
-  margin: 0;
-  padding: 1%;
-  align-items: center;
-`;

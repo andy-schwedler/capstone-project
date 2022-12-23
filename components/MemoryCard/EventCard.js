@@ -1,5 +1,5 @@
-import BookmarkButton from "./BookmarkButton";
-import { StyledLink } from "./GlobalStyles";
+import BookmarkButton from "../BookmarkButton";
+import { StyledLink } from "../GlobalStyles";
 
 export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
