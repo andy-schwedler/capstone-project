@@ -30,6 +30,7 @@ export default function Overview({
           <CreateCard
             onAddCreateCard={onAddCreateCard}
             sampleEvents={sampleEvents}
+            onHandleIsCreating={onHandleIsCreating}
           />
         ) : null}
         <Footer
