@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import EventCardDetails from "../components/EventCardDetails";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import EventCardDetails from "../components/MemoryCard/EventCardDetails";
 import {
   StyledCardSection,
   StyledLocationLink,
