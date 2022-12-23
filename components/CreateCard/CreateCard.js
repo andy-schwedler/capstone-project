@@ -8,12 +8,14 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
       <form onSubmit={onAddCreateCard}>
         <div>
           <label htmlFor="date">date</label>
-          <label htmlFor="memory">your thought</label>
-          <label htmlFor="isFavorite">favorite?</label>
+          <input type="date" name="date" />
         </div>
         <div>
-          <input type="date" name="date" />
+          <label htmlFor="isFavorite">favorite?</label>
           <input type="checkbox" name="isFavorite" />
+        </div>
+        <div>
+          <label htmlFor="memory">your memory</label>
           <input placeholder="your favorite moment" name="memory" />
         </div>
         <div>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  width: 100vw;
+  justify-self: center;
   padding: 10px;
   text-align: center;
 

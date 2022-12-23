@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const StyledCreatePage = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 50vh;
+  height: 30vh;
+  align-items: center;
+  justify-content: center;
   background-color: var(--beaver3);
 
   form {
@@ -18,10 +20,10 @@ export const StyledCreatePage = styled.div`
     border: 1px solid black;
     border-radius: 10px;
     color: var(--beaver);
-    grid-row: 4;
 
     :focus {
-      outline-color: var(--beaver);
+      outline-color: var(--beaver2);
+      caret-color: var(--beaver2);
     }
   }
   label {
@@ -31,5 +33,11 @@ export const StyledCreatePage = styled.div`
   button {
     font-size: large;
     align-self: flex-start;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 `;

@@ -43,6 +43,9 @@ function MyApp({ Component, pageProps }) {
     };
 
     setSampleEvents([...sampleEvents, newEntry]);
+
+    event.target.reset();
+    event.target.memory.focus();
   }
   return (
     <>
