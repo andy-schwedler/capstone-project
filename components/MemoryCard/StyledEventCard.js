@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyledEventCard = styled.article`
+export const StyledEventContainer = styled.article`
   align-self: center;
-  width: 20rem;
+  width: 16rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr auto;
   background-color: var(--beaver2);
   border-radius: 20px;
   padding: 15px;

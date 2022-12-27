@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import CreateCard from "../../components/CreateCard/CreateCard";
-import ErrorMessage from "../../components/ErrorMessage";
+import DisplayMessage from "../../components/DisplayMessage";
 import Footer from "../../components/Footer/Footer";
 import { StyledMain, StyledCardSection } from "../../components/GlobalStyles";
 import Header from "../../components/Header/Header";
@@ -30,7 +30,7 @@ export default function Bookmarks({
         <Header />
         <StyledCardSection>
           {favEvents.length === 0 ? (
-            <ErrorMessage message={"🥕 🦫 🥦"} />
+            <DisplayMessage message={"🥕 🦫 🥦"} />
           ) : (
             favEventList
           )}
