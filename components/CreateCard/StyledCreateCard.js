@@ -7,36 +7,34 @@ export const StyledCreatePage = styled.section`
   align-items: center;
   justify-content: center;
   background-color: var(--beaver3);
+  color: var(--beaver2);
 
-  form {
+  fieldset {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-color: transparent;
+    padding: 0px;
   }
 
   input {
-    width: 60vw;
     height: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid var(--beaver2);
+    border-radius: 5px;
     color: var(--beaver);
+    caret-color: transparent;
+    margin-left: 10px;
+    align-self: center;
 
     :focus {
       outline-color: var(--beaver2);
       caret-color: var(--beaver2);
     }
   }
-  label {
-    font-size: smaller;
-  }
-
-  button {
-    font-size: large;
-    align-self: flex-start;
-  }
 
   div {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
   }
