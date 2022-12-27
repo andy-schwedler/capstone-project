@@ -30,43 +30,13 @@ export const StyledMain = styled.main`
   grid-template-rows: auto 2fr auto;
 `;
 
-// second row grid
 export const StyledCardSection = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 30px;
   overflow: auto;
-  color: var(--beaver3);
   padding: 10px;
-
-  article {
-    align-self: center;
-    width: 50%;
-    background-color: var(--beaver);
-    border-radius: 20px;
-    /* box-shadow: 5px 6px 22px 4px #245669; */
-    padding: 15px;
-  }
-
-  h3,
-  h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0px;
-    margin-top: 5px;
-  }
-
-  h3 {
-    color: white;
-  }
-
-  button {
-    float: right;
-  }
-
-  p {
-    font-size: x-small;
-    font-style: italic;
-  }
 `;
 
 export const StyledLink = styled(Link)`

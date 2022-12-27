@@ -1,20 +1,21 @@
 import BookmarkButton from "../BookmarkButton";
 import { StyledLink } from "../GlobalStyles";
+import { StyledEventCard } from "./StyledEventCard";
 
 export default function EventCard({ sampleEvent, onToggleFavorite }) {
   return (
     <>
-      <article>
+      <StyledEventCard>
+        <StyledLink href={`/${sampleEvent.id}`}>
+          <h1>{sampleEvent.name}</h1>
+          <p>{sampleEvent.date}</p>
+        </StyledLink>
         <BookmarkButton
           isFavorite={sampleEvent.isFavorite}
           id={sampleEvent.id}
           onToggleFavorite={onToggleFavorite}
         />
-        <StyledLink href={`/${sampleEvent.id}`}>
-          <h3>{sampleEvent.date}</h3>
-          <h4>{sampleEvent.name}</h4>
-        </StyledLink>
-      </article>
+      </StyledEventCard>
     </>
   );
 }
