@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import EventCardDetails from "../components/EventCardDetails";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import EventCardDetails from "../components/MemoryCard/EventCardDetails";
 import {
   StyledCardSection,
   StyledLocationLink,
   StyledMain,
 } from "../components/GlobalStyles";
-import ErrorMessage from "../components/ErrorMessage";
+import DisplayMessage from "../components/DisplayMessage";
 
 export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   if (!currentEvent) {
     return (
       <>
-        <ErrorMessage message={"ID does not match"} />
+        <DisplayMessage message={"ID does not match"} />
         <StyledLocationLink href={"/"}>Back to overview</StyledLocationLink>
       </>
     );

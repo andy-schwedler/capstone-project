@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function ErrorMessage({ message }) {
+export default function DisplayMessage({ message }) {
   return <StyledErrorMessage>{message}</StyledErrorMessage>;
 }
 

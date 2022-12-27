@@ -1,11 +1,22 @@
+import { nanoid } from "nanoid";
 import Head from "next/head";
 import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
 import { initialEvents } from "../data/sampleEvents";
 
 function MyApp({ Component, pageProps }) {
+  // dummy data state
   const [sampleEvents, setSampleEvents] = useState(initialEvents);
 
+  // show create page
+  const [isCreating, setIsCreating] = useState(false);
+
+  // toggle show create page
+  function handleIsCreating() {
+    setIsCreating(!isCreating);
+  }
+
+  // favorite Button
   function handleToggleFavorite(id) {
     setSampleEvents(
       sampleEvents.map((sampleEvent) =>
@@ -15,7 +26,32 @@ function MyApp({ Component, pageProps }) {
       )
     );
   }
+  // id: nanoid(),
+  // name: "Beaverletics",
+  // date: "24.12.2023",
+  // category: "sport",
+  // isFavorite: false,
+  // location: "München",
+  // add a memory card
+  function handleAddCreateCard(event) {
+    event.preventDefault();
+    const date = event.target.date.value;
+    const memory = event.target.memory.value;
+    const isFavoriteCheckbox = event.target.isFavorite.checked;
 
+    const newEntry = {
+      id: nanoid(),
+      name: memory,
+      date: date,
+      category: "empty",
+      isFavorite: isFavoriteCheckbox,
+    };
+
+    setSampleEvents([...sampleEvents, newEntry]);
+
+    event.target.reset();
+    handleIsCreating();
+  }
   return (
     <>
       <Head>
@@ -26,6 +62,9 @@ function MyApp({ Component, pageProps }) {
         {...pageProps}
         sampleEvents={sampleEvents}
         onToggleFavorite={handleToggleFavorite}
+        onAddCreateCard={handleAddCreateCard}
+        isCreating={isCreating}
+        onHandleIsCreating={handleIsCreating}
       />
     </>
   );

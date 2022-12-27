@@ -27,44 +27,16 @@ export default GlobalStyles;
 export const StyledMain = styled.main`
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 2fr auto;
 `;
 
 export const StyledCardSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  overflow: scroll;
-  color: var(--beaver3);
-
-  article {
-    align-self: center;
-    width: 50%;
-    background-color: var(--beaver);
-    border-radius: 20px;
-    /* box-shadow: 5px 6px 22px 4px #245669; */
-    padding: 15px;
-  }
-
-  h3,
-  h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0px;
-    margin-top: 5px;
-  }
-
-  h3 {
-    color: white;
-  }
-
-  button {
-    float: right;
-  }
-
-  p {
-    font-size: x-small;
-    font-style: italic;
-  }
+  justify-content: flex-start;
+  gap: 30px;
+  overflow: auto;
+  padding: 10px;
 `;
 
 export const StyledLink = styled(Link)`
