@@ -9,7 +9,7 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
         <fieldset>
           <div>
             <label htmlFor="date">date</label>
-            <input type="date" name="date" />
+            <input type="date" name="date" required />
           </div>
           <div>
             <label htmlFor="isFavorite">favorite?</label>
@@ -17,7 +17,7 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
           </div>
           <div>
             <label htmlFor="memory">your memory</label>
-            <input placeholder="your favorite moment" name="memory" />
+            <input placeholder="your favorite moment" name="memory" required />
           </div>
           <div>
             <StyledButtonFrame type="submit">create</StyledButtonFrame>
