@@ -13,7 +13,6 @@ export default function EventCard({ sampleEvent, onToggleFavorite }) {
         <StyledLink href={`/${sampleEvent.id}`}>
           <h3>{sampleEvent.date}</h3>
           <h4>{sampleEvent.name}</h4>
-          <p>more text more text more text</p>
         </StyledLink>
       </article>
     </>
