@@ -34,9 +34,10 @@ export const StyledMain = styled.main`
 export const StyledCardSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  overflow: scroll;
+  gap: 30px;
+  overflow: auto;
   color: var(--beaver3);
+  padding: 10px;
 
   article {
     align-self: center;
