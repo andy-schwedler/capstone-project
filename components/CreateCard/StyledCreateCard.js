@@ -38,4 +38,8 @@ export const StyledCreatePage = styled.section`
     align-items: center;
     gap: 20px;
   }
+
+  button {
+    color: var(--beaver1);
+  }
 `;

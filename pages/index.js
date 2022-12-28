@@ -13,15 +13,16 @@ export default function Overview({
   onHandleIsCreating,
 }) {
   // render memory list
-  const allEvents = sampleEvents.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <EventCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </Fragment>
-  ));
-
+  const allEvents = sampleEvents
+    .map((sampleEvent) => (
+      <Fragment key={sampleEvent.id}>
+        <EventCard
+          sampleEvent={sampleEvent}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </Fragment>
+    ))
+    .reverse();
   return (
     <>
       <StyledMain>
