@@ -43,8 +43,8 @@ function MyApp({ Component, pageProps }) {
       id: nanoid(),
       name: memory,
       date: date,
-      category: "empty",
       isFavorite: isFavoriteCheckbox,
+      location: "",
     };
 
     setSampleEvents([...sampleEvents, newEntry]);
