@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import Head from "next/head";
 import { useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
-import { initialEvents } from "../data/sampleEvents";
+import { initialEvents } from "../db/sampleEvents";
 
 function MyApp({ Component, pageProps }) {
   // dummy data state
