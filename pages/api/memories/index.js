@@ -4,20 +4,6 @@ import Memory from "../../../db/models/Memory";
 export default async function handler(req, res) {
   //1. Connect to the database and wait for the connection to be established
   await dbConnect();
-
-  //   switch (req.method) {
-  //     case "GET":
-  //       try {
-  //         const filter = {};
-  //         const memories = await Memory.find(filter); // this is a mongoose collection;
-  //         res.status(200).json(memories);
-  //       } catch (error) {
-  //         res.status(500).json({ error: "something went wrong" });
-  //       }
-  //       break;
-  //     default:
-  //       res.status(405).json({ error: "method not allowed" });
-  //   }
   if (req.method === "GET") {
     // 2. Read data from database (async! use await!)
     const memories = await Memory.find(); // this is a mongoose collection
@@ -32,15 +18,5 @@ export default async function handler(req, res) {
     });
 
     res.status(200).json(memoriesArray);
-  }
-
-  if (request.method === "POST") {
-    const data = request.body;
-    try {
-      const newQuestion = await Question.create(data);
-      response.status(201).json(newQuestion);
-    } catch (error) {
-      response.status(400).json("Data could not be processed", { error });
-    }
   }
 }
