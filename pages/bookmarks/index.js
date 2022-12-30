@@ -14,11 +14,11 @@ export default function Bookmarks({
   onAddCreateCard,
 }) {
   // filter for Bookmarks-Page
-  const favEvents = sampleEvents.filter(
+  const favEvents = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
   // render filtered bookmarks
-  const favEventList = favEvents.map((favEvent) => (
+  const favEventList = favEvents?.map((favEvent) => (
     <Fragment key={favEvent.id}>
       <EventCard sampleEvent={favEvent} onToggleFavorite={onToggleFavorite} />
     </Fragment>
@@ -29,7 +29,7 @@ export default function Bookmarks({
       <StyledMain>
         <Header />
         <StyledCardSection>
-          {favEvents.length === 0 ? (
+          {favEvents?.length === 0 ? (
             <DisplayMessage message={"🥕 🦫 🥦"} />
           ) : (
             favEventList

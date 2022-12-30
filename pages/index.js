@@ -12,7 +12,6 @@ export default function Overview({
   isCreating,
   onHandleIsCreating,
 }) {
-  console.log(sampleEvents);
   return (
     <>
       <StyledMain>
