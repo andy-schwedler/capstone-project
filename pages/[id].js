@@ -13,7 +13,7 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const currentEvent = sampleEvents.find(
+  const currentEvent = sampleEvents?.find(
     (sampleEvent) => sampleEvent.id === id
   );
   if (!currentEvent) {
