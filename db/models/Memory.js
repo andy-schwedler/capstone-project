@@ -2,15 +2,14 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-// blueprint:
+// working on data structure:
 const memoriesSchema = new Schema({
   name: { type: String, required: true },
   date: { type: String, required: true },
   isFavorite: { type: Boolean, required: true },
 });
 
-// Question Model erlaubt uns die CRUD-Operationen
-// Oder-Abfrage (mit ||): wenn noch nicht vorhanden, dann erstelle
+// Or || => in case it does not exist
 const Memory =
   mongoose.models.Memory || mongoose.model("Memory", memoriesSchema);
 
