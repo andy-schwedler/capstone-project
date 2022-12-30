@@ -2,8 +2,9 @@ import dbConnect from "../../../db/dbConnect";
 import Memory from "../../../db/models/Memory";
 
 export default async function handler(req, res) {
-  //1. Connect to the database and wait for the connection to be established
+  //1. Connect to the database
   await dbConnect();
+
   if (req.method === "GET") {
     // 2. Read data from database (async! use await!)
     try {
@@ -23,6 +24,7 @@ export default async function handler(req, res) {
       res.status(400).json("Something went wrong", { error });
     }
   }
+
   // 4. Create a new Memories
   if (req.method === "POST") {
     const data = req.body;
