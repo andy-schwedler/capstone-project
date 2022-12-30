@@ -1,15 +1,23 @@
-import { nanoid } from "nanoid";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
-import { initialEvents } from "../db/sampleEvents";
 
 function MyApp({ Component, pageProps }) {
-  // dummy data state
-  const [sampleEvents, setSampleEvents] = useState(initialEvents);
+  // store data
+  const [sampleEvents, setSampleEvents] = useState();
 
   // show create page
   const [isCreating, setIsCreating] = useState(false);
+
+  // fetch data from database
+  async function getMemories() {
+    const response = await fetch("/api/memories");
+    const memoriesList = await response.json();
+    setSampleEvents(memoriesList);
+  }
+  useEffect(() => {
+    getMemories();
+  }, []);
 
   // toggle show create page
   function handleIsCreating() {
@@ -26,28 +34,30 @@ function MyApp({ Component, pageProps }) {
       )
     );
   }
-  // id: nanoid(),
-  // name: "Beaverletics",
-  // date: "24.12.2023",
-  // category: "sport",
-  // isFavorite: false,
-  // location: "München",
-  // add a memory card
-  function handleAddCreateCard(event) {
+
+  async function handleAddCreateCard(event) {
     event.preventDefault();
+
     const date = event.target.date.value;
     const memory = event.target.memory.value;
     const isFavoriteCheckbox = event.target.isFavorite.checked;
 
     const newEntry = {
-      id: nanoid(),
       name: memory,
       date: date,
       isFavorite: isFavoriteCheckbox,
-      location: "",
     };
 
-    setSampleEvents([...sampleEvents, newEntry]);
+    // send newEntry to database
+    await fetch("/api/memories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEntry),
+    });
+
+    getMemories();
 
     event.target.reset();
     handleIsCreating();

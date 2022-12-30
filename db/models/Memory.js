@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 const memoriesSchema = new Schema({
   name: { type: String, required: true },
   date: { type: String, required: true },
+  isFavorite: { type: Boolean, required: true },
 });
 
 // Question Model erlaubt uns die CRUD-Operationen
