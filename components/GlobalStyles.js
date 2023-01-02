@@ -27,7 +27,7 @@ export default GlobalStyles;
 export const StyledMain = styled.main`
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 2fr auto;
+  grid-template-rows: auto 1fr auto;
 `;
 
 export const StyledCardSection = styled.section`

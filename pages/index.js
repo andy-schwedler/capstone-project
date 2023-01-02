@@ -12,21 +12,20 @@ export default function Overview({
   isCreating,
   onHandleIsCreating,
 }) {
-  // render memory list
-  const allEvents = sampleEvents.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <EventCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </Fragment>
-  ));
-
   return (
     <>
       <StyledMain>
         <Header />
-        <StyledCardSection>{allEvents}</StyledCardSection>
+        <StyledCardSection>
+          {sampleEvents?.map((sampleEvent) => (
+            <Fragment key={sampleEvent.id}>
+              <EventCard
+                sampleEvent={sampleEvent}
+                onToggleFavorite={onToggleFavorite}
+              />
+            </Fragment>
+          ))}
+        </StyledCardSection>
         {isCreating ? (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
@@ -36,7 +35,6 @@ export default function Overview({
         <Footer
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
-          isCreating={isCreating}
         />
       </StyledMain>
     </>

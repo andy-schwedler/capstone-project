@@ -4,24 +4,28 @@ import { StyledCreatePage } from "./StyledCreateCard";
 export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
   return (
     <StyledCreatePage>
-      <StyledButtonFrame onClick={onHandleIsCreating}>❌</StyledButtonFrame>
       <form onSubmit={onAddCreateCard}>
         <fieldset>
-          <div>
-            <label htmlFor="date">date</label>
-            <input type="date" name="date" required />
-          </div>
-          <div>
-            <label htmlFor="isFavorite">favorite?</label>
-            <input type="checkbox" name="isFavorite" />
-          </div>
-          <div>
-            <label htmlFor="memory">your memory</label>
-            <input placeholder="your favorite moment" name="memory" required />
-          </div>
+          <legend>Create a new 🦫 memory</legend>
+          <label hidden htmlFor="date">
+            date
+          </label>
+          <input type="date" name="date" required />
+          <label htmlFor="isFavorite">favorite?</label>
+          <input type="checkbox" name="isFavorite" />
+          <label hidden htmlFor="memory">
+            your memory
+          </label>
+          <textarea placeholder="your favorite moment" name="memory" required />
           <div>
             <StyledButtonFrame type="submit">create</StyledButtonFrame>
             <StyledButtonFrame type="reset">reset</StyledButtonFrame>
+            <StyledButtonFrame onClick={onHandleIsCreating}>
+              edit
+            </StyledButtonFrame>
+            <StyledButtonFrame onClick={onHandleIsCreating}>
+              cancel
+            </StyledButtonFrame>
           </div>
         </fieldset>
       </form>
