@@ -16,23 +16,30 @@ export default function EventCardDetails({ currentEvent, onToggleFavorite }) {
   return (
     <>
       <StyledDetailFrame>
-        <BookmarkButton
-          isFavorite={currentEvent.isFavorite}
-          onToggleFavorite={onToggleFavorite}
-          id={currentEvent.id}
-        />
-        <p>date: {formatDate}</p>
-        <h3>{currentEvent.name}</h3>
+        <StyledTextFormatter>
+          <BookmarkButton
+            isFavorite={currentEvent.isFavorite}
+            onToggleFavorite={onToggleFavorite}
+            id={currentEvent.id}
+          />
+          <p>date: {formatDate}</p>
+          <h3>{currentEvent.name}</h3>
+        </StyledTextFormatter>
       </StyledDetailFrame>
     </>
   );
 }
 
 const StyledDetailFrame = styled.div`
+  border-radius: 20px;
+  //                var(--beaver3)
+  background-color: rgba(255, 211, 163, 0.8);
+  opacity: 80%;
+`;
+
+const StyledTextFormatter = styled.div`
   display: grid;
   grid-template-rows: repeat(4, auto);
-  background-color: var(--beaver3);
-  border-radius: 20px;
-  color: var(--beaver2);
   justify-content: center;
+  color: var(--beaver2);
 `;

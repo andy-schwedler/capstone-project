@@ -8,8 +8,15 @@ import {
   StyledScrollSection,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
+import CreateCard from "../components/CreateCard/CreateCard";
 
-export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
+export default function EventCardOverview({
+  sampleEvents,
+  onToggleFavorite,
+  isCreating,
+  onHandleIsCreating,
+  onAddCreateCard,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -35,7 +42,13 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
             onToggleFavorite={onToggleFavorite}
           />
         </StyledScrollSection>
-        <Footer />
+        {isCreating ? (
+          <CreateCard
+            onAddCreateCard={onAddCreateCard}
+            onHandleIsCreating={onHandleIsCreating}
+          />
+        ) : null}
+        <Footer onHandleIsCreating={onHandleIsCreating} />
       </StyledMainGrid>
     </>
   );
