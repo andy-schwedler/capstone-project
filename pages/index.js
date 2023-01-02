@@ -35,7 +35,6 @@ export default function Overview({
         <Footer
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
-          isCreating={isCreating}
         />
       </StyledMain>
     </>

@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
-  // fetch data from database
+  // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
     const response = await fetch("/api/memories");
     const memoriesList = await response.json();
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
     setIsCreating(!isCreating);
   }
 
-  // favorite Button
+  // toggle favorite Button
   function handleToggleFavorite(id) {
     setSampleEvents(
       sampleEvents.map((sampleEvent) =>
@@ -38,11 +38,12 @@ function MyApp({ Component, pageProps }) {
   async function handleAddCreateCard(event) {
     event.preventDefault();
 
+    // ./components/CreateCard/CreateCard
     const date = event.target.date.value;
     const memory = event.target.memory.value;
     const isFavoriteCheckbox = event.target.isFavorite.checked;
 
-    // ./db/models/Memory.js
+    // follows the Memory Model from ./db/models/Memory.js
     const newEntry = {
       name: memory,
       date: date,

@@ -1,41 +1,53 @@
 import styled from "styled-components";
 
 export const StyledCreatePage = styled.section`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 30vh;
-  align-items: center;
-  justify-content: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
   background-color: var(--beaver3);
   color: var(--beaver2);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 10px;
 
   fieldset {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     border-color: transparent;
-    padding: 0px;
   }
 
+  legend {
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-size: small;
+    align-self: center;
+  }
+
+  textarea,
   input {
-    height: 20px;
+    grid-area: input;
+    height: 2rem;
     border: 1px solid var(--beaver2);
     border-radius: 5px;
-    color: var(--beaver);
-    caret-color: transparent;
-    margin-left: 10px;
-    align-self: center;
+    color: var(--beaver2);
+    margin: 10px;
 
     :focus {
       outline-color: var(--beaver2);
       caret-color: var(--beaver2);
     }
+    :checked {
+    }
   }
 
   div {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
+    text-align: start;
+    margin-top: 5px;
+    justify-content: space-between;
   }
 `;

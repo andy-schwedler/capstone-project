@@ -5,6 +5,7 @@ export const StyledEventContainer = styled.article`
   width: 16rem;
   display: grid;
   grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
   background-color: var(--beaver2);
   border-radius: 20px;
   padding: 15px;

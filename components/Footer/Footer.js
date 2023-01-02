@@ -4,7 +4,7 @@ import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
 import { StyledFooterList } from "./StyledFooterList";
 
-export default function Footer({ onHandleIsCreating }) {
+export default function Footer({ sampleEvents, onHandleIsCreating }) {
   return (
     <StyledFooterList>
       <StyledLink href={"/"}>
