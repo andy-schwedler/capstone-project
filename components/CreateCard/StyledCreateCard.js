@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledCreatePage = styled.section`
-  justify-self: center;
   display: flex;
   flex-direction: column;
   background-color: var(--beaver3);

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import EventCardDetails from "../components/MemoryCard/EventCardDetails";
+import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
 import {
   StyledLocationLink,
   StyledMainGrid,
@@ -37,7 +37,7 @@ export default function EventCardOverview({
       <StyledMainGrid>
         <Header />
         <StyledScrollSection>
-          <EventCardDetails
+          <MemoryCardDetail
             currentEvent={currentEvent}
             onToggleFavorite={onToggleFavorite}
           />

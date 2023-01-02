@@ -27,14 +27,15 @@ export default GlobalStyles;
 export const StyledMainGrid = styled.div`
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 1fr auto;
+  align-self: center;
+  grid-template-rows: auto 2fr auto;
 `;
 
 export const StyledScrollSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 30px;
+  gap: 20px;
   overflow: auto;
   padding: 10px;
 `;
@@ -54,6 +55,11 @@ export const StyledLocationLink = styled(Link)`
 `;
 
 export const StyledButtonFrame = styled.button`
+  display: flex;
   background-color: transparent;
   border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 `;

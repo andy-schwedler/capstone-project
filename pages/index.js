@@ -5,7 +5,7 @@ import {
   StyledScrollSection,
   StyledMainGrid,
 } from "../components/GlobalStyles";
-import EventCard from "../components/MemoryCard/EventCard";
+import MemoryOverviewCard from "../components/MemoryCard/MemoryOverviewCard";
 import CreateCard from "../components/CreateCard/CreateCard";
 
 export default function Overview({
@@ -22,7 +22,7 @@ export default function Overview({
         <StyledScrollSection>
           {sampleEvents?.map((sampleEvent) => (
             <Fragment key={sampleEvent.id}>
-              <EventCard
+              <MemoryOverviewCard
                 sampleEvent={sampleEvent}
                 onToggleFavorite={onToggleFavorite}
               />

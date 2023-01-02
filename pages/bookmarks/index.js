@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import CreateCard from "../../components/CreateCard/CreateCard";
+import Header from "../../components/Header/Header";
 import DisplayMessage from "../../components/DisplayMessage";
+import CreateCard from "../../components/CreateCard/CreateCard";
 import Footer from "../../components/Footer/Footer";
 import {
   StyledMainGrid,
   StyledScrollSection,
 } from "../../components/GlobalStyles";
-import Header from "../../components/Header/Header";
-import EventCard from "../../components/MemoryCard/EventCard";
+import MemoryOverviewCard from "../../components/MemoryCard/MemoryOverviewCard";
 
 export default function Bookmarks({
   sampleEvents,
@@ -23,7 +23,10 @@ export default function Bookmarks({
   // render filtered bookmarks
   const favEventList = favEvents?.map((favEvent) => (
     <Fragment key={favEvent.id}>
-      <EventCard sampleEvent={favEvent} onToggleFavorite={onToggleFavorite} />
+      <MemoryOverviewCard
+        sampleEvent={favEvent}
+        onToggleFavorite={onToggleFavorite}
+      />
     </Fragment>
   ));
 
