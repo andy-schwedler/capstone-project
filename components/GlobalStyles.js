@@ -24,13 +24,13 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const StyledMain = styled.main`
+export const StyledMainGrid = styled.div`
   display: grid;
   height: 100vh;
   grid-template-rows: auto 1fr auto;
 `;
 
-export const StyledCardSection = styled.section`
+export const StyledScrollSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

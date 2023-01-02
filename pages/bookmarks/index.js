@@ -2,7 +2,10 @@ import { Fragment } from "react";
 import CreateCard from "../../components/CreateCard/CreateCard";
 import DisplayMessage from "../../components/DisplayMessage";
 import Footer from "../../components/Footer/Footer";
-import { StyledMain, StyledCardSection } from "../../components/GlobalStyles";
+import {
+  StyledMainGrid,
+  StyledScrollSection,
+} from "../../components/GlobalStyles";
 import Header from "../../components/Header/Header";
 import EventCard from "../../components/MemoryCard/EventCard";
 
@@ -26,15 +29,15 @@ export default function Bookmarks({
 
   return (
     <>
-      <StyledMain>
+      <StyledMainGrid>
         <Header />
-        <StyledCardSection>
+        <StyledScrollSection>
           {favEvents?.length === 0 ? (
             <DisplayMessage message={"🥕 🦫 🥦"} />
           ) : (
             favEventList
           )}
-        </StyledCardSection>
+        </StyledScrollSection>
         {isCreating ? (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
@@ -45,7 +48,7 @@ export default function Bookmarks({
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
         />
-      </StyledMain>
+      </StyledMainGrid>
     </>
   );
 }

@@ -1,7 +1,10 @@
 import { Fragment } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { StyledMain, StyledCardSection } from "../components/GlobalStyles";
+import {
+  StyledScrollSection,
+  StyledMainGrid,
+} from "../components/GlobalStyles";
 import EventCard from "../components/MemoryCard/EventCard";
 import CreateCard from "../components/CreateCard/CreateCard";
 
@@ -14,9 +17,9 @@ export default function Overview({
 }) {
   return (
     <>
-      <StyledMain>
+      <StyledMainGrid>
         <Header />
-        <StyledCardSection>
+        <StyledScrollSection>
           {sampleEvents?.map((sampleEvent) => (
             <Fragment key={sampleEvent.id}>
               <EventCard
@@ -25,7 +28,7 @@ export default function Overview({
               />
             </Fragment>
           ))}
-        </StyledCardSection>
+        </StyledScrollSection>
         {isCreating ? (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
@@ -36,7 +39,7 @@ export default function Overview({
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
         />
-      </StyledMain>
+      </StyledMainGrid>
     </>
   );
 }

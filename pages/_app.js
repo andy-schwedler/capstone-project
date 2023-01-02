@@ -43,7 +43,6 @@ function MyApp({ Component, pageProps }) {
     const memory = event.target.memory.value;
     const isFavoriteCheckbox = event.target.isFavorite.checked;
 
-    // follows the Memory Model from ./db/models/Memory.js
     const newEntry = {
       name: memory,
       date: date,
