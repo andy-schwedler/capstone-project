@@ -21,11 +21,11 @@ export default async function handler(req, res) {
       });
       res.status(200).json(memoriesArray);
     } catch (error) {
-      res.status(400).json("Something went wrong", { error });
+      res.status(400).json({ message: "Something went wrong" }, { error });
     }
   }
 
-  // 4. Create a new Memories
+  // 4. Create a new Memory
   if (req.method === "POST") {
     const data = req.body;
     try {
@@ -35,4 +35,23 @@ export default async function handler(req, res) {
       res.status(400).json({ message: "error" });
     }
   }
+
+  // 5. Update a Memory (currently not in use)
+  if (req.method === "PUT") {
+    try {
+      const result = await Question.findByIdAndUpdate(
+        id,
+        {
+          name: req.body.name,
+          text: req.body.text,
+        },
+        { returnDocument: "after" }
+      );
+      return res.status(200).json(result);
+    } catch {
+      return res.status(404).json({ message: "question couldn't be found" });
+    }
+  }
+
+  res.status(405).json({ message: "method not allowed" });
 }

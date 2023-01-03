@@ -1,12 +1,8 @@
 import { StyledButtonFrame } from "../GlobalStyles";
 
-export function MoreOptionsButton({ width, height, fill }) {
-  const buttonActivity = () => {
-    console.log("I am here to provide options");
-  };
-
+export function MoreOptionsButton({ width, height, fill, onDelete, id }) {
   return (
-    <StyledButtonFrame onClick={buttonActivity}>
+    <StyledButtonFrame onClick={() => onDelete(id)}>
       <svg
         width={width}
         height={height}

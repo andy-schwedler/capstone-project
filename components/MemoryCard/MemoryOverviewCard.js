@@ -3,7 +3,11 @@ import { StyledLink } from "../GlobalStyles";
 import { MoreOptionsButton } from "../Icons/MoreOptionsButton";
 import { StyledEventContainer } from "./StyledEventContainer";
 
-export default function MemoryOverviewCard({ sampleEvent, onToggleFavorite }) {
+export default function MemoryOverviewCard({
+  sampleEvent,
+  onToggleFavorite,
+  onDelete,
+}) {
   return (
     <>
       <StyledEventContainer>
@@ -16,8 +20,13 @@ export default function MemoryOverviewCard({ sampleEvent, onToggleFavorite }) {
           <h3>{sampleEvent.name}</h3>
         </StyledLink>
         <p>{sampleEvent.date}</p>
-        {/* <span>tags tags tags</span> */}
-        <MoreOptionsButton width={15} fill={"white"} />
+        <button onClick={() => onDelete(sampleEvent.id)}>X</button>
+        {/* <MoreOptionsButton
+          onDelete={onDelete}
+          id={sampleEvent.id}
+          width={15}
+          fill={"white"}
+        /> */}
       </StyledEventContainer>
     </>
   );

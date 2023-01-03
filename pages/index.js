@@ -14,6 +14,7 @@ export default function Overview({
   onAddCreateCard,
   isCreating,
   onHandleIsCreating,
+  onDelete,
 }) {
   return (
     <>
@@ -25,6 +26,7 @@ export default function Overview({
               <MemoryOverviewCard
                 sampleEvent={sampleEvent}
                 onToggleFavorite={onToggleFavorite}
+                onDelete={onDelete}
               />
             </Fragment>
           ))}
