@@ -85,7 +85,7 @@ function MyApp({ Component, pageProps }) {
         onAddCreateCard={handleAddCreateCard}
         isCreating={isCreating}
         onHandleIsCreating={handleIsCreating}
-        onDelete={() => handleDeleteMemoryCard(sampleEvents.id)}
+        onDelete={handleDeleteMemoryCard}
       />
     </>
   );

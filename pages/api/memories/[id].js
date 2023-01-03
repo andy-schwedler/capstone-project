@@ -8,52 +8,21 @@ export default async function handler(req, res) {
   const { method } = req;
 
   if (method === "GET") {
-    // 2. Read data from database (async! use await!)
+    // Read Memory by ID
     try {
-      const memories = await Memory.findById(id); // this is a mongoose collection
-
-      // 3. Translate collection to array
-      const memoriesArray = memories.map((memory) => {
-        return {
-          id: memory._id,
-          name: memory.name,
-          date: memory.date,
-          isFavorite: memory.isFavorite,
-        };
-      });
-      res.status(200).json(memoriesArray);
+      const memory = await Memory.findById(id); // this is a mongoose collection
+      // Display Memory as JSON object in Browser
+      res.status(200).json(memory);
     } catch (error) {
       res.status(400).json("Something went wrong", { error });
       res.status(404).json("ID not found", { error });
     }
   }
 
-  //   await dbConnect();
-
-  //   if (req.method === "GET") {
-  //     // 2. Read data from database (async! use await!)
-  //     try {
-  //       const memories = await Memory.find(); // this is a mongoose collection
-
-  //       // 3. Translate collection to array
-  //       const memoriesArray = memories.map((memory) => {
-  //         return {
-  //           id: memory._id,
-  //           name: memory.name,
-  //           date: memory.date,
-  //           isFavorite: memory.isFavorite,
-  //         };
-  //       });
-  //       res.status(200).json(memoriesArray);
-  //     } catch (error) {
-  //       res.status(400).json({ message: "Something went wrong" }, { error });
-  //     }
-  //   }
-
   if (method === "DELETE") {
     try {
       await Memory.findByIdAndDelete(id);
-      return res.status(200).json({ message: "memory deleted" });
+      return res.status(200).json({ message: "memory is deleted permanently" });
     } catch {
       return res
         .status(404)
