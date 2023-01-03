@@ -4,7 +4,7 @@ export const StyledEventContainer = styled.article`
   align-self: center;
   width: 60vw;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, auto);
   background-color: var(--beaver2);
   border-radius: 20px;
@@ -14,7 +14,7 @@ export const StyledEventContainer = styled.article`
   margin: 0;
 
   a {
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 6;
     text-align: left;
   }
 

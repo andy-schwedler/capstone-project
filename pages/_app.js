@@ -65,10 +65,11 @@ function MyApp({ Component, pageProps }) {
   }
 
   async function handleDeleteMemoryCard(id) {
-    await fetch("/api/memories/" + id, {
-      method: "DELETE",
-    });
-
+    if (confirm("Are you sure you want to delete?")) {
+      await fetch("/api/memories/" + id, {
+        method: "DELETE",
+      });
+    }
     getMemories();
   }
 

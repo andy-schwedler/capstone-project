@@ -15,13 +15,13 @@ export default function MemoryOverviewCard({
           id={sampleEvent.id}
           onToggleFavorite={onToggleFavorite}
         />
+        <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
+          ❌
+        </StyledButtonFrame>
         <StyledLink href={`/${sampleEvent.id}`}>
           <h3>{sampleEvent.name}</h3>
         </StyledLink>
         <p>{sampleEvent.date}</p>
-        <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
-          ❌
-        </StyledButtonFrame>
       </StyledEventContainer>
     </>
   );

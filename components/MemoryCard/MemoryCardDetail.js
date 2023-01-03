@@ -41,10 +41,9 @@ export default function MemoryCardDetail({ currentEvent, onToggleFavorite }) {
   );
 }
 
-const StyledDetailFrame = styled.div`
+const StyledDetailFrame = styled.article`
   align-self: center;
-  border-radius: 20px;
-  //                var(--beaver3) without inheritance of opacity
+  border-radius: 3rem;
   background-color: rgba(255, 211, 163, 0.8);
   opacity: 80%;
   max-width: 60vw;

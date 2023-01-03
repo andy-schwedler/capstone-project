@@ -35,7 +35,7 @@ export const StyledScrollSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 2rem;
   overflow: auto;
   padding: 10px;
 `;
