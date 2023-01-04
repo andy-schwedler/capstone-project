@@ -30,23 +30,20 @@ export default async function handler(req, res) {
     }
   }
 
-  //   if (method === "PUT") {
-  //     try {
-  //       const result = await Memory.findByIdAndUpdate(
-  //         id,
-  //         {
-  //           name: req.body.name,
-  //           text: req.body.text,
-  //         },
-  //         { returnDocument: "after" }
-  //       );
-  //       return res.status(200).json(result);
-  //     } catch {
-  //       return res
-  //         .status(404)
-  //         .json({ message: "question couldn't be found" });
-  //     }
-  //   }
+  if (method === "PUT") {
+    try {
+      const result = await Memory.findByIdAndUpdate(
+        id,
+        {
+          name: req.body.name,
+        },
+        { returnDocument: "after" }
+      );
+      return res.status(200).json(result);
+    } catch {
+      return res.status(404).json({ message: "question couldn't be found" });
+    }
+  }
 
   res.status(405).json({ message: "method not allowed" });
 }

@@ -42,8 +42,9 @@ export const StyledScrollSection = styled.section`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+
   h3 {
-    margin: 0, 0, 10, 0;
+    margin: 0;
   }
 
   :link,
@@ -61,4 +62,11 @@ export const StyledButtonFrame = styled.button`
   align-items: center;
   padding: 0;
   margin: 0;
+`;
+
+export const StyledForm = styled.form`
+  input {
+    border: none;
+    border-radius: 0.4rem;
+  }
 `;

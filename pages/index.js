@@ -15,6 +15,7 @@ export default function Overview({
   isCreating,
   onHandleIsCreating,
   onDelete,
+  onEditMemory,
 }) {
   return (
     <>
@@ -27,6 +28,7 @@ export default function Overview({
                 sampleEvent={sampleEvent}
                 onToggleFavorite={onToggleFavorite}
                 onDelete={onDelete}
+                onEditMemory={onEditMemory}
               />
             </Fragment>
           ))}

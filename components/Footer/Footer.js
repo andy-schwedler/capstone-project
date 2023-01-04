@@ -29,7 +29,7 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
         <BookmarkIcon
           aria-label="bookmark"
           alt="bookmark"
-          color="var(--beaver)"
+          fill="var(--beaver)"
           width={40}
           height={40}
         />

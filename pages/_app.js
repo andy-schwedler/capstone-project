@@ -73,6 +73,15 @@ function MyApp({ Component, pageProps }) {
     getMemories();
   }
 
+  async function handleEditMemory(editMemory, id) {
+    await fetch("/api/questions/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editMemory),
+    });
+    getMemories();
+  }
+
   return (
     <>
       <Head>
@@ -87,6 +96,7 @@ function MyApp({ Component, pageProps }) {
         isCreating={isCreating}
         onHandleIsCreating={handleIsCreating}
         onDelete={handleDeleteMemoryCard}
+        onEditMemory={handleEditMemory}
       />
     </>
   );

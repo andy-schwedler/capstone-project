@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import BookmarkButton from "../BookmarkButton";
-import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
+import { StyledButtonFrame, StyledForm, StyledLink } from "../GlobalStyles";
 import MoreOptionsIcon from "../Icons/MoreOptionsIcon";
 import { StyledEventContainer } from "./StyledEventContainer";
 
@@ -9,40 +9,74 @@ export default function MemoryOverviewCard({
   sampleEvent,
   onToggleFavorite,
   onDelete,
+  onEditMemory,
 }) {
   const [displayOptionMenu, setDisplayOptionMenu] = useState(false);
-  function toggleEditMode() {
+  const [editMode, setEditMode] = useState(false);
+
+  function toggleDisplayOptionMenu() {
     setDisplayOptionMenu(!displayOptionMenu);
+  }
+
+  function handleEditSubmit() {
+    setEditMode(!editMode);
+    event.preventDefault;
+
+    const form = event.target.elements;
+
+    console.log(form);
+
+    // onEditMemory();
   }
 
   return (
     <>
       <StyledEventContainer>
-        <StyledButtonFrame onClick={toggleEditMode}>
+        <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
           {displayOptionMenu ? (
-            <MoreOptionsIcon fill={"var(--beaver1)"} width={20} />
+            <MoreOptionsIcon fill="var(--beaver1)" width={20} />
           ) : (
-            <MoreOptionsIcon fill="white" width={20} />
+            <MoreOptionsIcon fill="var(--beaver3)" width={20} />
           )}
         </StyledButtonFrame>
-        <StyledLink href={`/${sampleEvent.id}`}>
-          <h3>{sampleEvent.name}</h3>
-        </StyledLink>
-        <p>{sampleEvent.date}</p>
+        {editMode ? (
+          <>
+            <StyledForm onSubmit={handleEditSubmit}>
+              <input type="text" defaultValue={sampleEvent.name} required />
+              <StyledButtonFrame type="submit">✔️</StyledButtonFrame>
+              <StyledButtonFrame type="reset">reset</StyledButtonFrame>
+            </StyledForm>
+          </>
+        ) : (
+          <StyledLink href={`/${sampleEvent.id}`}>
+            <p>{sampleEvent.date}</p>
+            <h3>{sampleEvent.name}</h3>
+          </StyledLink>
+        )}
         {displayOptionMenu ? (
           <StyledMenu>
-            <StyledButtonFrame>edit</StyledButtonFrame>
+            <StyledButtonFrame onClick={handleEditSubmit}>
+              edit
+            </StyledButtonFrame>
             <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
               remove
             </StyledButtonFrame>
-            <StyledButtonFrame onClick={toggleEditMode}>
+            <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
               cancel
             </StyledButtonFrame>
-            <BookmarkButton
-              isFavorite={sampleEvent.isFavorite}
-              id={sampleEvent.id}
-              onToggleFavorite={onToggleFavorite}
-            />
+            {sampleEvent.isFavorite == true ? (
+              <BookmarkButton
+                isFavorite={sampleEvent.isFavorite}
+                id={sampleEvent.id}
+                onToggleFavorite={onToggleFavorite}
+              />
+            ) : (
+              <BookmarkButton
+                isFavorite={sampleEvent.isFavorite}
+                id={sampleEvent.id}
+                onToggleFavorite={onToggleFavorite}
+              />
+            )}
           </StyledMenu>
         ) : null}
       </StyledEventContainer>
@@ -53,9 +87,8 @@ export default function MemoryOverviewCard({
 const StyledMenu = styled.div`
   color: var(--beaver2);
   background-color: var(--beaver1);
-  grid-column: 1 / 6;
-  grid-row-start: 6;
-  border-radius: 0.4em;
+  grid-column: 1 / 7;
+  border-radius: 0.2em;
   display: flex;
   justify-content: space-evenly;
 `;
