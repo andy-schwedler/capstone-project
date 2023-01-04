@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
 import {
-  StyledLocationLink,
+  StyledLink,
   StyledMainGrid,
   StyledScrollSection,
 } from "../components/GlobalStyles";
@@ -27,7 +27,7 @@ export default function EventCardOverview({
     return (
       <>
         <DisplayMessage message={"ID does not match"} />
-        <StyledLocationLink href={"/"}>Back to overview</StyledLocationLink>
+        <StyledLink href={"/"}>Back to overview</StyledLink>
       </>
     );
   }
