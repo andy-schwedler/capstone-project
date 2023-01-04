@@ -35,6 +35,7 @@ export default async function handler(req, res) {
     } catch (error) {
       res.status(400).json({ message: "error" });
     }
+    return;
   }
 
   // // 5. Update a Memory (currently not in use)
@@ -52,6 +53,7 @@ export default async function handler(req, res) {
   //   } catch {
   //     return res.status(404).json({ message: "question couldn't be found" });
   //   }
+  //  return;
   // }
 
   res.status(405).json({ message: "method not allowed" });

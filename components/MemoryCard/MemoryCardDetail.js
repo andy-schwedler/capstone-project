@@ -54,5 +54,5 @@ const StyledTextFormatter = styled.div`
   grid-template-rows: repeat(4, auto);
   justify-content: center;
   color: var(--beaver2);
-  padding: 6%;
+  padding: 8%;
 `;
