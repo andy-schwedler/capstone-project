@@ -36,6 +36,7 @@ export default async function handler(req, res) {
         id,
         {
           name: req.body.name,
+          date: req.body.date,
         },
         { returnDocument: "after" }
       );

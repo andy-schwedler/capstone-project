@@ -17,6 +17,7 @@ export const StyledEventContainer = styled.article`
     grid-column: 1 / 6;
     grid-row: 1 / 2;
     text-align: left;
+
     padding: 0.5em;
   }
 

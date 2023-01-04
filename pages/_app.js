@@ -73,11 +73,11 @@ function MyApp({ Component, pageProps }) {
     getMemories();
   }
 
-  async function handleEditMemory(editMemory, id) {
-    await fetch("/api/questions/" + id, {
+  async function handleEditMemory(updatedMemory, id) {
+    await fetch("/api/memories/" + id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(editMemory),
+      body: JSON.stringify(updatedMemory),
     });
     getMemories();
   }

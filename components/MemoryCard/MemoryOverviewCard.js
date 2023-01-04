@@ -18,15 +18,23 @@ export default function MemoryOverviewCard({
     setDisplayOptionMenu(!displayOptionMenu);
   }
 
-  function handleEditSubmit() {
+  function handleToggleEditMode() {
     setEditMode(!editMode);
-    event.preventDefault;
+  }
 
-    const form = event.target.elements;
+  function handleEditSubmit(event) {
+    event.preventDefault();
 
-    console.log(form);
+    const editedName = event.target.elements.memory.value;
+    const editedDate = event.target.elements.date.value;
+    const editModeInput = { name: editedName, date: editedDate };
 
-    // onEditMemory();
+    console.log(editedDate);
+
+    // //update on mongodb
+    onEditMemory(editModeInput, sampleEvent.id);
+
+    handleToggleEditMode();
   }
 
   return (
@@ -42,9 +50,19 @@ export default function MemoryOverviewCard({
         {editMode ? (
           <>
             <StyledForm onSubmit={handleEditSubmit}>
-              <input type="text" defaultValue={sampleEvent.name} required />
+              <input
+                name="memory"
+                type="text"
+                defaultValue={sampleEvent.name}
+                required
+              />
+              <input
+                name="date"
+                type="date"
+                defaultValue={sampleEvent.date}
+                required
+              />
               <StyledButtonFrame type="submit">✔️</StyledButtonFrame>
-              <StyledButtonFrame type="reset">reset</StyledButtonFrame>
             </StyledForm>
           </>
         ) : (
@@ -55,7 +73,7 @@ export default function MemoryOverviewCard({
         )}
         {displayOptionMenu ? (
           <StyledMenu>
-            <StyledButtonFrame onClick={handleEditSubmit}>
+            <StyledButtonFrame onClick={handleToggleEditMode}>
               edit
             </StyledButtonFrame>
             <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
