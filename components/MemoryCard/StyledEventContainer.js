@@ -4,8 +4,7 @@ export const StyledEventContainer = styled.article`
   align-self: center;
   width: 60vw;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(5, auto);
   background-color: var(--beaver2);
   border-radius: 20px;
   padding: 15px;
@@ -14,8 +13,11 @@ export const StyledEventContainer = styled.article`
   margin: 0;
 
   a {
-    grid-column: 1 / span 6;
+    grid-column: 1 / 6;
     text-align: left;
+    h3 {
+      margin: 0;
+    }
   }
 
   button {
@@ -24,8 +26,8 @@ export const StyledEventContainer = styled.article`
   }
 
   p {
-    grid-column: 1 / span 3;
-    grid-row: 2;
+    grid-column: 1 / 5;
+    grid-row: 1;
     margin: 0;
     font-style: italic;
     font-size: small;

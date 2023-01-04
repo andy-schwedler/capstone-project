@@ -42,6 +42,9 @@ export const StyledScrollSection = styled.section`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  h3 {
+    margin: 0, 0, 10, 0;
+  }
 
   :link,
   :visited {
@@ -49,13 +52,9 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledLocationLink = styled(Link)`
-  text-decoration: none;
-  color: var(--beaver1);
-`;
-
 export const StyledButtonFrame = styled.button`
   display: flex;
+  color: inherit;
   background-color: transparent;
   border: none;
   justify-content: center;
