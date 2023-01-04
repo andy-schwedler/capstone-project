@@ -29,8 +29,6 @@ export default function MemoryOverviewCard({
     const editedDate = event.target.elements.date.value;
     const editModeInput = { name: editedName, date: editedDate };
 
-    console.log(editedDate);
-
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
 
@@ -71,7 +69,7 @@ export default function MemoryOverviewCard({
             <h3>{sampleEvent.name}</h3>
           </StyledLink>
         )}
-        {displayOptionMenu ? (
+        {displayOptionMenu && (
           <StyledMenu>
             <StyledButtonFrame onClick={handleToggleEditMode}>
               edit
@@ -96,7 +94,7 @@ export default function MemoryOverviewCard({
               />
             )}
           </StyledMenu>
-        ) : null}
+        )}
       </StyledEventContainer>
     </>
   );
