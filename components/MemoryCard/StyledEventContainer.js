@@ -16,7 +16,7 @@ export const StyledEventContainer = styled.article`
     grid-column: 1 / 6;
     text-align: left;
     h3 {
-      margin: 0;
+      margin: 0.5em, 0, 1em, 0;
     }
   }
 

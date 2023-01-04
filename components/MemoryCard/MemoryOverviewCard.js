@@ -10,16 +10,16 @@ export default function MemoryOverviewCard({
   onToggleFavorite,
   onDelete,
 }) {
-  const [editing, setEditing] = useState(false);
+  const [displayOptionMenu, setDisplayOptionMenu] = useState(false);
   function toggleEditMode() {
-    setEditing(!editing);
+    setDisplayOptionMenu(!displayOptionMenu);
   }
 
   return (
     <>
       <StyledEventContainer>
         <StyledButtonFrame onClick={toggleEditMode}>
-          {editing ? (
+          {displayOptionMenu ? (
             <MoreOptionsIcon fill={"var(--beaver1)"} width={20} />
           ) : (
             <MoreOptionsIcon fill="white" width={20} />
@@ -29,7 +29,7 @@ export default function MemoryOverviewCard({
           <h3>{sampleEvent.name}</h3>
         </StyledLink>
         <p>{sampleEvent.date}</p>
-        {editing ? (
+        {displayOptionMenu ? (
           <StyledMenu>
             <StyledButtonFrame>edit</StyledButtonFrame>
             <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
@@ -52,11 +52,10 @@ export default function MemoryOverviewCard({
 
 const StyledMenu = styled.div`
   color: var(--beaver2);
-  margin-top: 5%;
   background-color: var(--beaver1);
-  grid-column: 1 / 7;
+  grid-column: 1 / 6;
   grid-row-start: 6;
-  border-radius: 1em;
+  border-radius: 0.4em;
   display: flex;
   justify-content: space-evenly;
 `;
