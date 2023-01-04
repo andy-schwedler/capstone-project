@@ -1,8 +1,11 @@
 import { Fragment } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { StyledMain, StyledCardSection } from "../components/GlobalStyles";
-import EventCard from "../components/MemoryCard/EventCard";
+import {
+  StyledScrollSection,
+  StyledMainGrid,
+} from "../components/GlobalStyles";
+import MemoryOverviewCard from "../components/MemoryCard/MemoryOverviewCard";
 import CreateCard from "../components/CreateCard/CreateCard";
 
 export default function Overview({
@@ -11,21 +14,23 @@ export default function Overview({
   onAddCreateCard,
   isCreating,
   onHandleIsCreating,
+  onDelete,
 }) {
   return (
     <>
-      <StyledMain>
+      <StyledMainGrid>
         <Header />
-        <StyledCardSection>
+        <StyledScrollSection>
           {sampleEvents?.map((sampleEvent) => (
             <Fragment key={sampleEvent.id}>
-              <EventCard
+              <MemoryOverviewCard
                 sampleEvent={sampleEvent}
                 onToggleFavorite={onToggleFavorite}
+                onDelete={onDelete}
               />
             </Fragment>
           ))}
-        </StyledCardSection>
+        </StyledScrollSection>
         {isCreating ? (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
@@ -36,7 +41,7 @@ export default function Overview({
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
         />
-      </StyledMain>
+      </StyledMainGrid>
     </>
   );
 }

@@ -9,6 +9,11 @@ function MyApp({ Component, pageProps }) {
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
+  // toggle show create page
+  function handleIsCreating() {
+    setIsCreating(!isCreating);
+  }
+
   // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
     const response = await fetch("/api/memories");
@@ -18,11 +23,6 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     getMemories();
   }, []);
-
-  // toggle show create page
-  function handleIsCreating() {
-    setIsCreating(!isCreating);
-  }
 
   // toggle favorite Button
   function handleToggleFavorite(id) {
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
       )
     );
   }
-
+  // METHOD "POST"
   async function handleAddCreateCard(event) {
     event.preventDefault();
 
@@ -43,7 +43,6 @@ function MyApp({ Component, pageProps }) {
     const memory = event.target.memory.value;
     const isFavoriteCheckbox = event.target.isFavorite.checked;
 
-    // follows the Memory Model from ./db/models/Memory.js
     const newEntry = {
       name: memory,
       date: date,
@@ -64,6 +63,16 @@ function MyApp({ Component, pageProps }) {
     event.target.reset();
     handleIsCreating();
   }
+
+  async function handleDeleteMemoryCard(id) {
+    if (confirm("Are you sure you want to delete?")) {
+      await fetch("/api/memories/" + id, {
+        method: "DELETE",
+      });
+    }
+    getMemories();
+  }
+
   return (
     <>
       <Head>
@@ -77,6 +86,7 @@ function MyApp({ Component, pageProps }) {
         onAddCreateCard={handleAddCreateCard}
         isCreating={isCreating}
         onHandleIsCreating={handleIsCreating}
+        onDelete={handleDeleteMemoryCard}
       />
     </>
   );
