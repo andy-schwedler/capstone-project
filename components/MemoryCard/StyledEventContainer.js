@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
 export const StyledEventContainer = styled.article`
-  align-self: center;
   width: 60vw;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(5, auto);
   background-color: var(--beaver2);
-  border-radius: 20px;
-  padding: 15px;
+  border-radius: 0.8rem;
+  padding: 0.3em;
   color: var(--beaver3);
   align-items: center;
-  margin: 0;
+  margin-bottom: 1.1rem;
 
   a {
-    grid-column: 1 / span 6;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
     text-align: left;
+    margin-bottom: 0.8rem;
+    padding: 0.3em;
+    gap: 0.8em;
+    display: flex;
+    flex-direction: column;
   }
 
   button {
@@ -24,13 +28,12 @@ export const StyledEventContainer = styled.article`
   }
 
   p {
-    grid-column: 1 / span 3;
-    grid-row: 2;
-    margin: 0;
+    grid-column: 1 / span 2;
+    grid-row: 1;
     font-style: italic;
     font-size: small;
     justify-self: flex-start;
-    align-self: center;
     opacity: 50%;
+    margin: 0;
   }
 `;
