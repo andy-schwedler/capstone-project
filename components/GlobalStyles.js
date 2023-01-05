@@ -14,10 +14,11 @@ const GlobalStyles = createGlobalStyle`
     }
 
 :root{
-  --beaver: #245669;
-  --beaver1: #629FB5;
-  --beaver2: #694C2E;
-  --beaver3: #FFD3A3;
+  --beaver: #245669; // blue sapphire
+  --beaver1: #629FB5; // maximum blue
+  --beaver2: #694C2E; //darkbrown
+  --beaver3: #FFD3A3; // beige
+  --beaver4: #F6B8A2; // Elgins tipp not in use currently
 }
 
 `;
@@ -35,7 +36,7 @@ export const StyledScrollSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 2rem;
+  align-items: center;
   overflow: auto;
   padding: 10px;
 `;
@@ -65,8 +66,22 @@ export const StyledButtonFrame = styled.button`
 `;
 
 export const StyledForm = styled.form`
+  grid-column: 1 / 6;
+  grid-row: 1 / 1;
+  padding: 0.5em;
+
   input {
-    border: none;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+    caret-color: var(--beaver2);
+    color: var(--beaver2);
+    margin: 1em;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    padding: 0.4em;
   }
 `;

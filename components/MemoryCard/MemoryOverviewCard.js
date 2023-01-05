@@ -20,6 +20,7 @@ export default function MemoryOverviewCard({
 
   function handleToggleEditMode() {
     setEditMode(!editMode);
+    toggleDisplayOptionMenu();
   }
 
   function handleEditSubmit(event) {
@@ -32,7 +33,8 @@ export default function MemoryOverviewCard({
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
 
-    handleToggleEditMode();
+    if (confirm("Are you sure you want to save your changes?"))
+      handleToggleEditMode();
   }
 
   return (
@@ -48,19 +50,26 @@ export default function MemoryOverviewCard({
         {editMode ? (
           <>
             <StyledForm onSubmit={handleEditSubmit}>
-              <input
-                name="memory"
-                type="text"
-                defaultValue={sampleEvent.name}
-                required
-              />
+              <label hidden>date</label>
               <input
                 name="date"
                 type="date"
                 defaultValue={sampleEvent.date}
                 required
               />
-              <StyledButtonFrame type="submit">✔️</StyledButtonFrame>
+              <label hidden>text</label>
+              <input
+                name="memory"
+                type="text"
+                defaultValue={sampleEvent.name}
+                required
+              />
+              <div>
+                <StyledButtonFrame type="submit">OK</StyledButtonFrame>
+                <StyledButtonFrame onClick={handleToggleEditMode} type="button">
+                  CANCEL
+                </StyledButtonFrame>
+              </div>
             </StyledForm>
           </>
         ) : (
@@ -69,21 +78,24 @@ export default function MemoryOverviewCard({
             <h3>{sampleEvent.name}</h3>
           </StyledLink>
         )}
-        {displayOptionMenu && (
-          <StyledMenu>
-            <StyledButtonFrame onClick={handleToggleEditMode}>
-              edit
-            </StyledButtonFrame>
-            <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
-              remove
-            </StyledButtonFrame>
-            <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
-              cancel
-            </StyledButtonFrame>
-            <BookmarkButton isFavorite={sampleEvent.isFavorite} />
-          </StyledMenu>
-        )}
       </StyledEventContainer>
+      {displayOptionMenu && (
+        <StyledMenu>
+          <StyledButtonFrame onClick={handleToggleEditMode}>
+            EDIT
+          </StyledButtonFrame>
+          <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
+            REMOVE
+          </StyledButtonFrame>
+          <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
+            CANCEL
+          </StyledButtonFrame>
+          <BookmarkButton
+            onToggleFavorite={() => onToggleFavorite(sampleEvent.id)}
+            isFavorite={sampleEvent.isFavorite}
+          />
+        </StyledMenu>
+      )}
     </>
   );
 }
@@ -91,12 +103,19 @@ export default function MemoryOverviewCard({
 const StyledMenu = styled.div`
   color: var(--beaver2);
   background-color: var(--beaver1);
-  grid-column: 1 / 7;
+  grid-column: 2 / 7;
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  height: 3rem;
-  top: 0.3em;
-  right: 0.3em;
-  width: 14.04rem;
+  bottom: 1.8em;
+  width: 60vw;
+  padding: 0.4rem;
+  align-self: center;
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
+  transform: inherit;
+
+  button {
+    padding: 0.4rem;
+  }
 `;
