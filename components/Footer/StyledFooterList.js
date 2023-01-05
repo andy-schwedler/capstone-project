@@ -7,5 +7,5 @@ export const StyledFooterList = styled.footer`
   justify-content: space-around;
   align-items: center;
   background-color: var(--beaver1);
-  padding: 1em;
+  padding: 0.5rem;
 `;

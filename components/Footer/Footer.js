@@ -13,6 +13,11 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
   );
   const BadgeCount = Badge?.length === 0 ? "0" : Badge?.length;
 
+  const { pathname } = useRouter();
+
+  if (pathname === "/") {
+  }
+
   return (
     <StyledFooterList>
       <StyledLink href={"/"}>
@@ -24,9 +29,11 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           height={50}
         />
       </StyledLink>
-      <StyledButtonFrame onClick={onHandleIsCreating}>
+      <StyledButtonFrame
+        aria-label="add new memory"
+        onClick={onHandleIsCreating}
+      >
         <CreateIcon
-          aria-label="add new memory"
           alt="add button"
           color="var(--beaver)"
           width={50}

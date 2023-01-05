@@ -48,7 +48,10 @@ export default function EventCardOverview({
             onHandleIsCreating={onHandleIsCreating}
           />
         ) : null}
-        <Footer onHandleIsCreating={onHandleIsCreating} />
+        <Footer
+          onHandleIsCreating={onHandleIsCreating}
+          sampleEvents={sampleEvents}
+        />
       </StyledMainGrid>
     </>
   );
