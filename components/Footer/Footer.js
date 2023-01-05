@@ -3,8 +3,13 @@ import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
 import { StyledFooterList } from "./StyledFooterList";
+import styled from "styled-components";
 
 export default function Footer({ sampleEvents, onHandleIsCreating }) {
+  const Badge = sampleEvents?.filter(
+    (sampleEvent) => sampleEvent.isFavorite === true
+  );
+
   return (
     <StyledFooterList>
       <StyledLink href={"/"}>
@@ -34,6 +39,19 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           height={40}
         />
       </StyledLink>
+      <StyledButtonBadge>
+        {Badge?.length === 0 ? null : Badge?.length}
+      </StyledButtonBadge>
     </StyledFooterList>
   );
 }
+
+const StyledButtonBadge = styled.div`
+  color: var(--beaver);
+  padding: 0.1em;
+  position: absolute;
+  right: 8.3rem;
+  bottom: 1.5rem;
+  border-radius: 0.5em;
+  pointer-events: none;
+`;
