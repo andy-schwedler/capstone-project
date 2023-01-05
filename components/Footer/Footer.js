@@ -1,14 +1,17 @@
+import { useRouter } from "next/router";
+import styled from "styled-components";
 import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
 import { StyledFooterList } from "./StyledFooterList";
-import styled from "styled-components";
+import Link from "next/link";
 
 export default function Footer({ sampleEvents, onHandleIsCreating }) {
   const Badge = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
+  const BadgeCount = Badge?.length === 0 ? "0" : Badge?.length;
 
   return (
     <StyledFooterList>
@@ -17,8 +20,8 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           aria-label="overview"
           alt="overview"
           fill="var(--beaver)"
-          width={40}
-          height={40}
+          width={50}
+          height={50}
         />
       </StyledLink>
       <StyledButtonFrame onClick={onHandleIsCreating}>
@@ -26,32 +29,41 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           aria-label="add new memory"
           alt="add button"
           color="var(--beaver)"
-          width={40}
-          height={40}
+          width={50}
+          height={50}
         />
       </StyledButtonFrame>
-      <StyledLink href={"/bookmarks"}>
+      <StyledLinkWrapper href={"/bookmarks"}>
         <BookmarkIcon
           aria-label="bookmark"
           alt="bookmark"
           fill="var(--beaver)"
-          width={40}
-          height={40}
+          width={50}
+          height={50}
         />
-      </StyledLink>
-      <StyledButtonBadge>
-        {Badge?.length === 0 ? null : Badge?.length}
-      </StyledButtonBadge>
+        <StyledButtonBadge>{BadgeCount}</StyledButtonBadge>
+      </StyledLinkWrapper>
     </StyledFooterList>
   );
 }
 
 const StyledButtonBadge = styled.div`
+  position: relative;
+  right: 1.85em;
+  top: 0.8em;
   color: var(--beaver);
-  padding: 0.1em;
-  position: absolute;
-  right: 8.3rem;
-  bottom: 1.5rem;
-  border-radius: 0.5em;
   pointer-events: none;
+  min-width: 0.5em;
+`;
+
+const StyledLinkWrapper = styled(Link)`
+  grid-column: 3 / 4;
+  width: auto;
+  display: flex;
+  text-decoration: none;
+
+  :link,
+  :visited {
+    color: inherit;
+  }
 `;
