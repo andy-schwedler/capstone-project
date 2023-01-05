@@ -6,8 +6,8 @@ export const StyledEventContainer = styled.article`
   display: grid;
   grid-template-columns: repeat(5, auto);
   background-color: var(--beaver2);
-  border-radius: 20px;
-  padding: 1.1em;
+  border-radius: 0.4rem;
+  padding: 0.3em;
   color: var(--beaver3);
   align-items: center;
   margin: 0;
@@ -17,7 +17,6 @@ export const StyledEventContainer = styled.article`
     grid-column: 1 / 6;
     grid-row: 1 / 2;
     text-align: left;
-
     padding: 0.5em;
   }
 

@@ -80,19 +80,7 @@ export default function MemoryOverviewCard({
             <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
               cancel
             </StyledButtonFrame>
-            {sampleEvent.isFavorite == true ? (
-              <BookmarkButton
-                isFavorite={sampleEvent.isFavorite}
-                id={sampleEvent.id}
-                onToggleFavorite={onToggleFavorite}
-              />
-            ) : (
-              <BookmarkButton
-                isFavorite={sampleEvent.isFavorite}
-                id={sampleEvent.id}
-                onToggleFavorite={onToggleFavorite}
-              />
-            )}
+            <BookmarkButton isFavorite={sampleEvent.isFavorite} />
           </StyledMenu>
         )}
       </StyledEventContainer>
@@ -104,7 +92,11 @@ const StyledMenu = styled.div`
   color: var(--beaver2);
   background-color: var(--beaver1);
   grid-column: 1 / 7;
-  border-radius: 0.2em;
   display: flex;
   justify-content: space-evenly;
+  position: relative;
+  height: 3rem;
+  top: 0.3em;
+  right: 0.3em;
+  width: 14.04rem;
 `;
