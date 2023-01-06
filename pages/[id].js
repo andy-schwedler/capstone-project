@@ -13,9 +13,7 @@ import CreateCard from "../components/CreateCard/CreateCard";
 export default function EventCardOverview({
   sampleEvents,
   onToggleFavorite,
-  isCreating,
   onHandleIsCreating,
-  onAddCreateCard,
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -42,12 +40,6 @@ export default function EventCardOverview({
             onToggleFavorite={onToggleFavorite}
           />
         </StyledScrollSection>
-        {isCreating ? (
-          <CreateCard
-            onAddCreateCard={onAddCreateCard}
-            onHandleIsCreating={onHandleIsCreating}
-          />
-        ) : null}
         <Footer
           onHandleIsCreating={onHandleIsCreating}
           sampleEvents={sampleEvents}

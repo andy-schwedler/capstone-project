@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import Header from "../../components/Header/Header";
 import DisplayMessage from "../../components/DisplayMessage";
-import CreateCard from "../../components/CreateCard/CreateCard";
 import Footer from "../../components/Footer/Footer";
 import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
