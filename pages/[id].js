@@ -8,7 +8,6 @@ import {
   StyledScrollSection,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
-import CreateCard from "../components/CreateCard/CreateCard";
 
 export default function EventCardOverview({
   sampleEvents,
