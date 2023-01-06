@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import Input from "./Input";
+import MagicInput from "./Input";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm onSubmit={onAddCreateCard}>
       <StyledCreateFieldset>
-        <Input type="text" label="Memory Header" />
-        <Input type="checkbox" label="favorit" />
-        <Input type="date" label="date" />
-        <Input type="textarea" label="Memory Details" rows="4" cols="50" />
+        <MagicInput type="text" label="Memory Header" />
+        <MagicInput type="checkbox" label="favorit" />
+        <MagicInput type="date" label="date" />
+        <MagicInput type="textarea" label="Memory Details" rows="4" cols="50" />
         <StyledButtonFrame type="submit">create</StyledButtonFrame>
         <StyledButtonFrame type="reset">reset</StyledButtonFrame>
       </StyledCreateFieldset>

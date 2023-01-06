@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import BookmarkButton from "../BookmarkButton";
 import EditForm from "../Forms/EditForm";
 import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import MoreOptionsIcon from "../Icons/MoreOptionsIcon";
@@ -54,7 +53,8 @@ export default function MemoryListCard({
             <EditForm
               sampleEvent={sampleEvent}
               onEditSubmit={handleEditSubmit}
-              onToggle={handleToggleEditMode}
+              onToggleEdit={handleToggleEditMode}
+              onToggleDisplay={toggleDisplayOptionMenu}
             />
           </>
         ) : (

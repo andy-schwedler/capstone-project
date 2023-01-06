@@ -1,10 +1,15 @@
-export default function InputText({ label, type, rows, cols }) {
+export default function MagicInput({ label, type, rows, cols, defaultValue }) {
   return (
     <>
       {type === "checkbox" && (
         <>
           <label htmlFor={label}>{label}</label>
-          <input type="checkbox" name={label} />
+          <input
+            type="checkbox"
+            name={label}
+            defaultValue={defaultValue}
+            required
+          />
         </>
       )}
       {type === "date" && (
@@ -17,13 +22,19 @@ export default function InputText({ label, type, rows, cols }) {
             required
             type="date"
             name={label}
+            defaultValue={defaultValue}
           />
         </>
       )}
       {type === "text" && (
         <>
           <label htmlFor={label}>{label}</label>
-          <input type="text" name={label} />
+          <input
+            type="text"
+            name={label}
+            defaultValue={defaultValue}
+            required
+          />
         </>
       )}
       {type === "textarea" && (
@@ -35,6 +46,8 @@ export default function InputText({ label, type, rows, cols }) {
             type="text"
             id={label}
             name={label}
+            defaultValue={defaultValue}
+            required
           />
         </>
       )}

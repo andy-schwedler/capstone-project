@@ -1,21 +1,19 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
+import MagicInput from "./Input";
 
-export default function EditForm({ onToggle, onEditSubmit, sampleEvent }) {
+export default function EditForm({
+  onEditSubmit,
+  sampleEvent,
+  onToggleDisplay,
+}) {
   return (
     <StyledForm onSubmit={onEditSubmit}>
-      <label hidden>date</label>
-      <input name="date" type="date" defaultValue={sampleEvent.date} required />
-      <label hidden>text</label>
-      <input
-        name="memory"
-        type="text"
-        defaultValue={sampleEvent.name}
-        required
-      />
+      <MagicInput type="date" label="date" defaultValue={sampleEvent.date} />
+      <MagicInput name="Memory" type="text" defaultValue={sampleEvent.name} />
       <div>
         <StyledButtonFrame type="submit">OK</StyledButtonFrame>
-        <StyledButtonFrame onClick={onToggle} type="button">
+        <StyledButtonFrame onClick={onToggleDisplay} type="button">
           CANCEL
         </StyledButtonFrame>
       </div>
