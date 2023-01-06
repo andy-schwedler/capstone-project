@@ -1,37 +1,46 @@
-export default function MagicInput({ label, type, rows, cols, defaultValue }) {
+export default function MagicInput({
+  name,
+  type,
+  rows,
+  cols,
+  defaultValue,
+  placeholder,
+}) {
   return (
     <>
       {type === "checkbox" && (
         <>
-          <label htmlFor={label}>{label}</label>
+          <label htmlFor={name}>{name}</label>
           <input
             type="checkbox"
-            name={label}
+            name={name}
             defaultValue={defaultValue}
-            required
+            placeholder={placeholder}
           />
         </>
       )}
       {type === "date" && (
         <>
-          <label htmlFor={label}>{label}</label>
+          <label htmlFor={name}>{name}</label>
           <input
             min="2022-01-01"
             max="2023-12-31"
             pattern="\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])*"
             required
             type="date"
-            name={label}
+            name={name}
+            placeholder={placeholder}
             defaultValue={defaultValue}
           />
         </>
       )}
       {type === "text" && (
         <>
-          <label htmlFor={label}>{label}</label>
+          <label htmlFor={name}>{name}</label>
           <input
             type="text"
-            name={label}
+            name={name}
+            placeholder={placeholder}
             defaultValue={defaultValue}
             required
           />
@@ -39,13 +48,13 @@ export default function MagicInput({ label, type, rows, cols, defaultValue }) {
       )}
       {type === "textarea" && (
         <>
-          <label htmlFor={label}>{label}</label>
-          <textarea
+          <label htmlFor={name}>{name}</label>
+          <input
             rows={rows}
             cols={cols}
             type="text"
-            id={label}
-            name={label}
+            name={name}
+            placeholder={placeholder}
             defaultValue={defaultValue}
             required
           />

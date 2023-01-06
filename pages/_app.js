@@ -39,28 +39,29 @@ function MyApp({ Component, pageProps }) {
     event.preventDefault();
 
     // ./components/CreateCard/CreateCard
-    const date = event.target.date.value;
-    const memory = event.target.memory.value;
-    const isFavoriteCheckbox = event.target.isFavorite.checked;
+    // const date = event.target.date.value;
+    // const memory = event.target.memory.value;
+    // const isFavoriteCheckbox = event.target.isFavorite.checked;
 
-    const newEntry = {
-      name: memory,
-      date: date,
-      isFavorite: isFavoriteCheckbox,
-    };
+    // const newEntry = {
+    //   name: memory,
+    //   date: date,
+    //   isFavorite: isFavoriteCheckbox,
+    // };
 
     // send newEntry to database
-    await fetch("/api/memories", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newEntry),
-    });
-
+    // await fetch("/api/memories", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(newEntry),
+    // });
+    console.log(event.target.elements.head.value);
+    console.log(event.target.elements.favorite.checked);
     getMemories();
 
-    event.target.reset();
+    // event.target.reset();
     handleIsCreating();
   }
 

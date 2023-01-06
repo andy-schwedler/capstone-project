@@ -3,17 +3,15 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
 import {
+  StyledGridWrapper,
   StyledLink,
+  StyledMain,
   StyledMainGrid,
   StyledScrollSection,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
 
-export default function EventCardOverview({
-  sampleEvents,
-  onToggleFavorite,
-  onHandleIsCreating,
-}) {
+export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -31,19 +29,16 @@ export default function EventCardOverview({
 
   return (
     <>
-      <StyledMainGrid>
+      <StyledGridWrapper>
         <Header />
-        <StyledScrollSection>
+        <StyledMain>
           <MemoryCardDetail
             currentEvent={currentEvent}
             onToggleFavorite={onToggleFavorite}
           />
-        </StyledScrollSection>
-        <Footer
-          onHandleIsCreating={onHandleIsCreating}
-          sampleEvents={sampleEvents}
-        />
-      </StyledMainGrid>
+        </StyledMain>
+        <Footer sampleEvents={sampleEvents} />
+      </StyledGridWrapper>
     </>
   );
 }
