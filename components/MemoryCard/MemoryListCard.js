@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import BookmarkButton from "../BookmarkButton";
-import { StyledButtonFrame, StyledForm, StyledLink } from "../GlobalStyles";
+import EditForm from "../Forms/EditForm";
+import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import MoreOptionsIcon from "../Icons/MoreOptionsIcon";
+import OptionsMenu from "../OptionsMenu/OptionsMenu";
 
 export default function MemoryListCard({
   sampleEvent,
@@ -31,6 +33,7 @@ export default function MemoryListCard({
 
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
+
     // user has to confirm changes made
     if (confirm("Are you sure you want to save your changes?"))
       handleToggleEditMode();
@@ -48,28 +51,11 @@ export default function MemoryListCard({
         </StyledButtonFrame>
         {editMode ? (
           <>
-            <StyledForm onSubmit={handleEditSubmit}>
-              <label hidden>date</label>
-              <input
-                name="date"
-                type="date"
-                defaultValue={sampleEvent.date}
-                required
-              />
-              <label hidden>text</label>
-              <input
-                name="memory"
-                type="text"
-                defaultValue={sampleEvent.name}
-                required
-              />
-              <div>
-                <StyledButtonFrame type="submit">OK</StyledButtonFrame>
-                <StyledButtonFrame onClick={handleToggleEditMode} type="button">
-                  CANCEL
-                </StyledButtonFrame>
-              </div>
-            </StyledForm>
+            <EditForm
+              sampleEvent={sampleEvent}
+              onEditSubmit={handleEditSubmit}
+              onToggle={handleToggleEditMode}
+            />
           </>
         ) : (
           <StyledLink href={`/${sampleEvent.id}`}>
@@ -79,21 +65,13 @@ export default function MemoryListCard({
         )}
       </StyledEventContainer>
       {displayOptionMenu && (
-        <StyledMenu>
-          <StyledButtonFrame onClick={handleToggleEditMode}>
-            EDIT
-          </StyledButtonFrame>
-          <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
-            REMOVE
-          </StyledButtonFrame>
-          <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
-            CANCEL
-          </StyledButtonFrame>
-          <BookmarkButton
-            onToggleFavorite={() => onToggleFavorite(sampleEvent.id)}
-            isFavorite={sampleEvent.isFavorite}
-          />
-        </StyledMenu>
+        <OptionsMenu
+          onDelete={onDelete}
+          onToggleEdit={handleToggleEditMode}
+          onToggleDisplay={toggleDisplayOptionMenu}
+          sampleEvent={sampleEvent}
+          onToggleFavorite={onToggleFavorite}
+        />
       )}
     </>
   );
@@ -137,22 +115,24 @@ const StyledEventContainer = styled.article`
   }
 `;
 
-const StyledMenu = styled.div`
-  color: var(--beaver2);
-  background-color: var(--beaver1);
-  grid-column: 2 / 7;
-  display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  bottom: 1.8em;
-  width: 60vw;
-  padding: 0.4rem;
-  align-self: center;
-  border-bottom-left-radius: 0.8em;
-  border-bottom-right-radius: 0.8em;
-  transform: inherit;
+// to be replaced with EditForm.js
+const StyledForm = styled.form`
+  grid-column: 1 / 6;
+  grid-row: 1 / 1;
+  padding: 0.5em;
 
-  button {
-    padding: 0.4rem;
+  input {
+    border-radius: 0.5rem;
+    height: 2rem;
+    caret-color: var(--beaver2);
+    color: var(--beaver2);
+    margin: 1em;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    padding: 0.4em;
   }
 `;
