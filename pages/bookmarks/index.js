@@ -3,11 +3,8 @@ import Header from "../../components/Header/Header";
 import DisplayMessage from "../../components/DisplayMessage";
 import CreateCard from "../../components/CreateCard/CreateCard";
 import Footer from "../../components/Footer/Footer";
-import {
-  StyledMainGrid,
-  StyledScrollSection,
-} from "../../components/GlobalStyles";
-import MemoryOverviewCard from "../../components/MemoryCard/MemoryOverviewCard";
+import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
+import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
 
 export default function Bookmarks({
   sampleEvents,
@@ -23,35 +20,36 @@ export default function Bookmarks({
   // render filtered bookmarks
   const favEventList = favEvents?.map((favEvent) => (
     <Fragment key={favEvent.id}>
-      <MemoryOverviewCard
+      <MemoryListCard
         sampleEvent={favEvent}
         onToggleFavorite={onToggleFavorite}
       />
     </Fragment>
   ));
 
+  const BookmarkListWithFallback =
+    favEvents?.length === 0 ? (
+      <DisplayMessage message={"🥕 🦫 🥦"} />
+    ) : (
+      favEventList
+    );
+
   return (
     <>
-      <StyledMainGrid>
+      <StyledGridWrapper>
         <Header />
-        <StyledScrollSection>
-          {favEvents?.length === 0 ? (
-            <DisplayMessage message={"🥕 🦫 🥦"} />
-          ) : (
-            favEventList
-          )}
-        </StyledScrollSection>
-        {isCreating ? (
+        <StyledMain>{BookmarkListWithFallback}</StyledMain>
+        {isCreating && (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
             onHandleIsCreating={onHandleIsCreating}
           />
-        ) : null}
+        )}
         <Footer
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
         />
-      </StyledMainGrid>
+      </StyledGridWrapper>
     </>
   );
 }

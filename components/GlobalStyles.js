@@ -25,14 +25,14 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const StyledMainGrid = styled.div`
+export const StyledGridWrapper = styled.div`
   display: grid;
   height: 100vh;
   align-self: center;
   grid-template-rows: auto 2fr auto;
 `;
 
-export const StyledScrollSection = styled.section`
+export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -43,10 +43,6 @@ export const StyledScrollSection = styled.section`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-
-  h3 {
-    margin: 0;
-  }
 
   :link,
   :visited {
