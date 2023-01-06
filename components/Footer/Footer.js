@@ -5,7 +5,7 @@ import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
 import Link from "next/link";
 
-export default function Footer({ sampleEvents, onHandleIsCreating }) {
+export default function Footer({ sampleEvents }) {
   const Badge = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
@@ -22,17 +22,14 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           height={50}
         />
       </StyledLink>
-      <StyledButtonFrame
-        aria-label="add new memory"
-        onClick={onHandleIsCreating}
-      >
+      <StyledLink href={"/createpage"}>
         <CreateIcon
           alt="add button"
           color="var(--beaver)"
           width={50}
           height={50}
         />
-      </StyledButtonFrame>
+      </StyledLink>
       <StyledWrapperLink href={"/bookmarks"}>
         <BookmarkIcon
           aria-label="bookmark"

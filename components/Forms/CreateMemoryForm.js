@@ -13,9 +13,10 @@ export default function CreateMemoryForm({
         <label hidden htmlFor="date">
           date
         </label>
-        <input
+        <StyledCreateInput
           type="date"
           name="date"
+          placeholder="DATE"
           min="2022-01-01"
           max="2023-12-31"
           pattern="\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])*"
@@ -23,38 +24,43 @@ export default function CreateMemoryForm({
         />
         <label htmlFor="isFavorite">favorite?</label>
         <input type="checkbox" name="isFavorite" />
+        <label hidden htmlFor="title">
+          your memory title
+        </label>
+        <input name="title" type="text" placeholder="Memory Title" required />
         <label hidden htmlFor="memory">
           your memory
         </label>
-        <textarea placeholder="your favorite moment" name="memory" required />
-        <div>
+        <textarea
+          name="memory"
+          placeholder="details about your moment"
+          required
+        />
+        <StyledButtonContainer>
           <StyledButtonFrame type="submit">create</StyledButtonFrame>
           <StyledButtonFrame type="reset">reset</StyledButtonFrame>
           <StyledButtonFrame onClick={onHandleIsCreating}>
             cancel
           </StyledButtonFrame>
-        </div>
+        </StyledButtonContainer>
       </fieldset>
     </StyledCreateForm>
   );
 }
 
 const StyledCreateForm = styled.form`
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    border-color: transparent;
-  }
+  padding: 1.8em;
+  display: grid;
+  color: var(--beaver2);
 
-  legend {
-    margin-bottom: 10px;
-  }
+  /* 
+  grid-template-areas:
+    "legend legend"
+    "checkbox date"
+    "title title"
+    "textarea textarea"; */
 
-  label {
-    font-size: small;
-    align-self: center;
-  }
-
+  /* 
   textarea,
   input {
     grid-area: input;
@@ -68,16 +74,20 @@ const StyledCreateForm = styled.form`
       outline-color: var(--beaver2);
       caret-color: var(--beaver2);
     }
-    :checked {
-    }
-  }
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    text-align: start;
-    margin-top: 5px;
-    justify-content: space-between;
-  }
+
+  */
 `;
+const StyledCreateFieldset = styled.fieldset`
+  border: none;
+  grid-column: 1 / 3;
+  height: 40vh;
+`;
+const StyledButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const StyledCreateInput = styled.input``;
+const StyledCreateInputDate = styled.input``;
+const StyledCreateInputTextarea = styled.textarea``;

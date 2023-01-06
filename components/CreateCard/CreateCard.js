@@ -13,11 +13,8 @@ export default function CreateCard({ onHandleIsCreating, onAddCreateCard }) {
 }
 
 const StyledCreatePage = styled.section`
-  display: flex;
-  flex-direction: column;
   background-color: var(--beaver3);
-  color: var(--beaver2);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  padding: 10px;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  padding: 2rem;
 `;
