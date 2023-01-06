@@ -1,10 +1,8 @@
-import { useRouter } from "next/router";
 import styled from "styled-components";
 import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
-import { StyledFooterList } from "./StyledFooterList";
 import Link from "next/link";
 
 export default function Footer({ sampleEvents, onHandleIsCreating }) {
@@ -13,13 +11,8 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
   );
   const BadgeCount = Badge?.length === 0 ? "0" : Badge?.length;
 
-  const { pathname } = useRouter();
-
-  if (pathname === "/") {
-  }
-
   return (
-    <StyledFooterList>
+    <StyledFooter>
       <StyledLink href={"/"}>
         <ScheduleIcon
           aria-label="overview"
@@ -40,7 +33,7 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           height={50}
         />
       </StyledButtonFrame>
-      <StyledLinkWrapper href={"/bookmarks"}>
+      <StyledWrapperLink href={"/bookmarks"}>
         <BookmarkIcon
           aria-label="bookmark"
           alt="bookmark"
@@ -49,10 +42,18 @@ export default function Footer({ sampleEvents, onHandleIsCreating }) {
           height={50}
         />
         <StyledButtonBadge>{BadgeCount}</StyledButtonBadge>
-      </StyledLinkWrapper>
-    </StyledFooterList>
+      </StyledWrapperLink>
+    </StyledFooter>
   );
 }
+
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--beaver1);
+  padding: 0.5rem;
+`;
 
 const StyledButtonBadge = styled.div`
   position: relative;
@@ -63,7 +64,7 @@ const StyledButtonBadge = styled.div`
   min-width: 0.5em;
 `;
 
-const StyledLinkWrapper = styled(Link)`
+const StyledWrapperLink = styled(Link)`
   grid-column: 3 / 4;
   width: auto;
   display: flex;

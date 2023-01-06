@@ -17,28 +17,28 @@ export default function Overview({
   onDelete,
   onEditMemory,
 }) {
+  const memoriesList = sampleEvents?.map((sampleEvent) => (
+    <Fragment key={sampleEvent.id}>
+      <MemoryOverviewCard
+        sampleEvent={sampleEvent}
+        onToggleFavorite={onToggleFavorite}
+        onDelete={onDelete}
+        onEditMemory={onEditMemory}
+      />
+    </Fragment>
+  ));
+
   return (
     <>
       <StyledMainGrid>
         <Header />
-        <StyledScrollSection>
-          {sampleEvents?.map((sampleEvent) => (
-            <Fragment key={sampleEvent.id}>
-              <MemoryOverviewCard
-                sampleEvent={sampleEvent}
-                onToggleFavorite={onToggleFavorite}
-                onDelete={onDelete}
-                onEditMemory={onEditMemory}
-              />
-            </Fragment>
-          ))}
-        </StyledScrollSection>
-        {isCreating ? (
+        <StyledScrollSection>{memoriesList}</StyledScrollSection>
+        {isCreating && (
           <CreateCard
             onAddCreateCard={onAddCreateCard}
             onHandleIsCreating={onHandleIsCreating}
           />
-        ) : null}
+        )}
         <Footer
           sampleEvents={sampleEvents}
           onHandleIsCreating={onHandleIsCreating}
