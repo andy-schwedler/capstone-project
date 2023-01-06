@@ -6,15 +6,16 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm onSubmit={onAddCreateCard}>
       <StyledCreateFieldset>
-        <MagicInput placeholder="Title" type="text" name="head" required />
+        <MagicInput placeholder="Title" type="text" name="headline" required />
         <MagicInput type="checkbox" name="favorite" />
         <MagicInput type="date" name="date" required />
         <MagicInput
           type="textarea"
-          name="Memory Details"
+          name="details"
           placeholder="...tell me more"
           rows={"10"}
         />
+        <MagicInput type="text2" name="tag" />
         <div>
           <StyledButtonFrame type="submit">OK</StyledButtonFrame>
           <StyledButtonFrame type="reset">RESET</StyledButtonFrame>
@@ -32,7 +33,7 @@ const StyledCreateForm = styled.form`
   div {
     display: flex;
     justify-content: space-evenly;
-    padding: 1em;
+    padding: 0.5em;
   }
 `;
 
@@ -40,14 +41,14 @@ const StyledCreateFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  border-color: var(--beaver3);
+  border: 1px solid var(--beaver3);
   color: var(--beaver);
 
   input {
     align-self: center;
     border: none;
     border-bottom: 1px solid darkgray;
-    width: 50%;
+    width: 100%;
     text-align: center;
 
     :focus {
@@ -58,6 +59,11 @@ const StyledCreateFieldset = styled.fieldset`
     :placeholder-shown {
       text-align: center;
     }
+  }
+
+  input[name="details"] {
+    height: 2em;
+    text-align: center;
   }
 
   label {

@@ -60,6 +60,19 @@ export default function MagicInput({
           />
         </>
       )}
+      {type === "text2" && (
+        <>
+          <label htmlFor={name}>{name}</label>
+          <input
+            rows={rows}
+            cols={cols}
+            type="text"
+            name={name}
+            placeholder={placeholder}
+            defaultValue={defaultValue}
+          />
+        </>
+      )}
     </>
   );
 }
