@@ -52,7 +52,7 @@ const StyledFooter = styled.footer`
   justify-content: space-around;
   align-items: center;
   background-color: var(--beaver1);
-  padding: 0.5rem;
+  padding: 0.9rem;
 `;
 
 const StyledButtonBadge = styled.div`
