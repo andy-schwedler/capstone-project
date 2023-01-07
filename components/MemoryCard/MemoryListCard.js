@@ -60,7 +60,7 @@ export default function MemoryListCard({
         ) : (
           <StyledLink href={`/${sampleEvent.id}`}>
             <p>{sampleEvent.date}</p>
-            <h3>{sampleEvent.name}</h3>
+            <h3>{sampleEvent.headline}</h3>
           </StyledLink>
         )}
       </StyledEventContainer>
@@ -112,27 +112,5 @@ const StyledEventContainer = styled.article`
     justify-self: flex-start;
     opacity: 50%;
     margin: 0;
-  }
-`;
-
-// to be replaced with EditForm.js
-const StyledForm = styled.form`
-  grid-column: 1 / 6;
-  grid-row: 1 / 1;
-  padding: 0.5em;
-
-  input {
-    border-radius: 0.5rem;
-    height: 2rem;
-    caret-color: var(--beaver2);
-    color: var(--beaver2);
-    margin: 1em;
-  }
-
-  div {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    padding: 0.4em;
   }
 `;

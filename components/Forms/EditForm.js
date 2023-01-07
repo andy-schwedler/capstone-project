@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import MagicInput from "./Input";
+import MagicInput from "./MagicInput";
 
 export default function EditForm({
   onEditSubmit,

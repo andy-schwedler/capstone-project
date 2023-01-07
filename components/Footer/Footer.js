@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
+import { StyledLink } from "../GlobalStyles";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";

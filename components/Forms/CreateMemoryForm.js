@@ -1,43 +1,41 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import MagicInput from "./Input";
+import MagicInput from "./MagicInput";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
-    <StyledCreateForm onSubmit={onAddCreateCard}>
-      <StyledCreateFieldset>
-        <MagicInput placeholder="Title" type="text" name="headline" required />
+    <StyledForm onSubmit={onAddCreateCard}>
+      <StyledFieldset>
         <MagicInput type="checkbox" name="favorite" />
         <MagicInput type="date" name="date" required />
+        <MagicInput placeholder="Title" type="text" name="headline" required />
         <MagicInput
           type="textarea"
           name="details"
           placeholder="...tell me more"
           rows={"10"}
         />
-        <MagicInput type="text2" name="tag" />
-        <div>
+        <StyledButtonwrapper>
           <StyledButtonFrame type="submit">OK</StyledButtonFrame>
           <StyledButtonFrame type="reset">RESET</StyledButtonFrame>
-        </div>
-      </StyledCreateFieldset>
-    </StyledCreateForm>
+        </StyledButtonwrapper>
+      </StyledFieldset>
+    </StyledForm>
   );
 }
 
-const StyledCreateForm = styled.form`
+const StyledForm = styled.form`
   border: none;
   outline: none;
   width: 50vw;
-
-  div {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0.5em;
-  }
 `;
 
-const StyledCreateFieldset = styled.fieldset`
+const StyledButtonwrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5em;
+`;
+const StyledFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
@@ -61,15 +59,9 @@ const StyledCreateFieldset = styled.fieldset`
     }
   }
 
-  input[name="details"] {
-    height: 2em;
-    text-align: center;
-  }
-
   label {
     font-size: 1em;
     text-align: center;
-
     align-self: center;
   }
 `;

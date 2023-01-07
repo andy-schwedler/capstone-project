@@ -14,7 +14,8 @@ export default async function handler(req, res) {
       const memoriesArray = memories.map((memory) => {
         return {
           id: memory._id,
-          name: memory.name,
+          headline: memory.headline,
+          details: memory.details,
           date: memory.date,
           isFavorite: memory.isFavorite,
         };

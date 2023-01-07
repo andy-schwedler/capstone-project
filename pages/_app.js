@@ -5,7 +5,7 @@ import GlobalStyles from "../components/GlobalStyles";
 function MyApp({ Component, pageProps }) {
   // store data
   const [sampleEvents, setSampleEvents] = useState();
-
+  console.log(sampleEvents);
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
