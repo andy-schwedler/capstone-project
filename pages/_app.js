@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
 
     getMemories();
 
-    // event.target.reset();
+    event.target.reset();
     handleIsCreating();
   }
 
