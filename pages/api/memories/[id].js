@@ -35,7 +35,7 @@ export default async function handler(req, res) {
       const result = await Memory.findByIdAndUpdate(
         id,
         {
-          name: req.body.name,
+          headline: req.body.headline,
           date: req.body.date,
         },
         { returnDocument: "after" }
