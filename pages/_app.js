@@ -5,7 +5,6 @@ import GlobalStyles from "../components/GlobalStyles";
 function MyApp({ Component, pageProps }) {
   // store data
   const [sampleEvents, setSampleEvents] = useState();
-  console.log(sampleEvents);
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
@@ -51,9 +50,8 @@ function MyApp({ Component, pageProps }) {
       details: details,
       isFavorite: isfavorite,
     };
-    console.log(newEntry);
 
-    // send newEntry to database
+    // POST memories
     await fetch("/api/memories", {
       method: "POST",
       headers: {
@@ -67,7 +65,7 @@ function MyApp({ Component, pageProps }) {
     event.target.reset();
     handleIsCreating();
   }
-
+  // DELETE memories
   async function handleDeleteMemoryCard(id) {
     if (confirm("Are you sure you want to delete?")) {
       await fetch("/api/memories/" + id, {
@@ -76,7 +74,7 @@ function MyApp({ Component, pageProps }) {
     }
     getMemories();
   }
-
+  // UPDATE memories
   async function handleEditMemory(updatedMemory, id) {
     await fetch("/api/memories/" + id, {
       method: "PUT",

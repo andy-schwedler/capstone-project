@@ -6,14 +6,24 @@ export default function EditForm({
   onEditSubmit,
   sampleEvent,
   onToggleDisplay,
+  onCancel,
 }) {
   return (
     <StyledForm onSubmit={onEditSubmit}>
-      <MagicInput type="date" label="date" defaultValue={sampleEvent.date} />
-      <MagicInput name="Memory" type="text" defaultValue={sampleEvent.name} />
+      <MagicInput
+        name="date"
+        type="date"
+        label="date"
+        defaultValue={sampleEvent.date}
+      />
+      <MagicInput
+        name="headline"
+        type="text-not-required"
+        defaultValue={sampleEvent.headline}
+      />
       <div>
         <StyledButtonFrame type="submit">OK</StyledButtonFrame>
-        <StyledButtonFrame onClick={onToggleDisplay} type="button">
+        <StyledButtonFrame onClick={onCancel} type="button">
           CANCEL
         </StyledButtonFrame>
       </div>

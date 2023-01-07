@@ -52,7 +52,7 @@ export default function MagicInput({
           <input
             rows={rows}
             cols={cols}
-            type="text"
+            type="textarea"
             name={name}
             placeholder={placeholder}
             defaultValue={defaultValue}
@@ -60,7 +60,7 @@ export default function MagicInput({
           />
         </>
       )}
-      {type === "text2" && (
+      {type === "text-not-required" && (
         <>
           <label htmlFor={name}>{name}</label>
           <input

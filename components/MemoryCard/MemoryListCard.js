@@ -14,6 +14,10 @@ export default function MemoryListCard({
   const [displayOptionMenu, setDisplayOptionMenu] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
+  function handleCancelButton() {
+    setDisplayOptionMenu(false);
+    setEditMode(false);
+  }
   function toggleDisplayOptionMenu() {
     setDisplayOptionMenu(!displayOptionMenu);
   }
@@ -26,9 +30,9 @@ export default function MemoryListCard({
   function handleEditSubmit(event) {
     event.preventDefault();
 
-    const editedName = event.target.elements.memory.value;
-    const editedDate = event.target.elements.date.value;
-    const editModeInput = { name: editedName, date: editedDate };
+    const editedDate = event.target.date.value;
+    const editedHeadline = event.target.headline.value;
+    const editModeInput = { headline: editedHeadline, date: editedDate };
 
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
@@ -55,6 +59,7 @@ export default function MemoryListCard({
               onEditSubmit={handleEditSubmit}
               onToggleEdit={handleToggleEditMode}
               onToggleDisplay={toggleDisplayOptionMenu}
+              onCancel={handleCancelButton}
             />
           </>
         ) : (
