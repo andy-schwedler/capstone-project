@@ -14,20 +14,18 @@ export default function MemoryCardDetail({ currentEvent, onToggleFavorite }) {
   const formatDate = changeDate(currentEvent.date);
 
   return (
-    <>
-      <StyledDetailFrame>
-        <StyledTextFormatter>
-          <BookmarkButton
-            isFavorite={currentEvent.isFavorite}
-            onToggleFavorite={onToggleFavorite}
-            id={currentEvent.id}
-          />
-          <p>date: {formatDate}</p>
-          <h3>{currentEvent.headline}</h3>
-          <p>{currentEvent.details}</p>
-        </StyledTextFormatter>
-      </StyledDetailFrame>
-    </>
+    <StyledDetailFrame>
+      <StyledTextFormatter>
+        <BookmarkButton
+          isFavorite={currentEvent.isFavorite}
+          onToggleFavorite={onToggleFavorite}
+          id={currentEvent.id}
+        />
+        <p>date: {formatDate}</p>
+        <h3>{currentEvent.headline}</h3>
+        <p>{currentEvent.details}</p>
+      </StyledTextFormatter>
+    </StyledDetailFrame>
   );
 }
 
