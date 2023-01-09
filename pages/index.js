@@ -11,7 +11,7 @@ export default function Overview({
   onDelete,
   onEditMemory,
 }) {
-  const [filteredData, setFilteredData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState([]);
 
   function handleFilter() {
     const searchEntry = event.target.value;
@@ -22,12 +22,10 @@ export default function Overview({
         sampleEvent.headline.toLowerCase().includes(searchEntry.toLowerCase())
       );
     });
-    setFilteredData(filteredDetails);
+    setSearchTerm(filteredDetails);
   }
-  // console.log(filteredData);
-  // // (6) [{…}, {…}, {…}, {…}, {…}, {…}]
 
-  const filteredResults = filteredData?.map((sampleEvent) => (
+  const filteredResults = searchTerm?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <MemoryListCard
         sampleEvent={sampleEvent}
@@ -58,7 +56,7 @@ export default function Overview({
             onFilter={handleFilter}
             type="text"
             name="search"
-            placeholder={"type here ?"}
+            placeholder={"..."}
           />
           {filteredResults?.length === 0 ? memoriesList : filteredResults}
         </StyledMain>
