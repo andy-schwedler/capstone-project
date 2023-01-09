@@ -90,16 +90,20 @@ function MyApp({ Component, pageProps }) {
         <title>🦫 Memories 💭</title>
       </Head>
       <GlobalStyles />
-      <Component
-        {...pageProps}
-        sampleEvents={sampleEvents}
-        onToggleFavorite={handleToggleFavorite}
-        onAddCreateCard={handleAddCreateCard}
-        isCreating={isCreating}
-        onHandleIsCreating={handleIsCreating}
-        onDelete={handleDeleteMemoryCard}
-        onEditMemory={handleEditMemory}
-      />
+      {!sampleEvents ? (
+        <h1>loading</h1>
+      ) : (
+        <Component
+          {...pageProps}
+          sampleEvents={sampleEvents}
+          onToggleFavorite={handleToggleFavorite}
+          onAddCreateCard={handleAddCreateCard}
+          isCreating={isCreating}
+          onHandleIsCreating={handleIsCreating}
+          onDelete={handleDeleteMemoryCard}
+          onEditMemory={handleEditMemory}
+        />
+      )}
     </>
   );
 }
