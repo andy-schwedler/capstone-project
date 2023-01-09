@@ -1,36 +1,40 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import MagicInput from "./MagicInput";
+import InputAndLabelPair from "./Input/InputAndLabelPair";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
-    <StyledForm onSubmit={onAddCreateCard}>
+    <StyledCreateForm onSubmit={onAddCreateCard}>
       <StyledFieldset>
-        <MagicInput type="checkbox" name="favorite" />
-        <MagicInput type="date" name="date" required />
-        <MagicInput placeholder="Title" type="text" name="headline" required />
-        <MagicInput
+        <InputAndLabelPair type="checkbox" name="favorite" />
+        <InputAndLabelPair type="date" name="date" required />
+        <InputAndLabelPair
+          placeholder="Title"
+          type="text"
+          name="headline"
+          required
+        />
+        <InputAndLabelPair
           type="textarea"
           name="details"
           placeholder="...tell me more"
-          rows={"10"}
         />
-        <StyledButtonwrapper>
+        <StyledButtonWrapper>
           <StyledButtonFrame type="submit">OK</StyledButtonFrame>
           <StyledButtonFrame type="reset">RESET</StyledButtonFrame>
-        </StyledButtonwrapper>
+        </StyledButtonWrapper>
       </StyledFieldset>
-    </StyledForm>
+    </StyledCreateForm>
   );
 }
 
-const StyledForm = styled.form`
+export const StyledCreateForm = styled.form`
   border: none;
   outline: none;
   width: 50vw;
 `;
 
-const StyledButtonwrapper = styled.div`
+const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 0.5em;
@@ -38,30 +42,7 @@ const StyledButtonwrapper = styled.div`
 const StyledFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-  border: 1px solid var(--beaver3);
+  gap: 1em;
+  border: none;
   color: var(--beaver);
-
-  input {
-    align-self: center;
-    border: none;
-    border-bottom: 1px solid darkgray;
-    width: 100%;
-    text-align: center;
-
-    :focus {
-      outline: transparent;
-      text-align: center;
-    }
-
-    :placeholder-shown {
-      text-align: center;
-    }
-  }
-
-  label {
-    font-size: 1em;
-    text-align: center;
-    align-self: center;
-  }
 `;

@@ -1,4 +1,6 @@
-export default function MagicInput({
+import styled from "styled-components";
+
+export default function InputAndLabelPair({
   name,
   type,
   rows,
@@ -10,8 +12,8 @@ export default function MagicInput({
     <>
       {type === "checkbox" && (
         <>
-          <label htmlFor={name}>{name}</label>
-          <input
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
             type="checkbox"
             name={name}
             defaultValue={defaultValue}
@@ -21,8 +23,8 @@ export default function MagicInput({
       )}
       {type === "date" && (
         <>
-          <label htmlFor={name}>{name}</label>
-          <input
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
             min="2022-01-01"
             max="2023-12-31"
             pattern="\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])*"
@@ -36,8 +38,8 @@ export default function MagicInput({
       )}
       {type === "text" && (
         <>
-          <label htmlFor={name}>{name}</label>
-          <input
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
             type="text"
             name={name}
             placeholder={placeholder}
@@ -48,8 +50,8 @@ export default function MagicInput({
       )}
       {type === "textarea" && (
         <>
-          <label htmlFor={name}>{name}</label>
-          <input
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
             rows={rows}
             cols={cols}
             type="textarea"
@@ -62,10 +64,8 @@ export default function MagicInput({
       )}
       {type === "text-not-required" && (
         <>
-          <label htmlFor={name}>{name}</label>
-          <input
-            rows={rows}
-            cols={cols}
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
             type="text"
             name={name}
             placeholder={placeholder}
@@ -76,3 +76,31 @@ export default function MagicInput({
     </>
   );
 }
+
+const StyledLabel = styled.label`
+  font-size: 1em;
+  text-align: center;
+  align-self: center;
+`;
+
+const StyledInput = styled.input`
+  align-self: center;
+  border: none;
+  border-bottom: 0.1em solid whitesmoke;
+  width: 100%;
+  text-align: center;
+
+  height: 2rem;
+  caret-color: var(--beaver2);
+  color: var(--beaver1);
+  margin: 1em;
+
+  :focus {
+    outline: transparent;
+    text-align: center;
+  }
+
+  :placeholder-shown {
+    text-align: center;
+  }
+`;

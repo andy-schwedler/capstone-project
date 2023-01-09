@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import MagicInput from "./MagicInput";
+import InputAndLabelPair from "./Input/InputAndLabelPair";
 
-export default function EditForm({
-  onEditSubmit,
-  sampleEvent,
-  onToggleDisplay,
-  onCancel,
-}) {
+export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
     <StyledForm onSubmit={onEditSubmit}>
-      <MagicInput
+      <InputAndLabelPair
         name="date"
         type="date"
         label="date"
         defaultValue={sampleEvent.date}
       />
-      <MagicInput
+      <InputAndLabelPair
         name="headline"
         type="text-not-required"
         defaultValue={sampleEvent.headline}
