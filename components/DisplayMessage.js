@@ -5,7 +5,6 @@ export default function DisplayMessage({ message }) {
 }
 
 const StyledErrorMessage = styled.h1`
-  font-weight: 100;
   font-size: 2rem;
   align-self: center;
 `;

@@ -5,7 +5,6 @@ import GlobalStyles from "../components/GlobalStyles";
 function MyApp({ Component, pageProps }) {
   // store data
   const [sampleEvents, setSampleEvents] = useState();
-
   // show create page
   const [isCreating, setIsCreating] = useState(false);
 
@@ -38,18 +37,21 @@ function MyApp({ Component, pageProps }) {
   async function handleAddCreateCard(event) {
     event.preventDefault();
 
-    // ./components/CreateCard/CreateCard
+    // ./components/FORMS/CreateMemoryForm
     const date = event.target.date.value;
-    const memory = event.target.memory.value;
-    const isFavoriteCheckbox = event.target.isFavorite.checked;
+    const headline = event.target.elements.headline.value;
+    const details = event.target.elements.details.value;
+    const isfavorite = event.target.elements.favorite.checked;
 
+    // ../../db/models/Memory
     const newEntry = {
-      name: memory,
       date: date,
-      isFavorite: isFavoriteCheckbox,
+      headline: headline,
+      details: details,
+      isFavorite: isfavorite,
     };
 
-    // send newEntry to database
+    // POST memories
     await fetch("/api/memories", {
       method: "POST",
       headers: {
@@ -63,7 +65,7 @@ function MyApp({ Component, pageProps }) {
     event.target.reset();
     handleIsCreating();
   }
-
+  // DELETE memories
   async function handleDeleteMemoryCard(id) {
     if (confirm("Are you sure you want to delete?")) {
       await fetch("/api/memories/" + id, {
@@ -72,7 +74,7 @@ function MyApp({ Component, pageProps }) {
     }
     getMemories();
   }
-
+  // UPDATE memories
   async function handleEditMemory(updatedMemory, id) {
     await fetch("/api/memories/" + id, {
       method: "PUT",

@@ -3,14 +3,10 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
-import CreateCard from "../components/CreateCard/CreateCard";
 
 export default function Overview({
   sampleEvents,
   onToggleFavorite,
-  onAddCreateCard,
-  isCreating,
-  onHandleIsCreating,
   onDelete,
   onEditMemory,
 }) {
@@ -30,16 +26,7 @@ export default function Overview({
       <StyledGridWrapper>
         <Header />
         <StyledMain>{memoriesList}</StyledMain>
-        {isCreating && (
-          <CreateCard
-            onAddCreateCard={onAddCreateCard}
-            onHandleIsCreating={onHandleIsCreating}
-          />
-        )}
-        <Footer
-          sampleEvents={sampleEvents}
-          onHandleIsCreating={onHandleIsCreating}
-        />
+        <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>
     </>
   );

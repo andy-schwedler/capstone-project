@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-// working on data structure:
+// _app.js / Line 48:
 const memoriesSchema = new Schema({
-  name: { type: String, required: true },
+  headline: { type: String, required: true },
+  details: { type: String, required: true },
   date: { type: String, required: true },
   isFavorite: { type: Boolean, required: true },
 });

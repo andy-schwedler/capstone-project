@@ -1,24 +1,17 @@
 import { Fragment } from "react";
 import Header from "../../components/Header/Header";
 import DisplayMessage from "../../components/DisplayMessage";
-import CreateCard from "../../components/CreateCard/CreateCard";
 import Footer from "../../components/Footer/Footer";
 import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
 
-export default function Bookmarks({
-  sampleEvents,
-  onToggleFavorite,
-  onHandleIsCreating,
-  isCreating,
-  onAddCreateCard,
-}) {
+export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
   // filter for Bookmarks-Page
-  const favEvents = sampleEvents?.filter(
+  const favMemories = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
   // render filtered bookmarks
-  const favEventList = favEvents?.map((favEvent) => (
+  const favEventList = favMemories?.map((favEvent) => (
     <Fragment key={favEvent.id}>
       <MemoryListCard
         sampleEvent={favEvent}
@@ -27,8 +20,8 @@ export default function Bookmarks({
     </Fragment>
   ));
 
-  const BookmarkListWithFallback =
-    favEvents?.length === 0 ? (
+  const favList =
+    favMemories?.length === 0 ? (
       <DisplayMessage message={"🥕 🦫 🥦"} />
     ) : (
       favEventList
@@ -38,17 +31,8 @@ export default function Bookmarks({
     <>
       <StyledGridWrapper>
         <Header />
-        <StyledMain>{BookmarkListWithFallback}</StyledMain>
-        {isCreating && (
-          <CreateCard
-            onAddCreateCard={onAddCreateCard}
-            onHandleIsCreating={onHandleIsCreating}
-          />
-        )}
-        <Footer
-          sampleEvents={sampleEvents}
-          onHandleIsCreating={onHandleIsCreating}
-        />
+        <StyledMain>{favList}</StyledMain>
+        <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>
     </>
   );
