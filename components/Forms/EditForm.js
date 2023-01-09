@@ -1,17 +1,18 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelPair from "./Input/InputAndLabelPair";
+import InputAndLabelDatePair from "./Input/InputAndLabelDatePair";
+import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
     <StyledForm onSubmit={onEditSubmit}>
-      <InputAndLabelPair
+      <InputAndLabelDatePair
         name="date"
         type="date"
         label="date"
         defaultValue={sampleEvent.date}
       />
-      <InputAndLabelPair
+      <InputAndLabelTextPair
         name="headline"
         type="text-not-required"
         defaultValue={sampleEvent.headline}

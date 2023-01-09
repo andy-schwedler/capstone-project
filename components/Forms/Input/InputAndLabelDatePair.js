@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
-export default function InputAndLabelPair({
+export default function InputAndLabelDatePair({
   name,
   type,
-  rows,
-  cols,
   defaultValue,
   placeholder,
 }) {
@@ -36,43 +34,6 @@ export default function InputAndLabelPair({
           />
         </>
       )}
-      {type === "text" && (
-        <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
-          <StyledInput
-            type="text"
-            name={name}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            required
-          />
-        </>
-      )}
-      {type === "textarea" && (
-        <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
-          <StyledInput
-            rows={rows}
-            cols={cols}
-            type="textarea"
-            name={name}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            required
-          />
-        </>
-      )}
-      {type === "text-not-required" && (
-        <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
-          <StyledInput
-            type="text"
-            name={name}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-          />
-        </>
-      )}
     </>
   );
 }
@@ -87,7 +48,6 @@ const StyledInput = styled.input`
   align-self: center;
   border: none;
   border-bottom: 0.1em solid whitesmoke;
-  width: 100%;
   text-align: center;
 
   height: 2rem;
