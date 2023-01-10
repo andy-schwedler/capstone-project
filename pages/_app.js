@@ -6,13 +6,6 @@ import GlobalStyles from "../components/GlobalStyles";
 function MyApp({ Component, pageProps }) {
   // store data
   const [sampleEvents, setSampleEvents] = useState();
-  // show create page
-  const [isCreating, setIsCreating] = useState(false);
-
-  // toggle show create page
-  function handleIsCreating() {
-    setIsCreating(!isCreating);
-  }
 
   // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
@@ -64,7 +57,6 @@ function MyApp({ Component, pageProps }) {
     getMemories();
 
     event.target.reset();
-    handleIsCreating();
   }
   // DELETE memories
   async function handleDeleteMemoryCard(id) {
@@ -99,8 +91,6 @@ function MyApp({ Component, pageProps }) {
           sampleEvents={sampleEvents}
           onToggleFavorite={handleToggleFavorite}
           onAddCreateCard={handleAddCreateCard}
-          isCreating={isCreating}
-          onHandleIsCreating={handleIsCreating}
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
         />
