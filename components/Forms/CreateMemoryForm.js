@@ -1,20 +1,21 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelPair from "./Input/InputAndLabelPair";
+import InputAndLabelDatePair from "./Input/InputAndLabelDatePair";
+import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm onSubmit={onAddCreateCard}>
       <StyledFieldset>
-        <InputAndLabelPair type="checkbox" name="favorite" />
-        <InputAndLabelPair type="date" name="date" required />
-        <InputAndLabelPair
+        <InputAndLabelDatePair type="checkbox" name="favorite" />
+        <InputAndLabelDatePair type="date" name="date" required />
+        <InputAndLabelTextPair
           placeholder="Title"
           type="text"
           name="headline"
           required
         />
-        <InputAndLabelPair
+        <InputAndLabelTextPair
           type="textarea"
           name="details"
           placeholder="...tell me more"
