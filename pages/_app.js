@@ -83,18 +83,14 @@ function MyApp({ Component, pageProps }) {
         <title>🦫 Memories 💭</title>
       </Head>
       <GlobalStyles />
-      {!sampleEvents ? (
-        <DisplayMessage>🦫 Memories 💭 loading...</DisplayMessage>
-      ) : (
-        <Component
-          {...pageProps}
-          sampleEvents={sampleEvents}
-          onToggleFavorite={handleToggleFavorite}
-          onAddCreateCard={handleAddCreateCard}
-          onDelete={handleDeleteMemoryCard}
-          onEditMemory={handleEditMemory}
-        />
-      )}
+      <Component
+        {...pageProps}
+        sampleEvents={sampleEvents}
+        onToggleFavorite={handleToggleFavorite}
+        onAddCreateCard={handleAddCreateCard}
+        onDelete={handleDeleteMemoryCard}
+        onEditMemory={handleEditMemory}
+      />
     </>
   );
 }
