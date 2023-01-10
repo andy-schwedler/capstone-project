@@ -28,7 +28,7 @@ export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
 }
 
 const StyledForm = styled.form`
-  grid-column: 1 / 6;
+  grid-column: 1 / 4;
   grid-row: 1 / 1;
   padding: 0.5em;
 

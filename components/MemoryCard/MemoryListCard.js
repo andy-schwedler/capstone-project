@@ -46,11 +46,7 @@ export default function MemoryListCard({
     <>
       <StyledEventContainer>
         <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
-          {displayOptionMenu ? (
-            <MoreOptionsIcon fill="var(--beaver1)" width={20} />
-          ) : (
-            <MoreOptionsIcon fill="var(--beaver3)" width={20} />
-          )}
+          <MoreOptionsIcon fill="var(--beaver1)" width={20} />
         </StyledButtonFrame>
         {editMode ? (
           <>
@@ -85,7 +81,7 @@ export default function MemoryListCard({
 const StyledEventContainer = styled.article`
   width: 60vw;
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(3, auto);
   background-color: var(--beaver2);
   border-radius: 0.8rem;
   padding: 0.3em;
@@ -94,8 +90,6 @@ const StyledEventContainer = styled.article`
   margin-bottom: 1.1rem;
 
   a {
-    grid-column: 1 / 6;
-    grid-row: 1 / 2;
     text-align: left;
     margin-bottom: 0.8rem;
     padding: 0.3em;
@@ -104,17 +98,23 @@ const StyledEventContainer = styled.article`
     flex-direction: column;
   }
 
+  h3 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0.3em;
+  }
+
   button {
+    grid-row-start: 1;
     grid-column-start: -1;
     justify-self: flex-end;
   }
 
   p {
-    grid-column: 1 / span 2;
+    grid-column: 1 / 2;
     grid-row: 1;
     font-style: italic;
     font-size: small;
-    justify-self: flex-start;
     opacity: 50%;
     margin: 0;
   }

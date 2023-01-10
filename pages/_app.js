@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import DisplayMessage from "../components/DisplayMessage";
 import GlobalStyles from "../components/GlobalStyles";
 
 function MyApp({ Component, pageProps }) {
@@ -91,7 +92,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyles />
       {!sampleEvents ? (
-        <h1>loading</h1>
+        <DisplayMessage>🦫 Memories 💭 loading...</DisplayMessage>
       ) : (
         <Component
           {...pageProps}
