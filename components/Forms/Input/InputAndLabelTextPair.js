@@ -7,7 +7,7 @@ export default function InputAndLabelTextPair({
   cols,
   defaultValue,
   placeholder,
-  onFilter,
+  onSearch,
 }) {
   return (
     <>
@@ -19,7 +19,7 @@ export default function InputAndLabelTextPair({
             name={name}
             placeholder={placeholder}
             defaultValue={defaultValue}
-            onChange={onFilter}
+            onChange={onSearch}
             required
           />
         </>

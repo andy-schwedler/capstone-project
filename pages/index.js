@@ -13,7 +13,7 @@ export default function Overview({
 }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
-  function handleFilter() {
+  function handleSearch() {
     const searchEntry = event.target.value;
 
     const filteredDetails = sampleEvents.filter((sampleEvent) => {
@@ -53,7 +53,7 @@ export default function Overview({
         <Header />
         <StyledMain>
           <InputAndLabelTextPair
-            onFilter={handleFilter}
+            onSearch={handleSearch}
             type="text"
             name="search"
             placeholder={"..."}
