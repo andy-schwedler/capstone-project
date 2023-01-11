@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import InputAndLabelTextPair from "../components/Forms/Input/InputAndLabelTextPair";
+import SearchBar from "../components/SearchBar";
 
 export default function Overview({
   sampleEvents,
@@ -12,6 +13,7 @@ export default function Overview({
   onEditMemory,
 }) {
   const [searchTerm, setSearchTerm] = useState([]);
+  const [sortOrder, setSortOrder] = useState();
 
   function handleSearch() {
     const searchEntry = event.target.value;
@@ -38,12 +40,13 @@ export default function Overview({
 
   const sortedList = sampleEvents
     ?.slice()
-    .sort(function (a, b) {
+    .sort((a, b) => {
       const date1 = new Date(a.date);
       const date2 = new Date(b.date);
 
       return date1 - date2;
     })
+    .reverse()
     .map((sampleEvent) => (
       <Fragment key={sampleEvent.id}>
         <MemoryListCard
@@ -55,19 +58,13 @@ export default function Overview({
       </Fragment>
     ));
 
-  console.log(sortedList);
-
   return (
     <>
       <StyledGridWrapper>
         <Header />
         <StyledMain>
-          <InputAndLabelTextPair
-            onSearch={handleSearch}
-            type="text"
-            name="search"
-            placeholder={"search"}
-          />
+          <button>sort</button>
+          <SearchBar onSearch={handleSearch} />
           {filteredResults?.length === 0 ? sortedList : filteredResults}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />
