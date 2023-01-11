@@ -36,16 +36,26 @@ export default function Overview({
     </Fragment>
   ));
 
-  const memoriesList = sampleEvents?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryListCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-        onDelete={onDelete}
-        onEditMemory={onEditMemory}
-      />
-    </Fragment>
-  ));
+  const sortedList = sampleEvents
+    ?.slice()
+    .sort(function (a, b) {
+      const date1 = new Date(a.date);
+      const date2 = new Date(b.date);
+
+      return date1 - date2;
+    })
+    .map((sampleEvent) => (
+      <Fragment key={sampleEvent.id}>
+        <MemoryListCard
+          sampleEvent={sampleEvent}
+          onToggleFavorite={onToggleFavorite}
+          onDelete={onDelete}
+          onEditMemory={onEditMemory}
+        />
+      </Fragment>
+    ));
+
+  console.log(sortedList);
 
   return (
     <>
@@ -56,9 +66,9 @@ export default function Overview({
             onSearch={handleSearch}
             type="text"
             name="search"
-            placeholder={"..."}
+            placeholder={"search"}
           />
-          {filteredResults?.length === 0 ? memoriesList : filteredResults}
+          {filteredResults?.length === 0 ? sortedList : filteredResults}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>
