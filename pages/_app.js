@@ -1,32 +1,11 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import DisplayMessage from "../components/DisplayMessage";
 import GlobalStyles from "../components/GlobalStyles";
 
 function MyApp({ Component, pageProps }) {
-  // store data
+  // stores data coming from MongoDB
   const [sampleEvents, setSampleEvents] = useState();
 
-  // fetch data from database // replace with ./lib/fetch.js
-  async function getMemories() {
-    const response = await fetch("/api/memories");
-    const memoriesList = await response.json();
-    setSampleEvents(memoriesList);
-  }
-  useEffect(() => {
-    getMemories();
-  }, []);
-
-  // toggle favorite Button
-  function handleToggleFavorite(id) {
-    setSampleEvents(
-      sampleEvents.map((sampleEvent) =>
-        sampleEvent.id === id
-          ? { ...sampleEvent, isFavorite: !sampleEvent.isFavorite }
-          : sampleEvent
-      )
-    );
-  }
   // METHOD "POST"
   async function handleAddCreateCard(event) {
     event.preventDefault();
@@ -76,6 +55,52 @@ function MyApp({ Component, pageProps }) {
     });
     getMemories();
   }
+  // sorting ascending / oldest first
+  function handleAscendingSort() {
+    const ascendingData = sampleEvents?.slice().sort((a, b) => {
+      const date1 = new Date(a.date);
+      const date2 = new Date(b.date);
+      return date1 - date2;
+    });
+    setSampleEvents(ascendingData);
+  }
+  // [DEFAULT] sorting descending / newest first
+  function handleDescendingSort() {
+    const descendingData = sampleEvents?.slice().sort((a, b) => {
+      const date1 = new Date(a.date);
+      const date2 = new Date(b.date);
+      return date2 - date1;
+    });
+    setSampleEvents(descendingData);
+  }
+
+  // fetch data from database // replace with ./lib/fetch.js
+  async function getMemories() {
+    const response = await fetch("/api/memories");
+    const memoriesList = await response.json();
+
+    const sortedArray = memoriesList.slice().sort((a, b) => {
+      const date1 = new Date(a.date);
+      const date2 = new Date(b.date);
+      return date2 - date1;
+    });
+
+    setSampleEvents(sortedArray);
+  }
+  useEffect(() => {
+    getMemories();
+  }, []);
+
+  // toggle favorite Button
+  function handleToggleFavorite(id) {
+    setSampleEvents(
+      sampleEvents.map((sampleEvent) =>
+        sampleEvent.id === id
+          ? { ...sampleEvent, isFavorite: !sampleEvent.isFavorite }
+          : sampleEvent
+      )
+    );
+  }
 
   return (
     <>
@@ -83,18 +108,16 @@ function MyApp({ Component, pageProps }) {
         <title>🦫 Memories 💭</title>
       </Head>
       <GlobalStyles />
-      {!sampleEvents ? (
-        <DisplayMessage>🦫 Memories 💭 loading...</DisplayMessage>
-      ) : (
-        <Component
-          {...pageProps}
-          sampleEvents={sampleEvents}
-          onToggleFavorite={handleToggleFavorite}
-          onAddCreateCard={handleAddCreateCard}
-          onDelete={handleDeleteMemoryCard}
-          onEditMemory={handleEditMemory}
-        />
-      )}
+      <Component
+        {...pageProps}
+        sampleEvents={sampleEvents}
+        onToggleFavorite={handleToggleFavorite}
+        onAddCreateCard={handleAddCreateCard}
+        onDelete={handleDeleteMemoryCard}
+        onEditMemory={handleEditMemory}
+        onAscendingSort={handleAscendingSort}
+        onDescendingSort={handleDescendingSort}
+      />
     </>
   );
 }

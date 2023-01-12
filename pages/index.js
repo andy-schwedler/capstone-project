@@ -3,29 +3,38 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
-import InputAndLabelTextPair from "../components/Forms/Input/InputAndLabelTextPair";
+import SearchBar from "../components/SearchBar";
+import SortingBar from "../components/SortingBar";
 
 export default function Overview({
   sampleEvents,
   onToggleFavorite,
   onDelete,
   onEditMemory,
+  onAscendingSort,
+  onDescendingSort,
 }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
-  function handleFilter() {
+  function handleSearch(event) {
     const searchEntry = event.target.value;
 
     const filteredDetails = sampleEvents.filter((sampleEvent) => {
-      return (
-        sampleEvent.details.toLowerCase().includes(searchEntry.toLowerCase()) ||
-        sampleEvent.headline.toLowerCase().includes(searchEntry.toLowerCase())
-      );
+      //  if nothing was entered by the user, no list will be created
+      if (searchEntry === "") {
+        return null;
+      } else
+        return (
+          sampleEvent.details
+            .toLowerCase()
+            .includes(searchEntry.toLowerCase()) ||
+          sampleEvent.headline.toLowerCase().includes(searchEntry.toLowerCase())
+        );
     });
     setSearchTerm(filteredDetails);
   }
 
-  const filteredResults = searchTerm?.map((sampleEvent) => (
+  const searchResults = searchTerm?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <MemoryListCard
         sampleEvent={sampleEvent}
@@ -36,7 +45,7 @@ export default function Overview({
     </Fragment>
   ));
 
-  const memoriesList = sampleEvents?.map((sampleEvent) => (
+  const allMemories = sampleEvents?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <MemoryListCard
         sampleEvent={sampleEvent}
@@ -52,13 +61,12 @@ export default function Overview({
       <StyledGridWrapper>
         <Header />
         <StyledMain>
-          <InputAndLabelTextPair
-            onFilter={handleFilter}
-            type="text"
-            name="search"
-            placeholder={"..."}
+          <SortingBar
+            onAscendingSort={onAscendingSort}
+            onDescendingSort={onDescendingSort}
           />
-          {filteredResults?.length === 0 ? memoriesList : filteredResults}
+          <SearchBar onSearch={handleSearch} />
+          {searchResults?.length === 0 ? allMemories : searchResults}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>
