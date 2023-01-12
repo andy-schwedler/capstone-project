@@ -70,7 +70,7 @@ export default function MemoryListCard({
             />
           </>
         ) : (
-          <StyledLink href={`/${sampleEvent.id}`}>
+          <StyledLink aria-label="detail page" href={`/${sampleEvent.id}`}>
             <p>{sampleEvent.date}</p>
             <h3>{sampleEvent.headline}</h3>
           </StyledLink>
