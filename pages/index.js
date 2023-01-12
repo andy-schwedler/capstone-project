@@ -3,9 +3,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
-
 import SearchBar from "../components/SearchBar";
-
 import SortingBar from "../components/SortingBar";
 
 export default function Overview({
@@ -22,6 +20,7 @@ export default function Overview({
     const searchEntry = event.target.value;
 
     const filteredDetails = sampleEvents.filter((sampleEvent) => {
+      //  if nothing was entered by the user, no list will be created
       if (searchEntry === "") {
         return null;
       } else
@@ -45,25 +44,6 @@ export default function Overview({
       />
     </Fragment>
   ));
-  // unused code for now
-  // const sortedList = sampleEvents
-  //   ?.slice()
-  //   .sort((a, b) => {
-  //     const date1 = new Date(a.date);
-  //     const date2 = new Date(b.date);
-  //     // ascending / oldest first
-  //     return date1 - date2;
-  //   })
-  //   .map((sampleEvent) => (
-  //     <Fragment key={sampleEvent.id}>
-  //       <MemoryListCard
-  //         sampleEvent={sampleEvent}
-  //         onToggleFavorite={onToggleFavorite}
-  //         onDelete={onDelete}
-  //         onEditMemory={onEditMemory}
-  //       />
-  //     </Fragment>
-  //   ));
 
   const allMemories = sampleEvents?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>

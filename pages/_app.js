@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
     });
     setSampleEvents(ascendingData);
   }
-  // sorting descending / newest first
+  // [DEFAULT] sorting descending / newest first
   function handleDescendingSort() {
     const descendingData = sampleEvents?.slice().sort((a, b) => {
       const date1 = new Date(a.date);
