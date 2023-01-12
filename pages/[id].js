@@ -6,8 +6,6 @@ import {
   StyledGridWrapper,
   StyledLink,
   StyledMain,
-  StyledMainGrid,
-  StyledScrollSection,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
 
