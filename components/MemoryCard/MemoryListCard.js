@@ -15,7 +15,7 @@ export default function MemoryListCard({
   const [editMode, setEditMode] = useState(false);
 
   function handleCancelButton() {
-    if (confirm("Your changes will not be saved")) {
+    if (confirm("Are you sure you want to discard your unsaved changes?")) {
       setDisplayOptionMenu(false);
       setEditMode(false);
     }
