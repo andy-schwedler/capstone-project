@@ -5,15 +5,17 @@ export default function InputAndLabelDatePair({
   type,
   defaultValue,
   placeholder,
+  label,
 }) {
   return (
     <>
       {type === "checkbox" && (
         <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledLabel htmlFor={name}>{label}</StyledLabel>
           <StyledInput
             type="checkbox"
             name={name}
+            aria-label={name}
             defaultValue={defaultValue}
             placeholder={placeholder}
           />
@@ -21,7 +23,7 @@ export default function InputAndLabelDatePair({
       )}
       {type === "date" && (
         <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledLabel htmlFor={label}>{label}</StyledLabel>
           <StyledInput
             min="2022-01-01"
             max="2023-12-31"

@@ -5,8 +5,8 @@ import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
-    <StyledCreateForm onSubmit={onAddCreateCard}>
-      <StyledFieldset>
+    <StyledCreateForm aria-label="create form" onSubmit={onAddCreateCard}>
+      <StyledFieldset aria-describedby="form">
         <InputAndLabelDatePair type="checkbox" name="favorite" />
         <InputAndLabelDatePair type="date" name="date" required />
         <InputAndLabelTextPair
@@ -21,8 +21,12 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
           placeholder="...tell me more"
         />
         <StyledButtonWrapper>
-          <StyledButtonFrame type="submit">OK</StyledButtonFrame>
-          <StyledButtonFrame type="reset">RESET</StyledButtonFrame>
+          <StyledButtonFrame aria-label="submit form" type="submit">
+            OK
+          </StyledButtonFrame>
+          <StyledButtonFrame aria-label="reset form" type="reset">
+            RESET
+          </StyledButtonFrame>
         </StyledButtonWrapper>
       </StyledFieldset>
     </StyledCreateForm>

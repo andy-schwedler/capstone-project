@@ -6,6 +6,7 @@ export default function BookmarkButton({ id, isFavorite, onToggleFavorite }) {
     <>
       <StyledButtonFrame
         aria-label="bookmark"
+        name="bookmark"
         onClick={() => onToggleFavorite(id)}
       >
         {isFavorite ? (

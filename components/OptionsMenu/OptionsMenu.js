@@ -12,8 +12,18 @@ export default function OptionsMenu({
 }) {
   return (
     <StyledMenu>
-      <StyledButtonFrame onClick={onToggleEdit}>EDIT</StyledButtonFrame>
-      <StyledButtonFrame onClick={() => onDelete(sampleEvent.id)}>
+      <StyledButtonFrame
+        name="edit"
+        aria-label="edit button"
+        onClick={onToggleEdit}
+      >
+        EDIT
+      </StyledButtonFrame>
+      <StyledButtonFrame
+        name="delete"
+        aria-label="delete button"
+        onClick={() => onDelete(sampleEvent.id)}
+      >
         REMOVE
       </StyledButtonFrame>
       <StyledButtonFrame onClick={onToggleDisplay}>CANCEL</StyledButtonFrame>

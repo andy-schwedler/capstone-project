@@ -5,7 +5,7 @@ import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
-    <StyledForm onSubmit={onEditSubmit}>
+    <StyledForm aria-label="editing form" onSubmit={onEditSubmit}>
       <InputAndLabelDatePair
         name="date"
         type="date"
@@ -17,12 +17,19 @@ export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
         type="text-not-required"
         defaultValue={sampleEvent.headline}
       />
-      <div>
-        <StyledButtonFrame type="submit">OK</StyledButtonFrame>
-        <StyledButtonFrame onClick={onCancel} type="button">
+      <section>
+        <StyledButtonFrame name="submit" aria-label="submit form" type="submit">
+          OK
+        </StyledButtonFrame>
+        <StyledButtonFrame
+          name="reset"
+          aria-label="close form"
+          onClick={onCancel}
+          type="button"
+        >
           CANCEL
         </StyledButtonFrame>
-      </div>
+      </section>
     </StyledForm>
   );
 }
@@ -39,8 +46,8 @@ const StyledForm = styled.form`
     color: var(--beaver2);
     margin: 1em;
   }
-
-  div {
+  // need to be replaced with Styled Component
+  section {
     display: flex;
     justify-content: center;
     gap: 5rem;
