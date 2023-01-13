@@ -4,17 +4,15 @@ import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import SearchBar from "../components/SearchBar";
-import SortingBar from "../components/SortingBar";
-import SortedSection from "../components/SortedSection";
 import Greeting from "../components/Greeting";
+import CollapseSection from "../components/CollapseSection/CollapseSection";
+import { sortNewestFirst } from "../helpers/sortingLogic";
 
 export default function Overview({
   sampleEvents,
   onToggleFavorite,
   onDelete,
   onEditMemory,
-  onAscendingSort,
-  onDescendingSort,
 }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
@@ -47,17 +45,6 @@ export default function Overview({
     </Fragment>
   ));
 
-  const allMemories = sampleEvents?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryListCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-        onDelete={onDelete}
-        onEditMemory={onEditMemory}
-      />
-    </Fragment>
-  ));
-
   return (
     <>
       <StyledGridWrapper>
@@ -66,13 +53,10 @@ export default function Overview({
           <Greeting />
           <SearchBar onSearch={handleSearch} />
           {searchResults?.length === 0 ? (
-            <>
-              <SortedSection headline={"All"} sampleEvents={sampleEvents} />
-              <SortedSection
-                headline={"this year"}
-                sampleEvents={sampleEvents}
-              />
-            </>
+            <CollapseSection
+              headline={"Descending"}
+              sampleEvents={sampleEvents}
+            />
           ) : (
             searchResults
           )}

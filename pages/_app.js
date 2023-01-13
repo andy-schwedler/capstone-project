@@ -55,24 +55,6 @@ function MyApp({ Component, pageProps }) {
     });
     getMemories();
   }
-  // sorting ascending / oldest first
-  function handleAscendingSort() {
-    const ascendingData = sampleEvents?.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date1 - date2;
-    });
-    setSampleEvents(ascendingData);
-  }
-  // [DEFAULT] sorting descending / newest first
-  function handleDescendingSort() {
-    const descendingData = sampleEvents?.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date2 - date1;
-    });
-    setSampleEvents(descendingData);
-  }
 
   // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
@@ -115,8 +97,6 @@ function MyApp({ Component, pageProps }) {
         onAddCreateCard={handleAddCreateCard}
         onDelete={handleDeleteMemoryCard}
         onEditMemory={handleEditMemory}
-        onAscendingSort={handleAscendingSort}
-        onDescendingSort={handleDescendingSort}
       />
     </>
   );

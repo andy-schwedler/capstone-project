@@ -6,19 +6,23 @@ export default function Greeting() {
     const date = new Date();
     const hours = date.getHours();
 
-    if (hours < 12) {
-      return (greeting = "morning 🛫");
-    } else if (hours >= 12 && hours < 17) {
-      return (greeting = "afternoon ☕️");
-    } else {
-      return (greeting = "night 😴");
+    if (hours < 11) {
+      return (greeting = "Good morning 🛫 ");
+    } else if (hours >= 11 && hours < 13) {
+      return (greeting = "It´s around lunch time");
+    } else if (hours >= 13 && hours < 18) {
+      return (greeting = "Good afternoon");
+    } else if (hours >= 18 && hours < 21) {
+      return (greeting = "Have a nice evening");
+    } else if (hours >= 21) {
+      return (greeting = "Have a good night 😴 ");
     }
   }
   const timeoftheDay = dynamicGreeting();
 
   return (
     <StyledGreeting>
-      <h1>Good {timeoftheDay} Beaver </h1>
+      <h1>{timeoftheDay}, Beaver </h1>
     </StyledGreeting>
   );
 }

@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
 
 export default function MemoryPreview({ sampleEvent }) {
-  const previewDetails = sampleEvent.details.slice().substring(0, 30);
+  const previewDetails = sampleEvent.details
+    .slice()
+    .substring(0, 30)
+    .padEnd(33, ".");
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-      <h3>{sampleEvent.headline}</h3>
+      <h5>{sampleEvent.headline}</h5>
       <p>{previewDetails}</p>
       {sampleEvent.isFavorite ? (
         <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
@@ -24,27 +27,38 @@ export default function MemoryPreview({ sampleEvent }) {
 }
 
 const StyledContainerLink = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  overflow-y: hidden;
-  min-width: 8rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   border: 1px solid var(--beaver2);
   background-color: var(--beaver3);
   justify-content: center;
   align-items: center;
   border-radius: 0.2em;
-  padding: 0.8rem;
+  padding: 0.4rem;
   text-decoration: none;
-  margin: 0.5em;
+  min-width: 10em;
+  height: 8em;
+  margin: 0.8em;
 
-  h3 {
+  h5 {
     margin: 0;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+    padding: 0;
   }
 
   p {
     text-align: justify;
     font-style: italic;
     font-size: 0.8em;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  svg {
+    grid-column: -1;
+    grid-row: -1;
   }
 
   :link,
