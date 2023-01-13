@@ -2,7 +2,7 @@ import { StyledButtonFrame } from "../GlobalStyles";
 
 export function SearchIcon({ fill, width, height }) {
   return (
-    <StyledButtonFrame>
+    <StyledButtonFrame name="search">
       <svg
         width={width}
         height={height}

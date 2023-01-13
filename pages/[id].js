@@ -6,8 +6,6 @@ import {
   StyledGridWrapper,
   StyledLink,
   StyledMain,
-  StyledMainGrid,
-  StyledScrollSection,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
 
@@ -24,7 +22,9 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
         <StyledGridWrapper>
           <Header />
           <DisplayMessage message={"ID does not match"} />
-          <StyledLink href={"/"}>Back to overview</StyledLink>
+          <StyledLink aria-label="overview page" href={"/"}>
+            Back to overview
+          </StyledLink>
         </StyledGridWrapper>
       </>
     );

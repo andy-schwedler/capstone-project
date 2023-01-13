@@ -13,7 +13,7 @@ export default function Footer({ sampleEvents }) {
 
   return (
     <StyledFooter>
-      <StyledLink href={"/"}>
+      <StyledLink aria-label="overview page" href={"/"}>
         <ScheduleIcon
           aria-label="overview"
           alt="overview"
@@ -22,7 +22,7 @@ export default function Footer({ sampleEvents }) {
           height={50}
         />
       </StyledLink>
-      <StyledLink href={"/createpage"}>
+      <StyledLink aria-label="create page" href={"/createpage"}>
         <CreateIcon
           alt="add button"
           color="var(--beaver)"
@@ -30,7 +30,7 @@ export default function Footer({ sampleEvents }) {
           height={50}
         />
       </StyledLink>
-      <StyledWrapperLink href={"/bookmarks"}>
+      <StyledWrapperLink aria-label="bookmark page" href={"/bookmarks"}>
         <BookmarkIcon
           aria-label="bookmark"
           alt="bookmark"

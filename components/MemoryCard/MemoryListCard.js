@@ -15,8 +15,11 @@ export default function MemoryListCard({
   const [editMode, setEditMode] = useState(false);
 
   function handleCancelButton() {
-    setDisplayOptionMenu(false);
-    setEditMode(false);
+    if (confirm("Are you sure you want to discard your unsaved changes?")) {
+      setDisplayOptionMenu(false);
+      setEditMode(false);
+    }
+    return;
   }
   function toggleDisplayOptionMenu() {
     setDisplayOptionMenu(!displayOptionMenu);
@@ -45,8 +48,16 @@ export default function MemoryListCard({
   return (
     <>
       <StyledEventContainer>
-        <StyledButtonFrame onClick={toggleDisplayOptionMenu}>
-          <MoreOptionsIcon fill="var(--beaver1)" width={20} />
+        <StyledButtonFrame
+          name="options"
+          aria-label="options"
+          onClick={toggleDisplayOptionMenu}
+        >
+          <MoreOptionsIcon
+            alt="options icon"
+            fill="var(--beaver1)"
+            width={20}
+          />
         </StyledButtonFrame>
         {editMode ? (
           <>
@@ -59,7 +70,7 @@ export default function MemoryListCard({
             />
           </>
         ) : (
-          <StyledLink href={`/${sampleEvent.id}`}>
+          <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
             <p>{sampleEvent.date}</p>
             <h3>{sampleEvent.headline}</h3>
           </StyledLink>

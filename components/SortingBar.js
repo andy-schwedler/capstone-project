@@ -4,10 +4,13 @@ import { StyledButtonFrame } from "./GlobalStyles";
 export default function SortingBar({ onAscendingSort, onDescendingSort }) {
   return (
     <StyledSortingContainer>
-      <StyledButtonFrame onClick={onAscendingSort}>
+      <StyledButtonFrame aria-label="sort ascending" onClick={onAscendingSort}>
         oldest first
       </StyledButtonFrame>
-      <StyledButtonFrame onClick={onDescendingSort}>
+      <StyledButtonFrame
+        aria-label="sort descending"
+        onClick={onDescendingSort}
+      >
         newest first
       </StyledButtonFrame>
     </StyledSortingContainer>
