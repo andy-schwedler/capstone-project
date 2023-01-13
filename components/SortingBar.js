@@ -7,7 +7,10 @@ export default function SortingBar({ onAscendingSort, onDescendingSort }) {
       <StyledButtonFrame aria-label="sort ascending" onClick={onAscendingSort}>
         oldest first
       </StyledButtonFrame>
-      <StyledButtonFrame aria-label="sort ascending" onClick={onDescendingSort}>
+      <StyledButtonFrame
+        aria-label="sort descending"
+        onClick={onDescendingSort}
+      >
         newest first
       </StyledButtonFrame>
     </StyledSortingContainer>
