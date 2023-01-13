@@ -22,18 +22,26 @@ export default function SortedSection({
           sampleEvent={sampleEvent}
           onToggleFavorite={onToggleFavorite}
         />
-        {/* <MemoryListCard
-          sampleEvent={sampleEvent}
-          onToggleFavorite={onToggleFavorite}
-          onDelete={onDelete}
-          onEditMemory={onEditMemory}
-        /> */}
       </Fragment>
     ));
 
+  const years = sampleEvents
+    ?.filter((sampleEvent) => {
+      return sampleEvent.date >= "2022-01-10";
+    })
+    .map((year) => {
+      const date = new Date(year.date);
+      const yearOnly = date.getFullYear();
+
+      return yearOnly;
+    });
+
+  const uniqueDate = Array.from(new Set(years));
+  console.log(uniqueDate);
+
   return (
     <>
-      <h3>All of your memories</h3>
+      <h3>recently created</h3>
       <StyledSortedSection>{sortNewestFirst}</StyledSortedSection>
     </>
   );
@@ -41,8 +49,5 @@ export default function SortedSection({
 
 const StyledSortedSection = styled.section`
   display: flex;
-  width: 100%;
-  gap: 3.5em;
-  height: 10rem;
-  overflow-y: scroll;
+  overflow-y: hidden;
 `;

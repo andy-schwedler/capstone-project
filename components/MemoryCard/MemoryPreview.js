@@ -17,18 +17,24 @@ const StyledContainerLink = styled(Link)`
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
-  min-width: 12em;
+  min-width: 8rem;
   border: 1px solid var(--beaver2);
   background-color: var(--beaver3);
   justify-content: center;
   align-items: center;
   border-radius: 0.2em;
-  padding: 1.2rem;
+  padding: 0.8rem;
   text-decoration: none;
+  margin: 2em;
+
+  h3 {
+    margin: 0;
+  }
 
   p {
     text-align: justify;
     font-style: italic;
+    font-size: 0.8em;
   }
 
   :link,

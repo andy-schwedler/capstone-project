@@ -66,7 +66,6 @@ export default function Overview({
           <Greeting />
           <SearchBar onSearch={handleSearch} />
           <SortedSection sampleEvents={sampleEvents} />
-          <SortedSection sampleEvents={sampleEvents} />
           {/* <SortingBar
             onAscendingSort={onAscendingSort}
             onDescendingSort={onDescendingSort}
