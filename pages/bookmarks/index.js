@@ -5,7 +5,11 @@ import Footer from "../../components/Footer/Footer";
 import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
 
-export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
+export default function Bookmarks({
+  sampleEvents,
+  onToggleFavorite,
+  onDelete,
+}) {
   // filter for Bookmarks-Page
   const favMemories = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
@@ -14,6 +18,7 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
   const favEventList = favMemories?.map((favEvent) => (
     <Fragment key={favEvent.id}>
       <MemoryListCard
+        onDelete={onDelete}
         sampleEvent={favEvent}
         onToggleFavorite={onToggleFavorite}
       />
