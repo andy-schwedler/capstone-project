@@ -5,7 +5,7 @@ import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
-    <StyledForm aria-label="editing form" onSubmit={onEditSubmit}>
+    <StyledForm aria-label="edit memory" onSubmit={onEditSubmit}>
       <InputAndLabelDatePair
         name="date"
         type="date"
@@ -18,7 +18,11 @@ export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
         defaultValue={sampleEvent.headline}
       />
       <section>
-        <StyledButtonFrame name="submit" aria-label="submit form" type="submit">
+        <StyledButtonFrame
+          name="submit"
+          aria-label="submit changes"
+          type="submit"
+        >
           OK
         </StyledButtonFrame>
         <StyledButtonFrame
