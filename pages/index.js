@@ -65,12 +65,17 @@ export default function Overview({
         <StyledMain>
           <Greeting />
           <SearchBar onSearch={handleSearch} />
-          <SortedSection sampleEvents={sampleEvents} />
-          {/* <SortingBar
-            onAscendingSort={onAscendingSort}
-            onDescendingSort={onDescendingSort}
-          />
-          {searchResults?.length === 0 ? allMemories : searchResults} */}
+          {searchResults?.length === 0 ? (
+            <>
+              <SortedSection headline={"All"} sampleEvents={sampleEvents} />
+              <SortedSection
+                headline={"this year"}
+                sampleEvents={sampleEvents}
+              />
+            </>
+          ) : (
+            searchResults
+          )}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>

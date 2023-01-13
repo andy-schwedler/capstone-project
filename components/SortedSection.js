@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import styled from "styled-components";
 import MemoryPreview from "./MemoryCard/MemoryPreview";
 
@@ -7,7 +7,13 @@ export default function SortedSection({
   onToggleFavorite,
   onDelete,
   onEditMemory,
+  headline,
 }) {
+  const [iscollapsed, setIsCollapsed] = useState(true);
+
+  function handleCollapse() {
+    setIsCollapsed(!iscollapsed);
+  }
   const sortNewestFirst = sampleEvents
     ?.slice()
     ?.sort((a, b) => {
@@ -37,16 +43,24 @@ export default function SortedSection({
     });
 
   const uniqueDate = Array.from(new Set(years));
-  console.log(uniqueDate);
 
   return (
     <>
-      <h3>recently created</h3>
-      <StyledSortedSection>{sortNewestFirst}</StyledSortedSection>
+      <StyledSortedSectionContainer>
+        <h3>{headline}</h3>
+        <button onClick={handleCollapse}>Drop</button>
+        {iscollapsed && (
+          <StyledSortedSection>{sortNewestFirst}</StyledSortedSection>
+        )}
+      </StyledSortedSectionContainer>
     </>
   );
 }
 
+const StyledSortedSectionContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
 const StyledSortedSection = styled.section`
   display: flex;
   overflow-y: hidden;

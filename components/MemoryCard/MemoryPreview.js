@@ -1,14 +1,24 @@
 import Link from "next/link";
 import styled from "styled-components";
-import BookmarkButton from "../BookmarkButton";
+import { BookmarkIcon } from "../Icons/BookmarkIcon";
 
-export default function MemoryPreview({ sampleEvent, onToggleFavorite }) {
+export default function MemoryPreview({ sampleEvent }) {
   const previewDetails = sampleEvent.details.slice().substring(0, 30);
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
       <h3>{sampleEvent.headline}</h3>
       <p>{previewDetails}</p>
+      {sampleEvent.isFavorite ? (
+        <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
+      ) : (
+        <BookmarkIcon
+          alt="bookmark"
+          fill="var(--beaver)"
+          width={20}
+          height={20}
+        />
+      )}
     </StyledContainerLink>
   );
 }
@@ -25,7 +35,7 @@ const StyledContainerLink = styled(Link)`
   border-radius: 0.2em;
   padding: 0.8rem;
   text-decoration: none;
-  margin: 2em;
+  margin: 0.5em;
 
   h3 {
     margin: 0;

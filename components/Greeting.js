@@ -7,18 +7,18 @@ export default function Greeting() {
     const hours = date.getHours();
 
     if (hours < 12) {
-      return (greeting = "morning");
+      return (greeting = "morning 🛫");
     } else if (hours >= 12 && hours < 17) {
-      return (greeting = "afternoon");
+      return (greeting = "afternoon ☕️");
     } else {
-      return (greeting = "night");
+      return (greeting = "night 😴");
     }
   }
   const timeoftheDay = dynamicGreeting();
 
   return (
     <StyledGreeting>
-      <h1>Good {timeoftheDay}, Beaver </h1>
+      <h1>Good {timeoftheDay} Beaver </h1>
     </StyledGreeting>
   );
 }
