@@ -45,6 +45,9 @@ export default function Footer({ sampleEvents }) {
 }
 
 const StyledFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;

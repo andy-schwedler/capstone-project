@@ -61,12 +61,14 @@ export default function Overview({
       <StyledGridWrapper>
         <Header />
         <StyledMain>
-          <SortingBar
+          <h1>Good Morning, Andy</h1>
+          <h4>Recents</h4>
+          {/* <SortingBar
             onAscendingSort={onAscendingSort}
             onDescendingSort={onDescendingSort}
           />
           <SearchBar onSearch={handleSearch} />
-          {searchResults?.length === 0 ? allMemories : searchResults}
+          {searchResults?.length === 0 ? allMemories : searchResults} */}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />
       </StyledGridWrapper>
