@@ -5,6 +5,8 @@ import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import SearchBar from "../components/SearchBar";
 import SortingBar from "../components/SortingBar";
+import SortedSection from "../components/SortedSection";
+import Greeting from "../components/Greeting";
 
 export default function Overview({
   sampleEvents,
@@ -61,13 +63,14 @@ export default function Overview({
       <StyledGridWrapper>
         <Header />
         <StyledMain>
-          <h1>Good Morning, Andy</h1>
-          <h4>Recents</h4>
+          <Greeting />
+          <SearchBar onSearch={handleSearch} />
+          <SortedSection sampleEvents={sampleEvents} />
+          <SortedSection sampleEvents={sampleEvents} />
           {/* <SortingBar
             onAscendingSort={onAscendingSort}
             onDescendingSort={onDescendingSort}
           />
-          <SearchBar onSearch={handleSearch} />
           {searchResults?.length === 0 ? allMemories : searchResults} */}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />

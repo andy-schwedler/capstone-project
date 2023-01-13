@@ -27,19 +27,18 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledGridWrapper = styled.div`
-  display: grid;
+  /* display: grid;
   height: 100vh;
   align-self: center;
-  grid-template-rows: auto 2fr auto;
+  grid-template-rows: auto 2fr auto; */
 `;
 
 export const StyledMain = styled.main`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow: auto;
-  padding: 10px;
+  overflow: auto; */
 `;
 
 export const StyledLink = styled(Link)`

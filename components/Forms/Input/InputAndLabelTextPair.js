@@ -61,8 +61,9 @@ const StyledLabel = styled.label`
 `;
 
 const StyledTextarea = styled.textarea`
-  border: none;
-  border-bottom: 0.1em solid darkgray;
+  border: 0.1em solid darkgray;
+  background-color: inherit;
+  height: 10em;
 
   ::-webkit-input-placeholder {
     text-align: center;
@@ -74,13 +75,13 @@ const StyledTextarea = styled.textarea`
 `;
 
 const StyledInput = styled.input`
-  border: none;
-  border-bottom: 0.1em solid darkgray;
+  border: 0.1em solid darkgray;
   text-align: center;
   box-shadow: none;
   caret-color: var(--beaver2);
   color: var(--beaver1);
   margin: 1em;
+  background-color: inherit;
 
   :focus {
     outline: transparent;
