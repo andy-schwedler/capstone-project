@@ -33,7 +33,7 @@ export function clipYear(memories) {
 }
 
 //   use Array for Filtering for years
-const uniqueDate = Array.from(new Set());
+export const uniqueDate = Array.from(new Set());
 
 // sorting ascending / oldest first
 export function handleAscendingSort(data) {

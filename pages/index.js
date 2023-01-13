@@ -6,7 +6,6 @@ import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting";
 import CollapseSection from "../components/CollapseSection/CollapseSection";
-import { sortNewestFirst } from "../helpers/sortingLogic";
 
 export default function Overview({
   sampleEvents,

@@ -84,20 +84,33 @@ function MyApp({ Component, pageProps }) {
     );
   }
 
+  //   <>
+  //   <GlobalStyles />
+  //   {!artists ? (
+  //     <h3 style={{ color: "white" }}>loading...</h3>
+  //   ) : (
+  //     <Component {...pageProps} artists={artists} onSetArtists={setArtists} />
+  //   )}
+  // </>
+
   return (
     <>
       <Head>
         <title>🦫 Memories 💭</title>
       </Head>
       <GlobalStyles />
-      <Component
-        {...pageProps}
-        sampleEvents={sampleEvents}
-        onToggleFavorite={handleToggleFavorite}
-        onAddCreateCard={handleAddCreateCard}
-        onDelete={handleDeleteMemoryCard}
-        onEditMemory={handleEditMemory}
-      />
+      {!sampleEvents ? (
+        <h3>fetching data</h3>
+      ) : (
+        <Component
+          {...pageProps}
+          sampleEvents={sampleEvents}
+          onToggleFavorite={handleToggleFavorite}
+          onAddCreateCard={handleAddCreateCard}
+          onDelete={handleDeleteMemoryCard}
+          onEditMemory={handleEditMemory}
+        />
+      )}
     </>
   );
 }
