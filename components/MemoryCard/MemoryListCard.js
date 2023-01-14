@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { rearrangeDates } from "../../helpers/sortingLogic";
 import EditForm from "../Forms/EditForm";
 import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import MoreOptionsIcon from "../Icons/MoreOptionsIcon";
@@ -45,6 +46,8 @@ export default function MemoryListCard({
       handleToggleEditMode();
   }
 
+  const timeStamp = rearrangeDates(sampleEvent.date);
+
   return (
     <>
       <StyledEventContainer>
@@ -71,7 +74,7 @@ export default function MemoryListCard({
           </>
         ) : (
           <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-            <p>{sampleEvent.date}</p>
+            <p> {timeStamp} </p>
             <h3>{sampleEvent.headline}</h3>
           </StyledLink>
         )}
