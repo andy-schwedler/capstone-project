@@ -1,34 +1,26 @@
-import { Fragment, useState } from "react";
-import styled from "styled-components";
-import { sortNewestFirst } from "../../helpers/sortingLogic";
-import MemoryPreview from "../MemoryCard/MemoryPreview";
+import { useState } from "react";
+import styled, { css } from "styled-components";
 
-export default function CollapseSection({
-  sampleEvents,
-  onToggleFavorite,
-  headline,
-}) {
-  const [iscollapsed, setIsCollapsed] = useState(true);
+import ArrowIcon from "../Icons/ArrowIcon";
+
+export default function CollapseSection({ data, headline }) {
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   function handleCollapse() {
-    setIsCollapsed(!iscollapsed);
+    setIsCollapsed(!isCollapsed);
   }
 
-  const sortedDescending = sortNewestFirst(sampleEvents)?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryPreview
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </Fragment>
-  ));
+  const renderedChildren = data;
 
   return (
     <>
       <StyledCollapsedSectionContainer>
-        <h2 onClick={handleCollapse}>{headline}</h2>
-        {iscollapsed && (
-          <StyledSortedSection>{sortedDescending}</StyledSortedSection>
+        <div>
+          <h3 onClick={handleCollapse}>{headline}</h3>
+          <ArrowIcon active fill={"var(--beaver1)"} width="20" />
+        </div>
+        {isCollapsed && (
+          <StyledSortedSection>{renderedChildren}</StyledSortedSection>
         )}
       </StyledCollapsedSectionContainer>
     </>
@@ -39,7 +31,19 @@ const StyledCollapsedSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding: 1em;
+
+  h3 {
+    margin-left: 0.3em;
+    color: var(--beaver2);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 `;
+
 const StyledSortedSection = styled.section`
   display: flex;
   overflow-y: scroll;

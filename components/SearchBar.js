@@ -17,4 +17,5 @@ export default function SearchBar({ onSearch }) {
 
 const StyledSearchBar = styled.section`
   align-self: flex-start;
+  margin: 1em;
 `;

@@ -1,3 +1,4 @@
+// this will rearrange the date to a more beaver friendly format
 export function rearrangeDates(date) {
   const changedDate = new Date(date);
 
@@ -7,7 +8,7 @@ export function rearrangeDates(date) {
 
   return `${day}.${month}.${year}`;
 }
-
+// returns objects sorted in a descending order
 export function sortNewestFirst(memories) {
   return memories
     ?.slice()
@@ -19,10 +20,22 @@ export function sortNewestFirst(memories) {
     .reverse();
 }
 
+// returns objects sorted in a descending order
+export function sortOldestFirst(memories) {
+  return memories
+    ?.slice()
+    ?.sort((a, b) => {
+      const date1 = new Date(a.date);
+      const date2 = new Date(b.date);
+      return date2 - date1;
+    })
+    .reverse();
+}
+
 export function clipYear(memories) {
   memories
     ?.filter((memory) => {
-      return memory.date >= new Date("2022-01-10");
+      return memory.date > new Date("2022-01-01");
     })
     .map((year) => {
       const date = new Date(year.date);
@@ -32,8 +45,17 @@ export function clipYear(memories) {
     });
 }
 
-//   use Array for Filtering for years
-export const uniqueDate = Array.from(new Set());
+// function sortYear(memories) {
+//   return memories?.filter((memory) => {
+//     const allDates = new Date(memory.date).getFullYear();
+//     return allDates;
+//   });
+// }
+// const sortThisYear = sortYear();
+// console.log(sortThisYear);
+
+// // Filtering for years => creates new Array with duplicates removed
+// export const uniqueDate = Array.from(new Set());
 
 // sorting ascending / oldest first
 export function handleAscendingSort(data) {

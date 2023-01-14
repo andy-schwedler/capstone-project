@@ -82,6 +82,7 @@ const StyledInput = styled.input`
   color: var(--beaver1);
   margin: 1em;
   background-color: inherit;
+  border-radius: 0.3em;
 
   :focus {
     outline: transparent;

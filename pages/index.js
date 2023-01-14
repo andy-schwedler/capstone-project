@@ -4,8 +4,10 @@ import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import SearchBar from "../components/SearchBar";
-import Greeting from "../components/Greeting";
+import Greeting from "../components/Greeting/Greeting";
 import CollapseSection from "../components/CollapseSection/CollapseSection";
+import { sortNewestFirst, sortOldestFirst } from "../helpers/sortingLogic";
+import MemoryPreview from "../components/MemoryCard/MemoryPreview";
 
 export default function Overview({
   sampleEvents,
@@ -44,6 +46,18 @@ export default function Overview({
     </Fragment>
   ));
 
+  const sortedDescending = sortNewestFirst(sampleEvents)?.map((sampleEvent) => (
+    <Fragment key={sampleEvent.id}>
+      <MemoryPreview sampleEvent={sampleEvent} />
+    </Fragment>
+  ));
+
+  const sortedAscending = sortOldestFirst(sampleEvents)?.map((sampleEvent) => (
+    <Fragment key={sampleEvent.id}>
+      <MemoryPreview sampleEvent={sampleEvent} />
+    </Fragment>
+  ));
+
   return (
     <>
       <StyledGridWrapper>
@@ -52,10 +66,13 @@ export default function Overview({
           <Greeting />
           <SearchBar onSearch={handleSearch} />
           {searchResults?.length === 0 ? (
-            <CollapseSection
-              headline={"Descending"}
-              sampleEvents={sampleEvents}
-            />
+            <>
+              <CollapseSection data={sortedDescending} headline="recents" />
+              <CollapseSection
+                data={sortedAscending}
+                headline="starting way back"
+              />
+            </>
           ) : (
             searchResults
           )}

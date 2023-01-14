@@ -8,7 +8,6 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
         <InputAndLabelDatePair type="checkbox" name="favorite" />
-        <InputAndLabelDatePair type="date" name="date" required />
         <InputAndLabelTextPair
           placeholder="Title"
           type="text"

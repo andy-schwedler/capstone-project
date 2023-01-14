@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
+import { sortNewestFirst } from "../helpers/sortingLogic";
 
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
@@ -11,7 +12,8 @@ function MyApp({ Component, pageProps }) {
     event.preventDefault();
 
     // ./components/FORMS/CreateMemoryForm
-    const date = event.target.date.value;
+    const date = new Date();
+    // example   2023-01-14T12:01:44.740Z
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
     const isfavorite = event.target.elements.favorite.checked;
@@ -55,18 +57,12 @@ function MyApp({ Component, pageProps }) {
     });
     getMemories();
   }
-
   // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
     const response = await fetch("/api/memories");
     const memoriesList = await response.json();
 
-    const sortedArray = memoriesList.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date2 - date1;
-    });
-
+    const sortedArray = sortNewestFirst(memoriesList);
     setSampleEvents(sortedArray);
   }
   useEffect(() => {
@@ -84,15 +80,6 @@ function MyApp({ Component, pageProps }) {
     );
   }
 
-  //   <>
-  //   <GlobalStyles />
-  //   {!artists ? (
-  //     <h3 style={{ color: "white" }}>loading...</h3>
-  //   ) : (
-  //     <Component {...pageProps} artists={artists} onSetArtists={setArtists} />
-  //   )}
-  // </>
-
   return (
     <>
       <Head>
@@ -100,7 +87,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyles />
       {!sampleEvents ? (
-        <h3>fetching data</h3>
+        <h3>loading memories</h3>
       ) : (
         <Component
           {...pageProps}

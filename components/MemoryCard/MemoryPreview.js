@@ -1,16 +1,21 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { rearrangeDates } from "../../helpers/sortingLogic";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
 
 export default function MemoryPreview({ sampleEvent }) {
+  // this will trim the text to 30 letters and add "..." at the end - needs to be more dynamic
   const previewDetails = sampleEvent.details
-    .slice()
+    ?.slice()
     .substring(0, 30)
     .padEnd(33, ".");
+
+  const timestamp = rearrangeDates(sampleEvent.date);
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
       <h5>{sampleEvent.headline}</h5>
+      <p>{timestamp}</p>
       <p>{previewDetails}</p>
       {sampleEvent.isFavorite ? (
         <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
@@ -27,8 +32,8 @@ export default function MemoryPreview({ sampleEvent }) {
 }
 
 const StyledContainerLink = styled(Link)`
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  /* display: grid;
+  grid-template-columns: repeat(3, auto); */
   border: 1px solid var(--beaver2);
   background-color: var(--beaver3);
   justify-content: center;

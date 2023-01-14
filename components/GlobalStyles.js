@@ -29,7 +29,6 @@ export default GlobalStyles;
 export const StyledGridWrapper = styled.div`
   display: grid;
   height: 100vh;
-  align-self: center;
   grid-template-rows: auto 2fr auto;
 `;
 
@@ -37,9 +36,7 @@ export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
   width: 100vw;
-  /*justify-content: flex-start;
-  align-items: center;
-  overflow: auto; */
+  justify-content: flex-start;
 `;
 
 export const StyledLink = styled(Link)`
