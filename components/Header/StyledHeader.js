@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  justify-self: center;
+  position: sticky;
+  top: 0;
+  background-color: #efefef;
   padding: 10px;
   text-align: center;
+  width: 100vw;
 
   h1,
   p {
