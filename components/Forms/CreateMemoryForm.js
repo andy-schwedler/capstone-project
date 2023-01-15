@@ -3,14 +3,10 @@ import BookmarkButton from "../BookmarkButton";
 import { StyledButtonFrame } from "../GlobalStyles";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
-export default function CreateMemoryForm({
-  onAddCreateCard,
-  onToggleFavorite,
-}) {
+export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
-        {/* <BookmarkButton onToggleFavorite={onToggleFavorite} /> */}
         <InputAndLabelTextPair
           placeholder="Title"
           type="text"
