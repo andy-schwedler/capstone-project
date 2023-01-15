@@ -45,7 +45,7 @@ export default function Footer({ sampleEvents }) {
 }
 
 const StyledFooter = styled.footer`
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   display: flex;
@@ -65,7 +65,6 @@ const StyledButtonBadge = styled.div`
 `;
 
 const StyledWrapperLink = styled(Link)`
-  grid-column: 3 / 4;
   width: auto;
   display: flex;
   text-decoration: none;

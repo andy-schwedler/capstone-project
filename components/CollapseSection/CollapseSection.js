@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import ArrowIcon from "../Icons/ArrowIcon";
 
 export default function CollapseSection({ data, headline }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   function handleCollapse() {
     setIsCollapsed(!isCollapsed);
@@ -19,9 +19,7 @@ export default function CollapseSection({ data, headline }) {
           <h3 onClick={handleCollapse}>{headline}</h3>
           <ArrowIcon active fill={"var(--beaver1)"} width="20" />
         </div>
-        {isCollapsed && (
-          <StyledSortedSection>{renderedChildren}</StyledSortedSection>
-        )}
+        {isCollapsed && <StyledShelf>{renderedChildren}</StyledShelf>}
       </StyledCollapsedSectionContainer>
     </>
   );
@@ -30,8 +28,9 @@ export default function CollapseSection({ data, headline }) {
 const StyledCollapsedSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
+  width: 100vw;
   overflow: hidden;
-  padding: 1em;
 
   h3 {
     margin-left: 0.3em;
@@ -44,7 +43,7 @@ const StyledCollapsedSectionContainer = styled.section`
   }
 `;
 
-const StyledSortedSection = styled.section`
+const StyledShelf = styled.section`
   display: flex;
   overflow-y: scroll;
 `;

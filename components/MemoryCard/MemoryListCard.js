@@ -97,10 +97,11 @@ const StyledEventContainer = styled.article`
   display: grid;
   grid-template-columns: repeat(3, auto);
   background-color: var(--beaver2);
-  border-radius: 0.8rem;
+  border-radius: 0.3rem;
   padding: 0.3em;
   color: var(--beaver3);
-  align-items: center;
+  align-self: center;
+  margin-right: 0;
   margin-bottom: 1.1rem;
 
   a {

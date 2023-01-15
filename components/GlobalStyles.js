@@ -27,16 +27,19 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledGridWrapper = styled.div`
-  display: grid;
-  height: 100vh;
-  grid-template-rows: auto 2fr auto auto;
+  /* display: grid;
+  height: 100vh; */
+  /* grid-template-rows: auto 2fr auto auto; */
 `;
 
 export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  justify-content: flex-start;
+  /* width: 100vw; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow: scroll; */
+  margin-bottom: 8em;
 `;
 
 export const StyledLink = styled(Link)`

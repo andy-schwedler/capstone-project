@@ -16,7 +16,8 @@ function MyApp({ Component, pageProps }) {
     // example   2023-01-14T12:01:44.740Z
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
-    const isfavorite = event.target.elements.favorite.checked;
+    // currently not working
+    // const isfavorite = event.target.elements.favorite.checked;
 
     // ../../db/models/Memory
     const newEntry = {

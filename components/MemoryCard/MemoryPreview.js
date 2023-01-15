@@ -41,9 +41,8 @@ const StyledContainerLink = styled(Link)`
   border-radius: 0.2em;
   padding: 0.4rem;
   text-decoration: none;
-  min-width: 10em;
-  height: 8em;
-  margin: 0.8em;
+  min-width: 9em;
+  margin: 1em;
 
   h5 {
     margin: 0;
