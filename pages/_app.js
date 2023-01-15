@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
       date: date,
       headline: headline,
       details: details,
-      isFavorite: isfavorite,
+      isFavorite: false,
     };
 
     // POST memories

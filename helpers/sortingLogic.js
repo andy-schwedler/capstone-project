@@ -8,6 +8,7 @@ export function rearrangeDates(date) {
 
   return `${day}.${month}.${year}`;
 }
+
 // returns objects sorted in a descending order
 export function sortNewestFirst(memories) {
   return memories
@@ -35,6 +36,8 @@ export function sortOldestFirst(memories) {
 export function clipYear(memories) {
   memories
     ?.filter((memory) => {
+      const formatYear = new Date(memory.date);
+
       return memory.date > new Date("2022-01-01");
     })
     .map((year) => {

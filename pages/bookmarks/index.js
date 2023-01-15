@@ -9,6 +9,7 @@ export default function Bookmarks({
   sampleEvents,
   onToggleFavorite,
   onDelete,
+  onEditMemory,
 }) {
   // filter for Bookmarks-Page
   const favMemories = sampleEvents?.filter(
@@ -21,6 +22,7 @@ export default function Bookmarks({
         onDelete={onDelete}
         sampleEvent={favEvent}
         onToggleFavorite={onToggleFavorite}
+        onEditMemory={onEditMemory}
       />
     </Fragment>
   ));

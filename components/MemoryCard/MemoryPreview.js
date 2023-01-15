@@ -34,38 +34,34 @@ export default function MemoryPreview({ sampleEvent }) {
 }
 
 const StyledContainerLink = styled(Link)`
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  border: 1px solid var(--beaver2);
+  border: 1px solid var(--beaver);
   background-color: var(--beaver3);
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  min-width: 10rem;
+  height: 8em;
   border-radius: 0.2em;
   padding: 0.4rem;
   text-decoration: none;
-  min-width: 9em;
-  margin: 1em;
-  overflow-x: hidden;
+  margin: 1em 0.5em 1em 0.5em;
 
   h5 {
-    margin: 0;
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
     grid-row: 1;
+    margin: 0;
     padding: 0;
   }
 
-  p {
-    text-align: justify;
-    font-style: italic;
-    font-size: 0.8em;
-    grid-column: 1 / span 3;
-    grid-row: 2 / span 3;
-    margin: 0;
+  div {
+    grid-column: 1 / -1;
   }
 
   svg {
-    grid-column: -1;
-    grid-row: -1;
+    grid-column: 5;
+    grid-row: 1;
+  }
+
+  p {
+    margin: 0;
   }
 
   :link,
@@ -77,5 +73,6 @@ const StyledContainerLink = styled(Link)`
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-  color: darkseagreen;
+  align-items: center;
+  font-size: small;
 `;

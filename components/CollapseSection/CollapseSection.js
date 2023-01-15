@@ -1,5 +1,6 @@
 import { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { StyledButtonFrame } from "../GlobalStyles";
 
 import ArrowIcon from "../Icons/ArrowIcon";
 
@@ -16,7 +17,9 @@ export default function CollapseSection({ data, headline }) {
     <>
       <StyledCollapseSectionContainer>
         <div>
-          <h3 onClick={handleCollapse}>{headline}</h3>
+          <StyledButtonFrame onClick={handleCollapse}>
+            {headline}
+          </StyledButtonFrame>
           <ArrowIcon active fill={"var(--beaver1)"} width="20" />
         </div>
         {isCollapsed && <StyledShelf>{renderedChildren}</StyledShelf>}
@@ -32,7 +35,7 @@ const StyledCollapseSectionContainer = styled.section`
   width: 100vw;
   overflow-y: hidden;
 
-  h5 {
+  button {
     color: var(--beaver2);
     padding: 1em;
   }
@@ -45,5 +48,5 @@ const StyledCollapseSectionContainer = styled.section`
 
 const StyledShelf = styled.section`
   display: flex;
-  overflow-y: scroll;
+  overflow-y: hidden;
 `;

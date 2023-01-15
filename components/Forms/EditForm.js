@@ -4,7 +4,10 @@ import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
-    <StyledForm aria-label="edit memory" onSubmit={onEditSubmit}>
+    <StyledForm
+      aria-label="edit memory"
+      onSubmit={() => onEditSubmit(event, sampleEvent.id)}
+    >
       <InputAndLabelTextPair
         name="headline"
         type="text-not-required"
@@ -40,10 +43,10 @@ const StyledForm = styled.form`
     border-radius: 0.5rem;
     height: 2rem;
     caret-color: var(--beaver1);
-    color: var(--beaver2);
+    color: var(--beaver1);
     margin: 1em;
   }
-  // need to be replaced with Styled Component
+  // needs to be replaced with Styled Component
   section {
     display: flex;
     justify-content: center;

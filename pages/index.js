@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
-import MemoryListCard from "../components/MemoryCard/MemoryListCard";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting/Greeting";
 import CollapseSection from "../components/CollapseSection/CollapseSection";
@@ -34,15 +33,9 @@ export default function Overview({
     });
     setSearchTerm(filteredDetails);
   }
-
-  const searchResults = searchTerm?.map((sampleEvent) => (
+  const results = searchTerm?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
-      <MemoryListCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-        onDelete={onDelete}
-        onEditMemory={onEditMemory}
-      />
+      <MemoryPreview sampleEvent={sampleEvent} />
     </Fragment>
   ));
 
@@ -65,16 +58,14 @@ export default function Overview({
         <StyledMain>
           <Greeting />
           <SearchBar onSearch={handleSearch} />
-          {searchResults?.length === 0 ? (
+          {searchTerm?.length === 0 ? (
             <>
-              <CollapseSection data={sortedDescending} headline="recents" />
-              <CollapseSection
-                data={sortedAscending}
-                headline="starting way back"
-              />
+              <CollapseSection data={sortedDescending} headline="recently" />
+              <CollapseSection data={""} headline="last 30 days" />
+              <CollapseSection data={sortedAscending} headline="old to new" />
             </>
           ) : (
-            searchResults
+            results
           )}
         </StyledMain>
         <Footer sampleEvents={sampleEvents} />

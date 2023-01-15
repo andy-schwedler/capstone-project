@@ -34,9 +34,8 @@ export default function MemoryListCard({
   function handleEditSubmit(event) {
     event.preventDefault();
 
-    const editedDate = event.target.date.value;
     const editedHeadline = event.target.headline.value;
-    const editModeInput = { headline: editedHeadline, date: editedDate };
+    const editModeInput = { headline: editedHeadline };
 
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
@@ -78,16 +77,16 @@ export default function MemoryListCard({
             <h3>{sampleEvent.headline}</h3>
           </StyledLink>
         )}
+        {displayOptionMenu && (
+          <OptionsMenu
+            onDelete={onDelete}
+            onToggleEdit={handleToggleEditMode}
+            onToggleDisplay={toggleDisplayOptionMenu}
+            sampleEvent={sampleEvent}
+            onToggleFavorite={onToggleFavorite}
+          />
+        )}
       </StyledEventContainer>
-      {displayOptionMenu && (
-        <OptionsMenu
-          onDelete={onDelete}
-          onToggleEdit={handleToggleEditMode}
-          onToggleDisplay={toggleDisplayOptionMenu}
-          sampleEvent={sampleEvent}
-          onToggleFavorite={onToggleFavorite}
-        />
-      )}
     </>
   );
 }
@@ -96,10 +95,9 @@ const StyledEventContainer = styled.article`
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  background-color: var(--beaver2);
+  background-color: var(--beaver);
   border-radius: 0.3rem;
-  padding: 0.3em;
-  color: var(--beaver3);
+  color: #fefefe;
   align-self: center;
   margin-right: 0;
   margin-bottom: 1.1rem;
