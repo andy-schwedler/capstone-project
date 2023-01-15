@@ -14,27 +14,27 @@ export default function CollapseSection({ data, headline }) {
 
   return (
     <>
-      <StyledCollapsedSectionContainer>
+      <StyledCollapseSectionContainer>
         <div>
           <h3 onClick={handleCollapse}>{headline}</h3>
           <ArrowIcon active fill={"var(--beaver1)"} width="20" />
         </div>
         {isCollapsed && <StyledShelf>{renderedChildren}</StyledShelf>}
-      </StyledCollapsedSectionContainer>
+      </StyledCollapseSectionContainer>
     </>
   );
 }
 
-const StyledCollapsedSectionContainer = styled.section`
+const StyledCollapseSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   width: 100vw;
-  overflow: hidden;
+  overflow-y: hidden;
 
-  h3 {
-    margin-left: 0.3em;
+  h5 {
     color: var(--beaver2);
+    padding: 1em;
   }
 
   div {

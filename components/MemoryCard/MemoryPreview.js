@@ -7,16 +7,18 @@ export default function MemoryPreview({ sampleEvent }) {
   // this will trim the text to 30 letters and add "..." at the end - needs to be more dynamic
   const previewDetails = sampleEvent.details
     ?.slice()
-    .substring(0, 30)
-    .padEnd(33, ".");
+    .substring(0, 10)
+    .padEnd(13, ".");
 
   const timestamp = rearrangeDates(sampleEvent.date);
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
       <h5>{sampleEvent.headline}</h5>
-      <p>{timestamp}</p>
-      <p>{previewDetails}</p>
+      <StyledContainer>
+        <p>{timestamp}</p>
+        <p>{previewDetails}</p>
+      </StyledContainer>
       {sampleEvent.isFavorite ? (
         <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
       ) : (
@@ -32,8 +34,8 @@ export default function MemoryPreview({ sampleEvent }) {
 }
 
 const StyledContainerLink = styled(Link)`
-  /* display: grid;
-  grid-template-columns: repeat(3, auto); */
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   border: 1px solid var(--beaver2);
   background-color: var(--beaver3);
   justify-content: center;
@@ -43,6 +45,7 @@ const StyledContainerLink = styled(Link)`
   text-decoration: none;
   min-width: 9em;
   margin: 1em;
+  overflow-x: hidden;
 
   h5 {
     margin: 0;
@@ -56,7 +59,7 @@ const StyledContainerLink = styled(Link)`
     font-style: italic;
     font-size: 0.8em;
     grid-column: 1 / span 3;
-    grid-row: 2;
+    grid-row: 2 / span 3;
     margin: 0;
   }
 
@@ -69,4 +72,10 @@ const StyledContainerLink = styled(Link)`
   :visited {
     color: inherit;
   }
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: darkseagreen;
 `;

@@ -38,7 +38,6 @@ export const StyledMain = styled.main`
   /* width: 100vw; */
   /* justify-content: center; */
   /* align-items: center; */
-  /* overflow: scroll; */
   margin-bottom: 8em;
 `;
 

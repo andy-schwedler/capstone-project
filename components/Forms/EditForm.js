@@ -6,12 +6,6 @@ import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
     <StyledForm aria-label="edit memory" onSubmit={onEditSubmit}>
-      <InputAndLabelDatePair
-        name="date"
-        type="date"
-        label="date"
-        defaultValue={sampleEvent.date}
-      />
       <InputAndLabelTextPair
         name="headline"
         type="text-not-required"
