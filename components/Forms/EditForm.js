@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelDatePair from "./Input/InputAndLabelDatePair";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
@@ -40,7 +39,7 @@ const StyledForm = styled.form`
   input {
     border-radius: 0.5rem;
     height: 2rem;
-    caret-color: var(--beaver2);
+    caret-color: var(--beaver1);
     color: var(--beaver2);
     margin: 1em;
   }
