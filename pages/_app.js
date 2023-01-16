@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
+import { handleDescendingSort } from "../helpers/sortingLogic";
 
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
@@ -11,17 +12,16 @@ function MyApp({ Component, pageProps }) {
     event.preventDefault();
 
     // ./components/FORMS/CreateMemoryForm
-    const date = event.target.date.value;
+    const date = new Date();
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
-    const isfavorite = event.target.elements.favorite.checked;
 
     // ../../db/models/Memory
     const newEntry = {
       date: date,
       headline: headline,
       details: details,
-      isFavorite: isfavorite,
+      isFavorite: false,
     };
 
     // POST memories
@@ -55,36 +55,12 @@ function MyApp({ Component, pageProps }) {
     });
     getMemories();
   }
-  // sorting ascending / oldest first
-  function handleAscendingSort() {
-    const ascendingData = sampleEvents?.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date1 - date2;
-    });
-    setSampleEvents(ascendingData);
-  }
-  // [DEFAULT] sorting descending / newest first
-  function handleDescendingSort() {
-    const descendingData = sampleEvents?.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date2 - date1;
-    });
-    setSampleEvents(descendingData);
-  }
-
   // fetch data from database // replace with ./lib/fetch.js
   async function getMemories() {
     const response = await fetch("/api/memories");
     const memoriesList = await response.json();
 
-    const sortedArray = memoriesList.slice().sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date2 - date1;
-    });
-
+    const sortedArray = handleDescendingSort(memoriesList);
     setSampleEvents(sortedArray);
   }
   useEffect(() => {
@@ -108,16 +84,18 @@ function MyApp({ Component, pageProps }) {
         <title>🦫 Memories 💭</title>
       </Head>
       <GlobalStyles />
-      <Component
-        {...pageProps}
-        sampleEvents={sampleEvents}
-        onToggleFavorite={handleToggleFavorite}
-        onAddCreateCard={handleAddCreateCard}
-        onDelete={handleDeleteMemoryCard}
-        onEditMemory={handleEditMemory}
-        onAscendingSort={handleAscendingSort}
-        onDescendingSort={handleDescendingSort}
-      />
+      {!sampleEvents ? (
+        <h3>loading memories</h3>
+      ) : (
+        <Component
+          {...pageProps}
+          sampleEvents={sampleEvents}
+          onToggleFavorite={handleToggleFavorite}
+          onAddCreateCard={handleAddCreateCard}
+          onDelete={handleDeleteMemoryCard}
+          onEditMemory={handleEditMemory}
+        />
+      )}
     </>
   );
 }

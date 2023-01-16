@@ -36,19 +36,14 @@ export default function OptionsMenu({
 }
 
 const StyledMenu = styled.div`
-  color: var(--beaver2);
+  color: var(--beaver4);
   background-color: var(--beaver1);
-  grid-column: 2 / 7;
+  grid-column: 1;
   display: flex;
   justify-content: space-evenly;
-  position: relative;
   bottom: 1.8em;
-  width: 60vw;
-  padding: 0.4rem;
   align-self: center;
-  border-bottom-left-radius: 0.8em;
-  border-bottom-right-radius: 0.8em;
-  transform: inherit;
+  border-top-right-radius: 1em;
 
   button {
     padding: 0.4rem;

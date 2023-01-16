@@ -1,17 +1,10 @@
 import styled from "styled-components";
+import { rearrangeDates } from "../../helpers/sortingLogic";
 import BookmarkButton from "../BookmarkButton";
 
 export default function MemoryCardDetail({ currentEvent, onToggleFavorite }) {
-  function changeDate(date) {
-    const changedDate = new Date(date);
-    const day = String(changedDate.getDate()).padStart(2, "0");
-    const month = String(changedDate.getMonth() + 1).padStart(2, "0");
-    const year = changedDate.getFullYear();
-
-    return `${day}.${month}.${year}`;
-  }
-
-  const formatDate = changeDate(currentEvent.date);
+  // this will rearrange the date to a more beaver friendly format
+  const formatDate = rearrangeDates(currentEvent.date);
 
   return (
     <StyledDetailFrame>

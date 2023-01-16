@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { StyledLink } from "../GlobalStyles";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
-import ScheduleIcon from "../Icons/ScheduleIcon";
 import { CreateIcon } from "../Icons/CreateIcon";
 import Link from "next/link";
+import BookOutline from "../Icons/BookOutline";
 
 export default function Footer({ sampleEvents }) {
   const Badge = sampleEvents?.filter(
@@ -14,7 +14,7 @@ export default function Footer({ sampleEvents }) {
   return (
     <StyledFooter>
       <StyledLink aria-label="overview page" href={"/"}>
-        <ScheduleIcon
+        <BookOutline
           aria-label="overview"
           alt="overview"
           fill="var(--beaver)"
@@ -25,7 +25,7 @@ export default function Footer({ sampleEvents }) {
       <StyledLink aria-label="create page" href={"/createpage"}>
         <CreateIcon
           alt="add button"
-          color="var(--beaver)"
+          fill="var(--beaver)"
           width={50}
           height={50}
         />
@@ -45,6 +45,9 @@ export default function Footer({ sampleEvents }) {
 }
 
 const StyledFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -62,7 +65,6 @@ const StyledButtonBadge = styled.div`
 `;
 
 const StyledWrapperLink = styled(Link)`
-  grid-column: 3 / 4;
   width: auto;
   display: flex;
   text-decoration: none;

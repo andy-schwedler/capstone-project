@@ -1,17 +1,13 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelDatePair from "./Input/InputAndLabelDatePair";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
-    <StyledForm aria-label="edit memory" onSubmit={onEditSubmit}>
-      <InputAndLabelDatePair
-        name="date"
-        type="date"
-        label="date"
-        defaultValue={sampleEvent.date}
-      />
+    <StyledForm
+      aria-label="edit memory"
+      onSubmit={() => onEditSubmit(event, sampleEvent.id)}
+    >
       <InputAndLabelTextPair
         name="headline"
         type="text-not-required"
@@ -46,11 +42,11 @@ const StyledForm = styled.form`
   input {
     border-radius: 0.5rem;
     height: 2rem;
-    caret-color: var(--beaver2);
-    color: var(--beaver2);
+    caret-color: var(--beaver1);
+    color: var(--beaver1);
     margin: 1em;
   }
-  // need to be replaced with Styled Component
+  // needs to be replaced with Styled Component
   section {
     display: flex;
     justify-content: center;

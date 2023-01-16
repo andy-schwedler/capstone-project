@@ -1,19 +1,17 @@
 import { Fragment, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
-import MemoryListCard from "../components/MemoryCard/MemoryListCard";
+import { StyledMain } from "../components/GlobalStyles";
 import SearchBar from "../components/SearchBar";
-import SortingBar from "../components/SortingBar";
+import Greeting from "../components/Greeting/Greeting";
+import ExpandSection from "../components/ExpandSection/ExpandSection";
+import {
+  handleDescendingSort,
+  handleAscendingSort,
+} from "../helpers/sortingLogic";
+import MemoryPreview from "../components/MemoryCard/MemoryPreview";
 
-export default function Overview({
-  sampleEvents,
-  onToggleFavorite,
-  onDelete,
-  onEditMemory,
-  onAscendingSort,
-  onDescendingSort,
-}) {
+export default function Overview({ sampleEvents }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
   function handleSearch(event) {
@@ -33,43 +31,40 @@ export default function Overview({
     });
     setSearchTerm(filteredDetails);
   }
-
-  const searchResults = searchTerm?.map((sampleEvent) => (
+  const results = searchTerm?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
-      <MemoryListCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-        onDelete={onDelete}
-        onEditMemory={onEditMemory}
-      />
+      <MemoryPreview sampleEvent={sampleEvent} />
     </Fragment>
   ));
 
-  const allMemories = sampleEvents?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryListCard
-        sampleEvent={sampleEvent}
-        onToggleFavorite={onToggleFavorite}
-        onDelete={onDelete}
-        onEditMemory={onEditMemory}
-      />
-    </Fragment>
-  ));
+  const sortedDescending = handleDescendingSort(sampleEvents)?.map(
+    (sampleEvent) => (
+      <MemoryPreview key={sampleEvent.id} sampleEvent={sampleEvent} />
+    )
+  );
+
+  const sortedAscending = handleAscendingSort(sampleEvents)?.map(
+    (sampleEvent) => (
+      <MemoryPreview key={sampleEvent.id} sampleEvent={sampleEvent} />
+    )
+  );
 
   return (
     <>
-      <StyledGridWrapper>
-        <Header />
-        <StyledMain>
-          <SortingBar
-            onAscendingSort={onAscendingSort}
-            onDescendingSort={onDescendingSort}
-          />
-          <SearchBar onSearch={handleSearch} />
-          {searchResults?.length === 0 ? allMemories : searchResults}
-        </StyledMain>
-        <Footer sampleEvents={sampleEvents} />
-      </StyledGridWrapper>
+      <Header />
+      <StyledMain>
+        <Greeting />
+        <SearchBar onSearch={handleSearch} />
+        {searchTerm?.length === 0 ? (
+          <>
+            <ExpandSection data={sortedDescending} headline="recently" />
+            <ExpandSection data={sortedAscending} headline="old to new" />
+          </>
+        ) : (
+          results
+        )}
+      </StyledMain>
+      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }

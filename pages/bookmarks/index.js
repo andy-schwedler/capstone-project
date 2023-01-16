@@ -5,19 +5,25 @@ import Footer from "../../components/Footer/Footer";
 import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
 
-export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
+export default function Bookmarks({
+  sampleEvents,
+  onToggleFavorite,
+  onDelete,
+  onEditMemory,
+}) {
   // filter for Bookmarks-Page
   const favMemories = sampleEvents?.filter(
     (sampleEvent) => sampleEvent.isFavorite === true
   );
   // render filtered bookmarks
   const favEventList = favMemories?.map((favEvent) => (
-    <Fragment key={favEvent.id}>
-      <MemoryListCard
-        sampleEvent={favEvent}
-        onToggleFavorite={onToggleFavorite}
-      />
-    </Fragment>
+    <MemoryListCard
+      key={favEvent.id}
+      onDelete={onDelete}
+      sampleEvent={favEvent}
+      onToggleFavorite={onToggleFavorite}
+      onEditMemory={onEditMemory}
+    />
   ));
 
   const favList =
@@ -29,11 +35,9 @@ export default function Bookmarks({ sampleEvents, onToggleFavorite }) {
 
   return (
     <>
-      <StyledGridWrapper>
-        <Header />
-        <StyledMain>{favList}</StyledMain>
-        <Footer sampleEvents={sampleEvents} />
-      </StyledGridWrapper>
+      <Header />
+      <StyledMain>{favList}</StyledMain>
+      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }

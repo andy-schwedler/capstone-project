@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { rearrangeDates } from "../../helpers/sortingLogic";
 import EditForm from "../Forms/EditForm";
 import { StyledButtonFrame, StyledLink } from "../GlobalStyles";
 import MoreOptionsIcon from "../Icons/MoreOptionsIcon";
@@ -33,9 +34,8 @@ export default function MemoryListCard({
   function handleEditSubmit(event) {
     event.preventDefault();
 
-    const editedDate = event.target.date.value;
     const editedHeadline = event.target.headline.value;
-    const editModeInput = { headline: editedHeadline, date: editedDate };
+    const editModeInput = { headline: editedHeadline };
 
     // //update on mongodb
     onEditMemory(editModeInput, sampleEvent.id);
@@ -45,37 +45,31 @@ export default function MemoryListCard({
       handleToggleEditMode();
   }
 
+  const formatDate = rearrangeDates(sampleEvent.date);
+
   return (
-    <>
-      <StyledEventContainer>
-        <StyledButtonFrame
-          name="options"
-          aria-label="options"
-          onClick={toggleDisplayOptionMenu}
-        >
-          <MoreOptionsIcon
-            alt="options icon"
-            fill="var(--beaver1)"
-            width={20}
-          />
-        </StyledButtonFrame>
-        {editMode ? (
-          <>
-            <EditForm
-              sampleEvent={sampleEvent}
-              onEditSubmit={handleEditSubmit}
-              onToggleEdit={handleToggleEditMode}
-              onToggleDisplay={toggleDisplayOptionMenu}
-              onCancel={handleCancelButton}
-            />
-          </>
-        ) : (
-          <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-            <p>{sampleEvent.date}</p>
-            <h3>{sampleEvent.headline}</h3>
-          </StyledLink>
-        )}
-      </StyledEventContainer>
+    <StyledEventContainer>
+      <StyledButtonFrame
+        name="options"
+        aria-label="options"
+        onClick={toggleDisplayOptionMenu}
+      >
+        <MoreOptionsIcon alt="options icon" fill="var(--beaver1)" width={20} />
+      </StyledButtonFrame>
+      {editMode ? (
+        <EditForm
+          sampleEvent={sampleEvent}
+          onEditSubmit={handleEditSubmit}
+          onToggleEdit={handleToggleEditMode}
+          onToggleDisplay={toggleDisplayOptionMenu}
+          onCancel={handleCancelButton}
+        />
+      ) : (
+        <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
+          <p> {formatDate} </p>
+          <h3>{sampleEvent.headline}</h3>
+        </StyledLink>
+      )}
       {displayOptionMenu && (
         <OptionsMenu
           onDelete={onDelete}
@@ -85,7 +79,7 @@ export default function MemoryListCard({
           onToggleFavorite={onToggleFavorite}
         />
       )}
-    </>
+    </StyledEventContainer>
   );
 }
 
@@ -93,11 +87,11 @@ const StyledEventContainer = styled.article`
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  background-color: var(--beaver2);
-  border-radius: 0.8rem;
-  padding: 0.3em;
-  color: var(--beaver3);
-  align-items: center;
+  background-color: var(--beaver);
+  border-radius: 0.3rem;
+  color: #fefefe;
+  align-self: center;
+  margin-right: 0;
   margin-bottom: 1.1rem;
 
   a {

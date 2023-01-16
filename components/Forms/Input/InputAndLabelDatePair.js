@@ -28,7 +28,6 @@ export default function InputAndLabelDatePair({
             min="2022-01-01"
             max="2023-12-31"
             pattern="\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])*"
-            required
             type="date"
             name={name}
             placeholder={placeholder}

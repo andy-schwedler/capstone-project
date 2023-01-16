@@ -1,14 +1,12 @@
 import styled from "styled-components";
+import BookmarkButton from "../BookmarkButton";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelDatePair from "./Input/InputAndLabelDatePair";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
-        <InputAndLabelDatePair type="checkbox" name="favorite" />
-        <InputAndLabelDatePair type="date" name="date" required />
         <InputAndLabelTextPair
           placeholder="Title"
           type="text"
@@ -36,18 +34,24 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
 export const StyledCreateForm = styled.form`
   border: none;
   outline: none;
-  width: 50vw;
+  max-width: 90vw;
+  align-self: center;
+  border: 1px solid var(--beaver2);
+  align-items: center;
+`;
+
+const StyledFieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  color: var(--beaver);
 `;
 
 const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 0.5em;
-`;
-const StyledFieldset = styled.fieldset`
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  border: none;
-  color: var(--beaver);
+  width: 100%;
 `;
