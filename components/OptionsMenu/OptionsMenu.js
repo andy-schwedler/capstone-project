@@ -38,7 +38,7 @@ export default function OptionsMenu({
 const StyledMenu = styled.div`
   color: var(--beaver4);
   background-color: var(--beaver1);
-  grid-column: 1 / 5;
+  grid-column: 1;
   display: flex;
   justify-content: space-evenly;
   bottom: 1.8em;

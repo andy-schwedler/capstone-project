@@ -17,8 +17,9 @@ export default function Bookmarks({
   );
   // render filtered bookmarks
   const favEventList = favMemories?.map((favEvent) => (
-    <Fragment key={favEvent.id}>
+    <Fragment>
       <MemoryListCard
+        key={favEvent.id}
         onDelete={onDelete}
         sampleEvent={favEvent}
         onToggleFavorite={onToggleFavorite}
@@ -36,11 +37,9 @@ export default function Bookmarks({
 
   return (
     <>
-      <StyledGridWrapper>
-        <Header />
-        <StyledMain>{favList}</StyledMain>
-        <Footer sampleEvents={sampleEvents} />
-      </StyledGridWrapper>
+      <Header />
+      <StyledMain>{favList}</StyledMain>
+      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }

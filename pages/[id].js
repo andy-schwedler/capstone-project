@@ -19,29 +19,25 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   if (!currentEvent) {
     return (
       <>
-        <StyledGridWrapper>
-          <Header />
-          <DisplayMessage message={"ID does not match"} />
-          <StyledLink aria-label="overview page" href={"/"}>
-            Back to overview
-          </StyledLink>
-        </StyledGridWrapper>
+        <Header />
+        <DisplayMessage message={"ID does not match"} />
+        <StyledLink aria-label="overview page" href={"/"}>
+          Back to overview
+        </StyledLink>
       </>
     );
   }
 
   return (
     <>
-      <StyledGridWrapper>
-        <Header />
-        <StyledMain>
-          <MemoryCardDetail
-            currentEvent={currentEvent}
-            onToggleFavorite={onToggleFavorite}
-          />
-        </StyledMain>
-        <Footer sampleEvents={sampleEvents} />
-      </StyledGridWrapper>
+      <Header />
+      <StyledMain>
+        <MemoryCardDetail
+          currentEvent={currentEvent}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </StyledMain>
+      <Footer sampleEvents={sampleEvents} />
     </>
   );
 }
