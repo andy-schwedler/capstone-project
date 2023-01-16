@@ -39,17 +39,13 @@ export default function Overview({ sampleEvents }) {
 
   const sortedDescending = handleDescendingSort(sampleEvents)?.map(
     (sampleEvent) => (
-      <Fragment key={sampleEvent.id}>
-        <MemoryPreview sampleEvent={sampleEvent} />
-      </Fragment>
+      <MemoryPreview key={sampleEvent.id} sampleEvent={sampleEvent} />
     )
   );
 
   const sortedAscending = handleAscendingSort(sampleEvents)?.map(
     (sampleEvent) => (
-      <Fragment key={sampleEvent.id}>
-        <MemoryPreview sampleEvent={sampleEvent} />
-      </Fragment>
+      <MemoryPreview key={sampleEvent.id} sampleEvent={sampleEvent} />
     )
   );
 
