@@ -8,6 +8,8 @@ export default function InputAndLabelTextPair({
   defaultValue,
   placeholder,
   onSearch,
+  onChange,
+  maxLength,
 }) {
   return (
     <>
@@ -17,6 +19,7 @@ export default function InputAndLabelTextPair({
           <StyledInput
             type="text"
             name={name}
+            maxLength={maxLength}
             placeholder={placeholder}
             defaultValue={defaultValue}
             onChange={onSearch}
@@ -32,8 +35,10 @@ export default function InputAndLabelTextPair({
             cols={cols}
             type="textarea"
             name={name}
+            maxLength={maxLength}
             placeholder={placeholder}
             defaultValue={defaultValue}
+            onChange={() => onChange(event)}
             required
           />
         </>
@@ -54,38 +59,42 @@ export default function InputAndLabelTextPair({
 }
 
 const StyledLabel = styled.label`
-  font-size: 1em;
-  text-align: center;
-  align-self: center;
-  color: inherit;
+  /* text-align: center;
+  align-self: center; */
+  color: var(--beaver);
 `;
 
 const StyledTextarea = styled.textarea`
-  border: 0.1em solid darkgray;
-  background-color: inherit;
+  text-align: center;
+  /* background-color: inherit;
   height: 10em;
+  border: 0.1em solid darkgray;
+  border-radius: 0.3em;
+  caret-color: var(--beaver2);
+  color: var(--beaver1); */
 
+  /* 
   ::-webkit-input-placeholder {
     text-align: center;
-  }
+  } */
 
   :focus {
-    outline: none;
+    outline: var(--beaver4);
   }
 `;
 
 const StyledInput = styled.input`
-  border: 0.1em solid darkgray;
+  /* border: 0.1em solid darkgray;
   text-align: center;
   box-shadow: none;
   caret-color: var(--beaver2);
   color: var(--beaver1);
   margin: 1em;
   background-color: inherit;
-  border-radius: 0.3em;
+  border-radius: 0.3em; */
 
   :focus {
-    outline: transparent;
     text-align: center;
+    outline: none;
   }
 `;
