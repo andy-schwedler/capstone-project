@@ -4,7 +4,7 @@ import Footer from "../components/Footer/Footer";
 import { StyledMain, StyledGridWrapper } from "../components/GlobalStyles";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting/Greeting";
-import CollapseSection from "../components/CollapseSection/CollapseSection";
+import ExpandSection from "../components/ExpandSection/ExpandSection";
 import { sortNewestFirst, sortOldestFirst } from "../helpers/sortingLogic";
 import MemoryPreview from "../components/MemoryCard/MemoryPreview";
 
@@ -60,9 +60,9 @@ export default function Overview({
           <SearchBar onSearch={handleSearch} />
           {searchTerm?.length === 0 ? (
             <>
-              <CollapseSection data={sortedDescending} headline="recently" />
-              <CollapseSection data={""} headline="last 30 days" />
-              <CollapseSection data={sortedAscending} headline="old to new" />
+              <ExpandSection data={sortedDescending} headline="recently" />
+              <ExpandSection data={""} headline="last 30 days" />
+              <ExpandSection data={sortedAscending} headline="old to new" />
             </>
           ) : (
             results
