@@ -59,42 +59,55 @@ export default function InputAndLabelTextPair({
 }
 
 const StyledLabel = styled.label`
-  /* text-align: center;
-  align-self: center; */
+  align-self: fle;
   color: var(--beaver);
+  padding-bottom: 0.4em;
 `;
 
 const StyledTextarea = styled.textarea`
   text-align: center;
-  /* background-color: inherit;
+  min-width: 15rem;
+
+  // allows beavers to adjust height only
+  resize: vertical;
+  background-color: inherit;
   height: 10em;
   border: 0.1em solid darkgray;
   border-radius: 0.3em;
-  caret-color: var(--beaver2);
-  color: var(--beaver1); */
 
-  /* 
+  color: var(--beaver2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  caret-color: var(--beaver2);
+
   ::-webkit-input-placeholder {
     text-align: center;
-  } */
+  }
 
   :focus {
     outline: var(--beaver4);
+    text-align: center;
   }
 `;
 
 const StyledInput = styled.input`
-  /* border: 0.1em solid darkgray;
+  width: 15rem;
+  margin: 0;
+  border: 0.1em solid darkgray;
   text-align: center;
   box-shadow: none;
   caret-color: var(--beaver2);
-  color: var(--beaver1);
-  margin: 1em;
+  color: var(--beaver2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
   background-color: inherit;
-  border-radius: 0.3em; */
+  border-radius: 0.3em;
 
   :focus {
     text-align: center;
     outline: none;
+  }
+
+  ::-webkit-input-placeholder {
+    text-align: center;
   }
 `;

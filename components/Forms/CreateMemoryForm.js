@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import BookmarkButton from "../BookmarkButton";
 import { StyledButtonFrame } from "../GlobalStyles";
+import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
 export default function CreateMemoryForm({ onAddCreateCard }) {
@@ -16,6 +16,7 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
   return (
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
+        <legend>Reflect a moment</legend>
         <StyledWrapper>
           <InputAndLabelTextPair
             placeholder="Title"
@@ -23,6 +24,7 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
             name="headline"
           />
         </StyledWrapper>
+
         <StyledWrapper>
           <InputAndLabelTextPair
             type="textarea"
@@ -31,12 +33,15 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
             onChange={handleCounter}
             maxLength={maxLengthTextarea}
           />
-          {counter ? counter : "0"}/{maxLengthTextarea}
+          <StyledCounterContainer>
+            {counter ? counter : "0"}/{maxLengthTextarea}
+          </StyledCounterContainer>
         </StyledWrapper>
         <StyledButtonWrapper>
           <StyledButtonFrame aria-label="submit form" type="submit">
             OK
           </StyledButtonFrame>
+
           <StyledButtonFrame aria-label="reset form" type="reset">
             RESET
           </StyledButtonFrame>
@@ -49,17 +54,18 @@ export default function CreateMemoryForm({ onAddCreateCard }) {
 export const StyledCreateForm = styled.form`
   border: none;
   outline: none;
-  width: 90vw;
   align-self: center;
   align-items: center;
-  padding: 3rem;
+  padding: 1rem;
+  margin-top: 5em;
 `;
 
 const StyledFieldset = styled.fieldset`
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   border: none;
   color: var(--beaver1);
 `;
@@ -74,6 +80,10 @@ const StyledButtonWrapper = styled.div`
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  font-size: 0.6em;
+  font-size: 0.8em;
+`;
+
+const StyledCounterContainer = styled.p`
+  align-self: flex-end;
+  margin: 0;
 `;

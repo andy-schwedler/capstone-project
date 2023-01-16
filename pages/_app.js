@@ -15,6 +15,9 @@ function MyApp({ Component, pageProps }) {
     const date = new Date();
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
+    const isFavorite = null;
+
+    console.log(event);
 
     // ../../db/models/Memory
     const newEntry = {
