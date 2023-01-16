@@ -9,45 +9,6 @@ export function rearrangeDates(date) {
   return `${day}.${month}.${year}`;
 }
 
-// returns objects sorted in a descending order
-export function sortNewestFirst(memories) {
-  return memories
-    ?.slice()
-    ?.sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date1 - date2;
-    })
-    .reverse();
-}
-
-// returns objects sorted in a descending order
-export function sortOldestFirst(memories) {
-  return memories
-    ?.slice()
-    ?.sort((a, b) => {
-      const date1 = new Date(a.date);
-      const date2 = new Date(b.date);
-      return date2 - date1;
-    })
-    .reverse();
-}
-
-export function clipYear(memories) {
-  memories
-    ?.filter((memory) => {
-      const formatYear = new Date(memory.date);
-
-      return memory.date > new Date("2022-01-01");
-    })
-    .map((year) => {
-      const date = new Date(year.date);
-      const yearOnly = date.getFullYear();
-
-      return yearOnly;
-    });
-}
-
 // function sortYear(memories) {
 //   return memories?.filter((memory) => {
 //     const allDates = new Date(memory.date).getFullYear();
@@ -77,4 +38,19 @@ export function handleDescendingSort(data) {
     return date2 - date1;
   });
   return descendingData;
+}
+
+export function clipYear(memories) {
+  memories
+    ?.filter((memory) => {
+      const formatYear = new Date(memory.date);
+
+      return memory.date > new Date("2022-01-01");
+    })
+    .map((year) => {
+      const date = new Date(year.date);
+      const yearOnly = date.getFullYear();
+
+      return yearOnly;
+    });
 }

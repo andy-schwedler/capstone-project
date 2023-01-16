@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles";
-import { sortNewestFirst } from "../helpers/sortingLogic";
+import { handleDescendingSort } from "../helpers/sortingLogic";
 
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }) {
     const response = await fetch("/api/memories");
     const memoriesList = await response.json();
 
-    const sortedArray = sortNewestFirst(memoriesList);
+    const sortedArray = handleDescendingSort(memoriesList);
     setSampleEvents(sortedArray);
   }
   useEffect(() => {

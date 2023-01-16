@@ -5,15 +5,13 @@ import { StyledMain } from "../components/GlobalStyles";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting/Greeting";
 import ExpandSection from "../components/ExpandSection/ExpandSection";
-import { sortNewestFirst, sortOldestFirst } from "../helpers/sortingLogic";
+import {
+  handleDescendingSort,
+  handleAscendingSort,
+} from "../helpers/sortingLogic";
 import MemoryPreview from "../components/MemoryCard/MemoryPreview";
 
-export default function Overview({
-  sampleEvents,
-  onToggleFavorite,
-  onDelete,
-  onEditMemory,
-}) {
+export default function Overview({ sampleEvents }) {
   const [searchTerm, setSearchTerm] = useState([]);
 
   function handleSearch(event) {
@@ -39,17 +37,21 @@ export default function Overview({
     </Fragment>
   ));
 
-  const sortedDescending = sortNewestFirst(sampleEvents)?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryPreview sampleEvent={sampleEvent} />
-    </Fragment>
-  ));
+  const sortedDescending = handleDescendingSort(sampleEvents)?.map(
+    (sampleEvent) => (
+      <Fragment key={sampleEvent.id}>
+        <MemoryPreview sampleEvent={sampleEvent} />
+      </Fragment>
+    )
+  );
 
-  const sortedAscending = sortOldestFirst(sampleEvents)?.map((sampleEvent) => (
-    <Fragment key={sampleEvent.id}>
-      <MemoryPreview sampleEvent={sampleEvent} />
-    </Fragment>
-  ));
+  const sortedAscending = handleAscendingSort(sampleEvents)?.map(
+    (sampleEvent) => (
+      <Fragment key={sampleEvent.id}>
+        <MemoryPreview sampleEvent={sampleEvent} />
+      </Fragment>
+    )
+  );
 
   return (
     <>
