@@ -6,12 +6,12 @@ import Header from "../../components/Header/Header";
 
 export default function CreatePage({ sampleEvents, onAddCreateCard }) {
   return (
-    <StyledGridWrapper>
+    <>
       <Header />
       <StyledMain>
         <CreateMemoryForm onAddCreateCard={onAddCreateCard} />
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </StyledGridWrapper>
+    </>
   );
 }
