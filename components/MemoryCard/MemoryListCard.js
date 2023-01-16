@@ -45,49 +45,41 @@ export default function MemoryListCard({
       handleToggleEditMode();
   }
 
-  const timeStamp = rearrangeDates(sampleEvent.date);
+  const formatDate = rearrangeDates(sampleEvent.date);
 
   return (
-    <>
-      <StyledEventContainer>
-        <StyledButtonFrame
-          name="options"
-          aria-label="options"
-          onClick={toggleDisplayOptionMenu}
-        >
-          <MoreOptionsIcon
-            alt="options icon"
-            fill="var(--beaver1)"
-            width={20}
-          />
-        </StyledButtonFrame>
-        {editMode ? (
-          <>
-            <EditForm
-              sampleEvent={sampleEvent}
-              onEditSubmit={handleEditSubmit}
-              onToggleEdit={handleToggleEditMode}
-              onToggleDisplay={toggleDisplayOptionMenu}
-              onCancel={handleCancelButton}
-            />
-          </>
-        ) : (
-          <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-            <p> {timeStamp} </p>
-            <h3>{sampleEvent.headline}</h3>
-          </StyledLink>
-        )}
-        {displayOptionMenu && (
-          <OptionsMenu
-            onDelete={onDelete}
-            onToggleEdit={handleToggleEditMode}
-            onToggleDisplay={toggleDisplayOptionMenu}
-            sampleEvent={sampleEvent}
-            onToggleFavorite={onToggleFavorite}
-          />
-        )}
-      </StyledEventContainer>
-    </>
+    <StyledEventContainer>
+      <StyledButtonFrame
+        name="options"
+        aria-label="options"
+        onClick={toggleDisplayOptionMenu}
+      >
+        <MoreOptionsIcon alt="options icon" fill="var(--beaver1)" width={20} />
+      </StyledButtonFrame>
+      {editMode ? (
+        <EditForm
+          sampleEvent={sampleEvent}
+          onEditSubmit={handleEditSubmit}
+          onToggleEdit={handleToggleEditMode}
+          onToggleDisplay={toggleDisplayOptionMenu}
+          onCancel={handleCancelButton}
+        />
+      ) : (
+        <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
+          <p> {formatDate} </p>
+          <h3>{sampleEvent.headline}</h3>
+        </StyledLink>
+      )}
+      {displayOptionMenu && (
+        <OptionsMenu
+          onDelete={onDelete}
+          onToggleEdit={handleToggleEditMode}
+          onToggleDisplay={toggleDisplayOptionMenu}
+          sampleEvent={sampleEvent}
+          onToggleFavorite={onToggleFavorite}
+        />
+      )}
+    </StyledEventContainer>
   );
 }
 

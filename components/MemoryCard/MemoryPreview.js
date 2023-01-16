@@ -10,13 +10,13 @@ export default function MemoryPreview({ sampleEvent }) {
     .substring(0, 10)
     .padEnd(13, ".");
 
-  const timestamp = rearrangeDates(sampleEvent.date);
+  const formatDate = rearrangeDates(sampleEvent.date);
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
       <h5>{sampleEvent.headline}</h5>
       <StyledContainer>
-        <p>{timestamp}</p>
+        <p>{formatDate}</p>
         <p>{previewDetails}</p>
       </StyledContainer>
       {sampleEvent.isFavorite ? (
