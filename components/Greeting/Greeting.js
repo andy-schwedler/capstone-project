@@ -18,12 +18,11 @@ export default function Greeting() {
       return (greeting = "Bedtime,");
     }
   }
-  const timeoftheDay = dynamicGreeting();
 
   return (
     <StyledGreeting>
       <h1>
-        <span>{timeoftheDay}</span> Beaver
+        <span>{dynamicGreeting()}</span> Beaver
       </h1>
     </StyledGreeting>
   );
