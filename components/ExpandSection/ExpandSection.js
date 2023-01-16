@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-
 import ArrowIcon from "../Icons/ArrowIcon";
 
 export default function ExpandSection({ data: renderedChildren, headline }) {

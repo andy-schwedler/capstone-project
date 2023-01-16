@@ -26,18 +26,9 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
-export const StyledGridWrapper = styled.div`
-  /* display: grid;
-  height: 100vh; */
-  /* grid-template-rows: auto 2fr auto auto; */
-`;
-
 export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
-  /* width: 100vw; */
-  /* justify-content: center; */
-  /* align-items: center; */
   margin-bottom: 8em;
 `;
 
