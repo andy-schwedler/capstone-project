@@ -17,15 +17,13 @@ export default function Bookmarks({
   );
   // render filtered bookmarks
   const favEventList = favMemories?.map((favEvent) => (
-    <Fragment>
-      <MemoryListCard
-        key={favEvent.id}
-        onDelete={onDelete}
-        sampleEvent={favEvent}
-        onToggleFavorite={onToggleFavorite}
-        onEditMemory={onEditMemory}
-      />
-    </Fragment>
+    <MemoryListCard
+      key={favEvent.id}
+      onDelete={onDelete}
+      sampleEvent={favEvent}
+      onToggleFavorite={onToggleFavorite}
+      onEditMemory={onEditMemory}
+    />
   ));
 
   const favList =

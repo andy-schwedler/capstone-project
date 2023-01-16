@@ -58,7 +58,6 @@ export default function Overview({ sampleEvents }) {
         {searchTerm?.length === 0 ? (
           <>
             <ExpandSection data={sortedDescending} headline="recently" />
-            <ExpandSection data={""} headline="last 30 days" />
             <ExpandSection data={sortedAscending} headline="old to new" />
           </>
         ) : (
