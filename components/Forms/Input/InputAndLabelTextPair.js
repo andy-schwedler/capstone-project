@@ -54,6 +54,17 @@ export default function InputAndLabelTextPair({
           />
         </>
       )}
+      {type === "text-not-required" && (
+        <>
+          <StyledLabel htmlFor={name}>{name}</StyledLabel>
+          <StyledInput
+            type="text"
+            name={name}
+            placeholder={placeholder}
+            defaultValue={defaultValue}
+          />
+        </>
+      )}
     </>
   );
 }
@@ -67,15 +78,18 @@ const StyledLabel = styled.label`
 const StyledTextarea = styled.textarea`
   text-align: center;
   min-width: 15rem;
+  min-height: 10rem;
+  max-height: 12rem;
 
   // allows beavers to adjust height only
   resize: vertical;
+
   background-color: inherit;
   height: 10em;
   border: 0.1em solid darkgray;
   border-radius: 0.3em;
 
-  color: var(--beaver2);
+  color: var(--beaver1);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   caret-color: var(--beaver2);
 

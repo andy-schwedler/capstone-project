@@ -27,9 +27,10 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
+  align-self: center;
   display: flex;
   flex-direction: column;
-  margin-bottom: 8em;
+  height: 100vh;
 `;
 
 export const StyledLink = styled(Link)`

@@ -1,15 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import { BookmarkIcon } from "../Icons/BookmarkIcon";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
-export default function CreateMemoryForm({
-  onAddCreateCard,
-  imageValue,
-  image,
-  onImage,
-}) {
+export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   const [counter, setCounter] = useState();
 
   const maxLengthTextarea = 200;
@@ -28,7 +22,17 @@ export default function CreateMemoryForm({
             name="headline"
           />
         </StyledWrapper>
-        <BookmarkIcon width={"40"} />
+        <StyledWrapper>
+          <label htmlFor="upload">Upload 📸 a picture</label>
+          <StyledFileUpload
+            id="upload"
+            accept="image/png"
+            name="upload button"
+            aria-label="upload button"
+            type="file"
+            onChange={(event) => onImage(event)}
+          />
+        </StyledWrapper>
         <StyledWrapper>
           <InputAndLabelTextPair
             type="textarea"
@@ -41,19 +45,13 @@ export default function CreateMemoryForm({
             {counter ? counter : "0"}/{maxLengthTextarea}
           </StyledCounterContainer>
         </StyledWrapper>
-        <input
-          type="file"
-          // value={imageValue}
-          onChange={(event) => onImage(event)}
-        />
         <StyledButtonWrapper>
-          <StyledButtonFrame aria-label="submit form" type="submit">
-            OK
-          </StyledButtonFrame>
-
-          <StyledButtonFrame aria-label="reset form" type="reset">
-            RESET
-          </StyledButtonFrame>
+          <StyledFormSubmitButton aria-label="submit form" type="submit">
+            create
+          </StyledFormSubmitButton>
+          <StyledFormResetButton aria-label="reset form" type="reset">
+            reset
+          </StyledFormResetButton>
         </StyledButtonWrapper>
       </StyledFieldset>
     </StyledCreateForm>
@@ -61,38 +59,58 @@ export default function CreateMemoryForm({
 }
 
 export const StyledCreateForm = styled.form`
-  border: none;
-  outline: none;
-  align-self: center;
-  align-items: center;
-  padding: 0.8rem;
-  margin-top: 5em;
-`;
-
-const StyledFieldset = styled.fieldset`
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+`;
+
+const StyledFieldset = styled.fieldset`
   border: none;
-  color: var(--beaver1);
+  display: flex;
+  flex-direction: column;
+  gap: 2.8em;
+  align-items: center;
 `;
 
 const StyledButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0.1em;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
 `;
 
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 0.8em;
+  color: var(--beaver1);
 `;
 
 const StyledCounterContainer = styled.p`
   align-self: flex-end;
   margin: 0;
+  color: var(--beaver1);
+  font-size: small;
+`;
+
+const StyledFileUpload = styled.input`
+  border: none;
+
+  ::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+`;
+
+const StyledFormSubmitButton = styled(StyledButtonFrame)`
+  background-color: var(--beaver);
+  color: white;
+  width: 5em;
+  height: 2em;
+  border-radius: 0.6em;
+`;
+
+const StyledFormResetButton = styled(StyledButtonFrame)`
+  background-color: var(--beaver3);
+  color: var(--beaver2);
+  width: 5em;
+  height: 2em;
+  border-radius: 0.6em;
 `;
