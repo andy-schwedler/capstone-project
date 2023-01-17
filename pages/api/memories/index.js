@@ -18,6 +18,7 @@ export default async function handler(req, res) {
           details: memory.details,
           date: memory.date,
           isFavorite: memory.isFavorite,
+          picture: memory.picture,
         };
       });
       res.status(200).json(memoriesArray);
@@ -38,24 +39,6 @@ export default async function handler(req, res) {
     }
     return;
   }
-
-  // // 5. Update a Memory (currently not in use)
-  // if (req.method === "PUT") {
-  //   try {
-  //     const result = await Question.findByIdAndUpdate(
-  //       id,
-  //       {
-  //         name: req.body.name,
-  //         text: req.body.text,
-  //       },
-  //       { returnDocument: "after" }
-  //     );
-  //     return res.status(200).json(result);
-  //   } catch {
-  //     return res.status(404).json({ message: "question couldn't be found" });
-  //   }
-  //  return;
-  // }
 
   res.status(405).json({ message: "method not allowed" });
 }

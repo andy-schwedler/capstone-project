@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         {
           headline: req.body.headline,
           date: req.body.date,
+          picture: req.body.picture,
         },
         { returnDocument: "after" }
       );
