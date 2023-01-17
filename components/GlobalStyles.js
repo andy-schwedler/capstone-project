@@ -30,7 +30,6 @@ export const StyledMain = styled.main`
   align-self: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 `;
 
 export const StyledLink = styled(Link)`

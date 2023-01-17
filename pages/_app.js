@@ -6,30 +6,34 @@ import { handleDescendingSort } from "../helpers/sortingLogic";
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
   const [sampleEvents, setSampleEvents] = useState();
+  // stores uploaded image
   const [image, setImage] = useState(null);
-  const [imageValue, setImageValue] = useState("");
 
   function handleImage(event) {
-    setImageValue(event.target.value);
     setImage(event.target.files[0]);
   }
 
   async function ImageUpload(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    // if no image was chosen
+    if (!image) {
+      return;
+    } else {
+      const formData = new FormData(event.target);
 
-    formData.append("file", image);
-    formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+      formData.append("file", image);
+      formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
 
-    const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/image/upload`;
-    const response = await fetch(url, {
-      method: "POST",
-      body: formData,
-    });
-    const json = await response.json();
+      const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/image/upload`;
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
 
-    return json.secure_url;
+      return json.secure_url;
+    }
   }
 
   // METHOD "POST"
@@ -40,7 +44,9 @@ function MyApp({ Component, pageProps }) {
     const date = new Date();
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
-    //              "post" picture on cloudinary and returns URL string
+    const isFavorite = event.target.bookmark.checked;
+
+    //  "post" picture on cloudinary and returns URL string
     const picture = await ImageUpload(event);
 
     // ../../db/models/Memory
@@ -48,11 +54,11 @@ function MyApp({ Component, pageProps }) {
       date: date,
       headline: headline,
       details: details,
-      isFavorite: false,
+      isFavorite: isFavorite,
       picture: picture,
     };
 
-    // POST memories
+    // "POST" memories
     await fetch("/api/memories", {
       method: "POST",
       headers: {
@@ -64,6 +70,7 @@ function MyApp({ Component, pageProps }) {
     getMemories();
 
     event.target.reset();
+    event.target.headline.focus();
   }
   // DELETE memories
   async function handleDeleteMemoryCard(id) {
@@ -123,7 +130,6 @@ function MyApp({ Component, pageProps }) {
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
           image={image}
-          imageValue={imageValue}
           onImage={handleImage}
         />
       )}

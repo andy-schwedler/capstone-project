@@ -45,7 +45,7 @@ export default function Footer({ sampleEvents }) {
 }
 
 const StyledFooter = styled.footer`
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100vw;
   display: flex;

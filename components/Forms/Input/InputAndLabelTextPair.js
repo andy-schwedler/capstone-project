@@ -91,14 +91,18 @@ const StyledTextarea = styled.textarea`
 
   color: var(--beaver1);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  caret-color: var(--beaver2);
+  caret-color: var(--beaver);
 
   ::-webkit-input-placeholder {
     text-align: center;
   }
 
+  ::selection {
+    background-color: var(--beaver3);
+  }
+
   :focus {
-    outline: var(--beaver4);
+    outline: none;
     text-align: center;
   }
 `;
@@ -110,7 +114,7 @@ const StyledInput = styled.input`
   text-align: center;
   box-shadow: none;
   caret-color: var(--beaver2);
-  color: var(--beaver2);
+  color: var(--beaver1);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   background-color: inherit;
@@ -123,5 +127,9 @@ const StyledInput = styled.input`
 
   ::-webkit-input-placeholder {
     text-align: center;
+  }
+
+  ::selection {
+    background-color: var(--beaver3);
   }
 `;

@@ -16,14 +16,24 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
         <StyledWrapper>
+          <label htmlFor="bookmark">Favorite?</label>
+          <StyledCheckbox
+            id="bookmark"
+            name="bookmark button"
+            type="checkbox"
+          />
+        </StyledWrapper>
+
+        <StyledWrapper>
           <InputAndLabelTextPair
             placeholder="Title"
             type="text"
             name="headline"
           />
         </StyledWrapper>
+
         <StyledWrapper>
-          <label htmlFor="upload">Upload 📸 a picture</label>
+          <label htmlFor="upload">Upload 📸 here</label>
           <StyledFileUpload
             id="upload"
             accept="image/png"
@@ -62,13 +72,14 @@ export const StyledCreateForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2em;
 `;
 
 const StyledFieldset = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 2.8em;
+  gap: 1.8em;
   align-items: center;
 `;
 
@@ -81,7 +92,7 @@ const StyledButtonWrapper = styled.div`
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  color: var(--beaver1);
+  color: var(--beaver);
 `;
 
 const StyledCounterContainer = styled.p`
@@ -113,4 +124,11 @@ const StyledFormResetButton = styled(StyledButtonFrame)`
   width: 5em;
   height: 2em;
   border-radius: 0.6em;
+`;
+
+const StyledCheckbox = styled.input`
+  :focus {
+    outline: max(2px, 0.15em) solid var(--beaver1);
+    outline-offset: max(2px, 0.15em);
+  }
 `;
