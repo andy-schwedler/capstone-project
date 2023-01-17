@@ -6,6 +6,31 @@ import { handleDescendingSort } from "../helpers/sortingLogic";
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
   const [sampleEvents, setSampleEvents] = useState();
+  const [image, setImage] = useState(null);
+  const [imageValue, setImageValue] = useState("");
+
+  function handleImage(event) {
+    setImageValue(event.target.value);
+    setImage(event.target.files[0]);
+  }
+
+  async function ImageUpload(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    formData.append("file", image);
+    formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+
+    const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/image/upload`;
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData,
+    });
+    const json = await response.json();
+
+    return json.secure_url;
+  }
 
   // METHOD "POST"
   async function handleAddCreateCard(event) {
@@ -15,9 +40,8 @@ function MyApp({ Component, pageProps }) {
     const date = new Date();
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
-    const isFavorite = null;
-
-    console.log(event);
+    //              "post" picture on cloudinary and returns URL string
+    const picture = await ImageUpload(event);
 
     // ../../db/models/Memory
     const newEntry = {
@@ -25,6 +49,7 @@ function MyApp({ Component, pageProps }) {
       headline: headline,
       details: details,
       isFavorite: false,
+      picture: picture,
     };
 
     // POST memories
@@ -97,6 +122,9 @@ function MyApp({ Component, pageProps }) {
           onAddCreateCard={handleAddCreateCard}
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
+          image={image}
+          imageValue={imageValue}
+          onImage={handleImage}
         />
       )}
     </>
