@@ -21,13 +21,7 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   }
 
   return (
-    <StyledCreateForm
-      aria-label="create card form"
-      onSubmit={() => {
-        onAddCreateCard;
-        setCounter(0);
-      }}
-    >
+    <StyledCreateForm aria-label="create card form" onSubmit={handleSubmit}>
       <StyledFieldset aria-label="insert your memories here">
         <InputAndLabel placeholder="Title" type="text" name="headline" />
 
