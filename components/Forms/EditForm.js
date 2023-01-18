@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
+import InputAndLabel from "./Input/InputAndLabel";
 
 export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
   return (
@@ -8,7 +8,7 @@ export default function EditForm({ onEditSubmit, sampleEvent, onCancel }) {
       aria-label="edit memory"
       onSubmit={() => onEditSubmit(event, sampleEvent.id)}
     >
-      <InputAndLabelTextPair
+      <InputAndLabel
         name="headline"
         type="text-not-required"
         defaultValue={sampleEvent.headline}

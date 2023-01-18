@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { StyledWrapper } from "./Forms/CreateMemoryForm";
-import InputAndLabelTextPair from "./Forms/Input/InputAndLabelTextPair";
+import InputAndLabel from "./Forms/Input/InputAndLabel";
 
 export default function SearchBar({ onSearch }) {
   return (
     <StyledSearchBar>
       <StyledWrapper>
-        <InputAndLabelTextPair
+        <InputAndLabel
           onSearch={onSearch}
           type="text"
           name="search"

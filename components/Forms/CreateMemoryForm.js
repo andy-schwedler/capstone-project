@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
-
 import InputAndLabelDateCheck from "./Input/InputAndLabelDateCheck";
+import InputAndLabel from "./Input/InputAndLabel";
 
 export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   const [counter, setCounter] = useState();
@@ -11,11 +10,14 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   const maxLengthTextarea = 200;
 
   function handleCounter(event) {
-    if (!event.target.value) {
-      setCounter(0);
-    }
-
     setCounter(event.target.value.length);
+  }
+
+  function handleSubmit(event) {
+    onAddCreateCard(event);
+    event.target.reset();
+    event.target.headline.focus();
+    setCounter(0);
   }
 
   return (
@@ -27,41 +29,34 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
       }}
     >
       <StyledFieldset aria-label="insert your memories here">
-        <StyledWrapper>
-          <InputAndLabelTextPair
-            placeholder="Title"
-            type="text"
-            name="headline"
-          />
-        </StyledWrapper>
-        <StyledWrapper>
-          <label htmlFor="upload">Upload 📸 here</label>
-          <StyledFileUpload
-            id="upload"
-            accept="image/png"
-            name="upload button"
-            aria-label="upload button"
-            type="file"
-            onChange={(event) => onImage(event)}
-          />
-        </StyledWrapper>
-        <StyledWrapper>
-          <InputAndLabelTextPair
-            type="textarea"
-            name="details"
-            placeholder="...tell me more"
-            onChange={handleCounter}
-            maxLength={maxLengthTextarea}
-          />
-          <StyledCounterContainer>
-            {counter ? counter : "0"}/{maxLengthTextarea}
-          </StyledCounterContainer>
-          <InputAndLabelDateCheck
-            name="bookmark"
-            label="bookmark"
-            type="checkbox"
-          />
-        </StyledWrapper>
+        <InputAndLabel placeholder="Title" type="text" name="headline" />
+
+        <label htmlFor="upload">Upload 📸 here</label>
+        <StyledFileUpload
+          id="upload"
+          accept="image/png"
+          name="upload button"
+          aria-label="upload button"
+          type="file"
+          onChange={(event) => onImage(event)}
+        />
+
+        <InputAndLabel
+          type="textarea"
+          name="details"
+          placeholder="...tell me more"
+          onChange={handleCounter}
+          maxLength={maxLengthTextarea}
+        />
+        <StyledCounterContainer>
+          {counter ? counter : "0"}/{maxLengthTextarea}
+        </StyledCounterContainer>
+        <InputAndLabelDateCheck
+          name="bookmark"
+          label="bookmark"
+          type="checkbox"
+        />
+
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
             create
@@ -79,15 +74,12 @@ export const StyledCreateForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.3em;
 `;
 
 const StyledFieldset = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-  align-items: center;
 `;
 
 const StyledButtonWrapper = styled.div`
@@ -100,7 +92,6 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   color: var(--beaver);
-  width: 100%;
 `;
 
 const StyledCounterContainer = styled.p`

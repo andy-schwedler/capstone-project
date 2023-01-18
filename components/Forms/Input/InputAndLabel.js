@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
-export default function InputAndLabelTextPair({
+export default function InputAndLabel({
   name,
   type,
-  rows,
-  cols,
   defaultValue,
   placeholder,
   onSearch,
   onChange,
   maxLength,
+  label,
+  callbackfn,
 }) {
   return (
     <>
       {type === "text" && (
-        <>
+        <StyledWrapper>
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledInput
             type="text"
@@ -25,14 +25,12 @@ export default function InputAndLabelTextPair({
             onChange={onSearch}
             required
           />
-        </>
+        </StyledWrapper>
       )}
       {type === "textarea" && (
-        <>
+        <StyledWrapper>
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledTextarea
-            rows={rows}
-            cols={cols}
             type="textarea"
             name={name}
             maxLength={maxLength}
@@ -41,10 +39,10 @@ export default function InputAndLabelTextPair({
             onChange={() => onChange(event)}
             required
           />
-        </>
+        </StyledWrapper>
       )}
       {type === "text-not-required" && (
-        <>
+        <StyledWrapper>
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledInput
             type="text"
@@ -52,27 +50,41 @@ export default function InputAndLabelTextPair({
             placeholder={placeholder}
             defaultValue={defaultValue}
           />
-        </>
+        </StyledWrapper>
       )}
-      {type === "text-not-required" && (
-        <>
-          <StyledLabel htmlFor={name}>{name}</StyledLabel>
-          <StyledInput
-            type="text"
+      {type === "checkbox" && (
+        <StyledWrapper>
+          <StyledLabel htmlFor={name}>{label}</StyledLabel>
+          <StyledCheckbox
+            type="checkbox"
             name={name}
-            placeholder={placeholder}
+            aria-label={name}
             defaultValue={defaultValue}
+            placeholder={placeholder}
           />
-        </>
+        </StyledWrapper>
+      )}
+      {type === "file" && (
+        <StyledWrapper>
+          <StyledLabel htmlFor="upload">Upload 📸 here</StyledLabel>
+          <StyledFileUpload
+            id="upload"
+            accept="image/png"
+            name="upload button"
+            aria-label="upload button"
+            type="file"
+            callbackfn={callbackfn}
+          />
+        </StyledWrapper>
       )}
     </>
   );
 }
 
 const StyledLabel = styled.label`
-  align-self: fle;
-  color: var(--beaver);
-  padding-bottom: 0.4em;
+  color: var(--beaver1);
+  padding-bottom: 0.3em;
+  font-size: 0.8em;
 `;
 
 const StyledTextarea = styled.textarea`
@@ -108,7 +120,6 @@ const StyledTextarea = styled.textarea`
 `;
 
 const StyledInput = styled.input`
-  width: 15rem;
   margin: 0;
   border: 0.1em solid darkgray;
   text-align: center;
@@ -132,4 +143,22 @@ const StyledInput = styled.input`
   ::selection {
     background-color: var(--beaver3);
   }
+`;
+
+const StyledCheckbox = styled.input`
+  margin: 0;
+`;
+
+const StyledFileUpload = styled.input`
+  border: none;
+
+  ::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+`;
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: var(--beaver);
 `;
