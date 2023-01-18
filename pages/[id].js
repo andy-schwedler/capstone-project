@@ -2,11 +2,7 @@ import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardOverview";
-import {
-  StyledGridWrapper,
-  StyledLink,
-  StyledMain,
-} from "../components/GlobalStyles";
+import { StyledGridWrapper, StyledMain } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
 import Link from "next/link";
 

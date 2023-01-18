@@ -19,15 +19,8 @@ export default function MemoryPreview({ sampleEvent }) {
         <p>{formatDate}</p>
         <p>{previewDetails}</p>
       </StyledContainer>
-      {sampleEvent.isFavorite ? (
+      {sampleEvent.isFavorite && (
         <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
-      ) : (
-        <BookmarkIcon
-          alt="bookmark"
-          fill="var(--beaver)"
-          width={20}
-          height={20}
-        />
       )}
     </StyledContainerLink>
   );

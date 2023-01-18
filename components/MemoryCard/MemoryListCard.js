@@ -11,8 +11,6 @@ export default function MemoryListCard({
   onToggleFavorite,
   onDelete,
   onEditMemory,
-  displayOptionMenu,
-  editMode,
 }) {
   const [displayOptionMenu, setDisplayOptionMenu] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -24,6 +22,7 @@ export default function MemoryListCard({
     }
     return;
   }
+
   function toggleDisplayOptionMenu() {
     setDisplayOptionMenu(!displayOptionMenu);
   }
@@ -68,8 +67,8 @@ export default function MemoryListCard({
         />
       ) : (
         <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-          <p> {formatDate} </p>
           <h3>{sampleEvent.headline}</h3>
+          <p> {formatDate} </p>
         </StyledLink>
       )}
       {displayOptionMenu && (

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 import BookmarkButton from "../BookmarkButton";
@@ -10,6 +11,8 @@ export default function OptionsMenu({
   onToggleFavorite,
   sampleEvent,
 }) {
+  const router = useRouter();
+
   return (
     <StyledMenu>
       <StyledButtonFrame
@@ -19,14 +22,20 @@ export default function OptionsMenu({
       >
         EDIT
       </StyledButtonFrame>
-      <StyledButtonFrame
-        name="delete"
-        aria-label="delete button"
-        onClick={() => onDelete(sampleEvent.id)}
-      >
-        REMOVE
-      </StyledButtonFrame>
-      <StyledButtonFrame onClick={onToggleDisplay}>CANCEL</StyledButtonFrame>
+      {!router.pathname === "/[id]" && (
+        <>
+          <StyledButtonFrame
+            name="delete"
+            aria-label="delete button"
+            onClick={() => onDelete(sampleEvent.id)}
+          >
+            REMOVE
+          </StyledButtonFrame>
+          <StyledButtonFrame onClick={onToggleDisplay}>
+            CANCEL
+          </StyledButtonFrame>
+        </>
+      )}
       <BookmarkButton
         onToggleFavorite={() => onToggleFavorite(sampleEvent.id)}
         isFavorite={sampleEvent.isFavorite}
