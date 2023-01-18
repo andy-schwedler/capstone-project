@@ -15,7 +15,7 @@ export default function Bookmarks({
     (sampleEvent) => sampleEvent.isFavorite === true
   );
   // render filtered bookmarks
-  const favEventList = favMemories?.map((favEvent) => (
+  const favMemoriesList = favMemories?.map((favEvent) => (
     <MemoryListCard
       key={favEvent.id}
       onDelete={onDelete}
@@ -29,7 +29,7 @@ export default function Bookmarks({
     favMemories?.length === 0 ? (
       <DisplayMessage message={"🥕 🦫 🥦"} />
     ) : (
-      favEventList
+      favMemoriesList
     );
 
   return (

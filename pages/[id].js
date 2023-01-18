@@ -18,13 +18,13 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   );
   if (!currentEvent) {
     return (
-      <>
+      <StyledGridWrapper>
         <Header />
         <DisplayMessage message={"ID does not match"} />
         <StyledLink aria-label="overview page" href={"/"}>
           Back to overview
         </StyledLink>
-      </>
+      </StyledGridWrapper>
     );
   }
 
