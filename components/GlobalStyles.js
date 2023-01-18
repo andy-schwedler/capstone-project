@@ -27,7 +27,6 @@ const GlobalStyles = createGlobalStyle`
 export default GlobalStyles;
 
 export const StyledMain = styled.main`
-  align-self: center;
   display: flex;
   flex-direction: column;
 `;
