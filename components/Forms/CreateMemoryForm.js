@@ -1,9 +1,10 @@
+import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
 import InputAndLabel from "./Input/InputAndLabel";
 
-export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
+export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
   const [counter, setCounter] = useState();
 
   const maxLengthTextarea = 200;
@@ -23,17 +24,17 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
     <StyledCreateForm aria-label="create card form" onSubmit={handleSubmit}>
       <StyledFieldset aria-label="insert your memories here">
         <InputAndLabel placeholder="Title" type="text" name="headline" />
-
-        <label htmlFor="upload">Upload 📸 here</label>
-        <StyledFileUpload
-          id="upload"
-          accept="image/png"
-          name="upload button"
-          aria-label="upload button"
-          type="file"
-          onChange={(event) => onImage(event)}
-        />
-
+        <StyledWrapper>
+          <label htmlFor="upload">Upload 📸 here</label>
+          <StyledFileUpload
+            id="upload"
+            accept="image/png"
+            name="upload button"
+            aria-label="upload button"
+            type="file"
+            onChange={(event) => onImage(event)}
+          />
+        </StyledWrapper>
         <InputAndLabel
           type="textarea"
           name="details"
@@ -69,6 +70,7 @@ const StyledFieldset = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
+  gap: 1.3em;
 `;
 
 const StyledButtonWrapper = styled.div`

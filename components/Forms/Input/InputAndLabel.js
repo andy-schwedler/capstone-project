@@ -133,14 +133,7 @@ const StyledInput = styled.input`
 
 const StyledCheckbox = styled.input`
   margin: 0;
-`;
-
-const StyledFileUpload = styled.input`
-  border: none;
-
-  ::-webkit-file-upload-button {
-    visibility: hidden;
-  }
+  align-self: flex-start;
 `;
 
 const StyledWrapper = styled.div`
