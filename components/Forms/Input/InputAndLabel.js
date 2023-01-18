@@ -9,7 +9,6 @@ export default function InputAndLabel({
   onChange,
   maxLength,
   label,
-  callbackfn,
 }) {
   return (
     <>
@@ -61,19 +60,6 @@ export default function InputAndLabel({
             aria-label={name}
             defaultValue={defaultValue}
             placeholder={placeholder}
-          />
-        </StyledWrapper>
-      )}
-      {type === "file" && (
-        <StyledWrapper>
-          <StyledLabel htmlFor="upload">Upload 📸 here</StyledLabel>
-          <StyledFileUpload
-            id="upload"
-            accept="image/png"
-            name="upload button"
-            aria-label="upload button"
-            type="file"
-            callbackfn={callbackfn}
           />
         </StyledWrapper>
       )}

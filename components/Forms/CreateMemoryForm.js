@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
-import InputAndLabelDateCheck from "./Input/InputAndLabelDateCheck";
 import InputAndLabel from "./Input/InputAndLabel";
 
 export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
@@ -45,11 +44,7 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
         <StyledCounterContainer>
           {counter ? counter : "0"}/{maxLengthTextarea}
         </StyledCounterContainer>
-        <InputAndLabelDateCheck
-          name="bookmark"
-          label="bookmark"
-          type="checkbox"
-        />
+        <InputAndLabel name="bookmark" label="bookmark" type="checkbox" />
 
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
