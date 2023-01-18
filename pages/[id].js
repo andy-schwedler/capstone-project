@@ -2,7 +2,11 @@ import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
-import { StyledLink, StyledMain } from "../components/GlobalStyles";
+import {
+  StyledGridWrapper,
+  StyledLink,
+  StyledMain,
+} from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
 
 export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
@@ -25,7 +29,7 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   }
 
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>
         <MemoryCardDetail
@@ -34,6 +38,6 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
         />
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }

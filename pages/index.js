@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { StyledMain } from "../components/GlobalStyles";
+import { StyledGridWrapper, StyledMain } from "../components/GlobalStyles";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting/Greeting";
 import ExpandSection from "../components/ExpandSection/ExpandSection";
@@ -50,7 +50,7 @@ export default function Overview({ sampleEvents }) {
   );
 
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>
         <Greeting />
@@ -65,6 +65,6 @@ export default function Overview({ sampleEvents }) {
         )}
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }

@@ -8,6 +8,7 @@ const memoriesSchema = new Schema({
   details: { type: String, required: true },
   date: { type: String, required: true },
   isFavorite: { type: Boolean, required: true },
+  picture: { type: String, required: false },
 });
 
 // Or || => in case it does not exist

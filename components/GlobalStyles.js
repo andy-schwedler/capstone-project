@@ -26,10 +26,15 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
+export const StyledGridWrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+`;
+
 export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
-  margin-bottom: 8em;
 `;
 
 export const StyledLink = styled(Link)`

@@ -6,6 +6,35 @@ import { handleDescendingSort } from "../helpers/sortingLogic";
 function MyApp({ Component, pageProps }) {
   // stores data coming from MongoDB
   const [sampleEvents, setSampleEvents] = useState();
+  // stores uploaded image
+  const [image, setImage] = useState(null);
+
+  function handleImage(event) {
+    setImage(event.target.files[0]);
+  }
+
+  async function ImageUpload(event) {
+    event.preventDefault();
+
+    // if no image was chosen
+    if (!image) {
+      return;
+    } else {
+      const formData = new FormData(event.target);
+
+      formData.append("file", image);
+      formData.append("upload_preset", process.env.NEXT_PUBLIC_UPLOAD_PRESET);
+
+      const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/image/upload`;
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+
+      return json.secure_url;
+    }
+  }
 
   // METHOD "POST"
   async function handleAddCreateCard(event) {
@@ -15,16 +44,21 @@ function MyApp({ Component, pageProps }) {
     const date = new Date();
     const headline = event.target.elements.headline.value;
     const details = event.target.elements.details.value;
+    const isFavorite = event.target.bookmark.checked;
+
+    //  "post" picture on cloudinary and returns URL string
+    const picture = await ImageUpload(event);
 
     // ../../db/models/Memory
     const newEntry = {
       date: date,
       headline: headline,
       details: details,
-      isFavorite: false,
+      isFavorite: isFavorite,
+      picture: picture,
     };
 
-    // POST memories
+    // "POST" memories
     await fetch("/api/memories", {
       method: "POST",
       headers: {
@@ -36,6 +70,7 @@ function MyApp({ Component, pageProps }) {
     getMemories();
 
     event.target.reset();
+    event.target.headline.focus();
   }
   // DELETE memories
   async function handleDeleteMemoryCard(id) {
@@ -94,6 +129,7 @@ function MyApp({ Component, pageProps }) {
           onAddCreateCard={handleAddCreateCard}
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
+          onImage={handleImage}
         />
       )}
     </>
