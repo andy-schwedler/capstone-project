@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
+import MemoryCardDetail from "../components/MemoryCard/MemoryCardOverview";
 import {
   StyledGridWrapper,
   StyledLink,
   StyledMain,
 } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
+import Link from "next/link";
 
-export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
+export default function MemoryCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -21,9 +22,9 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
       <StyledGridWrapper>
         <Header />
         <DisplayMessage message={"ID does not match"} />
-        <StyledLink aria-label="overview page" href={"/"}>
+        <Link aria-label="overview page" href={"/"}>
           Back to overview
-        </StyledLink>
+        </Link>
       </StyledGridWrapper>
     );
   }

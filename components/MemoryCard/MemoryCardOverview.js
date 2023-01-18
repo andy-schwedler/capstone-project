@@ -11,13 +11,13 @@ export default function MemoryCardDetail({ currentEvent, onToggleFavorite }) {
   return (
     <StyledGridWrapper>
       <StyledDetailFrame>
-        <BookmarkButton
-          isFavorite={currentEvent.isFavorite}
-          onToggleFavorite={onToggleFavorite}
-          id={currentEvent.id}
-        />
         <StyledTextFormatter>
           <h3>{currentEvent.headline}</h3>
+          <BookmarkButton
+            isFavorite={currentEvent.isFavorite}
+            onToggleFavorite={onToggleFavorite}
+            id={currentEvent.id}
+          />
           <p>date: {formatDate}</p>
           <p>{currentEvent.details}</p>
           <Image />

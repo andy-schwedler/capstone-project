@@ -11,6 +11,8 @@ export default function MemoryListCard({
   onToggleFavorite,
   onDelete,
   onEditMemory,
+  displayOptionMenu,
+  editMode,
 }) {
   const [displayOptionMenu, setDisplayOptionMenu] = useState(false);
   const [editMode, setEditMode] = useState(false);
