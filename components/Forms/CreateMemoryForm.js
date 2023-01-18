@@ -11,19 +11,22 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   const maxLengthTextarea = 200;
 
   function handleCounter(event) {
+    if (!event.target.value) {
+      setCounter(0);
+    }
+
     setCounter(event.target.value.length);
   }
 
   return (
-    <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
+    <StyledCreateForm
+      aria-label="create card form"
+      onSubmit={() => {
+        onAddCreateCard;
+        setCounter(0);
+      }}
+    >
       <StyledFieldset aria-label="insert your memories here">
-        <StyledWrapper>
-          <InputAndLabelDateCheck
-            name="bookmark"
-            label="Bookmark"
-            type="checkbox"
-          />
-        </StyledWrapper>
         <StyledWrapper>
           <InputAndLabelTextPair
             placeholder="Title"
@@ -53,6 +56,11 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
           <StyledCounterContainer>
             {counter ? counter : "0"}/{maxLengthTextarea}
           </StyledCounterContainer>
+          <InputAndLabelDateCheck
+            name="bookmark"
+            label="bookmark"
+            type="checkbox"
+          />
         </StyledWrapper>
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
@@ -71,14 +79,14 @@ export const StyledCreateForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em;
+  padding: 0.3em;
 `;
 
 const StyledFieldset = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
   align-items: center;
 `;
 
@@ -92,6 +100,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   color: var(--beaver);
+  width: 100%;
 `;
 
 const StyledCounterContainer = styled.p`
@@ -123,11 +132,4 @@ const StyledFormResetButton = styled(StyledButtonFrame)`
   width: 5em;
   height: 2em;
   border-radius: 0.6em;
-`;
-
-const StyledCheckbox = styled.input`
-  :focus {
-    outline: max(2px, 0.15em) solid var(--beaver1);
-    outline-offset: max(2px, 0.15em);
-  }
 `;
