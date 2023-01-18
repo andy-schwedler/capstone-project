@@ -48,7 +48,7 @@ export default function MemoryListCard({
   const formatDate = rearrangeDates(sampleEvent.date);
 
   return (
-    <StyledEventContainer>
+    <StyledMemoryContainer>
       <StyledButtonFrame
         name="options"
         aria-label="options"
@@ -79,11 +79,11 @@ export default function MemoryListCard({
           onToggleFavorite={onToggleFavorite}
         />
       )}
-    </StyledEventContainer>
+    </StyledMemoryContainer>
   );
 }
 
-const StyledEventContainer = styled.article`
+export const StyledMemoryContainer = styled.article`
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(3, auto);

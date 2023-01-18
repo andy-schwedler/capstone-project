@@ -8,6 +8,26 @@ function MyApp({ Component, pageProps }) {
   const [sampleEvents, setSampleEvents] = useState();
   // stores uploaded image
   const [image, setImage] = useState(null);
+  // stores users input for searching
+  const [searchTerm, setSearchTerm] = useState([]);
+
+  function handleSearch(event) {
+    const searchEntry = event.target.value;
+
+    const filteredDetails = sampleEvents.filter((sampleEvent) => {
+      //  if nothing was entered by the user, no list will be created
+      if (searchEntry === "") {
+        return null;
+      } else
+        return (
+          sampleEvent.details
+            .toLowerCase()
+            .includes(searchEntry.toLowerCase()) ||
+          sampleEvent.headline.toLowerCase().includes(searchEntry.toLowerCase())
+        );
+    });
+    setSearchTerm(filteredDetails);
+  }
 
   function handleImage(event) {
     setImage(event.target.files[0]);
@@ -130,6 +150,8 @@ function MyApp({ Component, pageProps }) {
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
           onImage={handleImage}
+          searchTerm={searchTerm}
+          onSearch={handleSearch}
         />
       )}
     </>

@@ -11,26 +11,7 @@ import {
 } from "../helpers/sortingLogic";
 import MemoryPreview from "../components/MemoryCard/MemoryPreview";
 
-export default function Overview({ sampleEvents }) {
-  const [searchTerm, setSearchTerm] = useState([]);
-
-  function handleSearch(event) {
-    const searchEntry = event.target.value;
-
-    const filteredDetails = sampleEvents.filter((sampleEvent) => {
-      //  if nothing was entered by the user, no list will be created
-      if (searchEntry === "") {
-        return null;
-      } else
-        return (
-          sampleEvent.details
-            .toLowerCase()
-            .includes(searchEntry.toLowerCase()) ||
-          sampleEvent.headline.toLowerCase().includes(searchEntry.toLowerCase())
-        );
-    });
-    setSearchTerm(filteredDetails);
-  }
+export default function Overview({ sampleEvents, searchTerm, onSearch }) {
   const results = searchTerm?.map((sampleEvent) => (
     <Fragment key={sampleEvent.id}>
       <MemoryPreview sampleEvent={sampleEvent} />
@@ -54,7 +35,7 @@ export default function Overview({ sampleEvents }) {
       <Header />
       <StyledMain>
         <Greeting />
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={onSearch} />
         {searchTerm?.length === 0 ? (
           <>
             <ExpandSection data={sortedDescending} headline="recently" />
