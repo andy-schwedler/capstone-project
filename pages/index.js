@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { StyledMain } from "../components/GlobalStyles";
+import { StyledGridWrapper, StyledMain } from "../components/GlobalStyles";
 import SearchBar from "../components/SearchBar";
 import Greeting from "../components/Greeting/Greeting";
 import ExpandSection from "../components/ExpandSection/ExpandSection";
@@ -10,7 +10,6 @@ import {
   handleAscendingSort,
 } from "../helpers/sortingLogic";
 import MemoryPreview from "../components/MemoryCard/MemoryPreview";
-import styled from "styled-components";
 
 export default function Overview({ sampleEvents }) {
   const [searchTerm, setSearchTerm] = useState([]);
@@ -69,9 +68,3 @@ export default function Overview({ sampleEvents }) {
     </StyledGridWrapper>
   );
 }
-
-export const StyledGridWrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100vh;
-`;

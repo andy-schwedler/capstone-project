@@ -2,9 +2,12 @@ import { useRouter } from "next/router";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
-import { StyledLink, StyledMain } from "../components/GlobalStyles";
+import {
+  StyledGridWrapper,
+  StyledLink,
+  StyledMain,
+} from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
-import { StyledGridWrapper } from ".";
 
 export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();

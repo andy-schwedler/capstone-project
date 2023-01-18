@@ -1,10 +1,8 @@
-import { Fragment } from "react";
 import Header from "../../components/Header/Header";
 import DisplayMessage from "../../components/DisplayMessage";
 import Footer from "../../components/Footer/Footer";
-import { StyledMain } from "../../components/GlobalStyles";
+import { StyledGridWrapper, StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
-import { StyledGridWrapper } from "..";
 
 export default function Bookmarks({
   sampleEvents,
