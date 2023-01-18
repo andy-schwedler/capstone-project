@@ -35,6 +35,9 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
             onChange={(event) => onImage(event)}
           />
         </StyledWrapper>
+        <StyledWrapper>
+          <InputAndLabel name="bookmark" label="bookmark" type="checkbox" />
+        </StyledWrapper>
         <InputAndLabel
           type="textarea"
           name="details"
@@ -45,7 +48,6 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
         <StyledCounterContainer>
           {counter ? counter : "0"}/{maxLengthTextarea}
         </StyledCounterContainer>
-        <InputAndLabel name="bookmark" label="bookmark" type="checkbox" />
 
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
