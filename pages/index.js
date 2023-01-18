@@ -10,6 +10,7 @@ import {
   handleAscendingSort,
 } from "../helpers/sortingLogic";
 import MemoryPreview from "../components/MemoryCard/MemoryPreview";
+import styled from "styled-components";
 
 export default function Overview({ sampleEvents }) {
   const [searchTerm, setSearchTerm] = useState([]);
@@ -50,7 +51,7 @@ export default function Overview({ sampleEvents }) {
   );
 
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>
         <Greeting />
@@ -65,6 +66,12 @@ export default function Overview({ sampleEvents }) {
         )}
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }
+
+export const StyledGridWrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+`;

@@ -129,7 +129,6 @@ function MyApp({ Component, pageProps }) {
           onAddCreateCard={handleAddCreateCard}
           onDelete={handleDeleteMemoryCard}
           onEditMemory={handleEditMemory}
-          image={image}
           onImage={handleImage}
         />
       )}

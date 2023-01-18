@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardDetail";
 import { StyledLink, StyledMain } from "../components/GlobalStyles";
 import DisplayMessage from "../components/DisplayMessage";
+import { StyledGridWrapper } from ".";
 
 export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
   }
 
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>
         <MemoryCardDetail
@@ -34,6 +35,6 @@ export default function EventCardOverview({ sampleEvents, onToggleFavorite }) {
         />
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }

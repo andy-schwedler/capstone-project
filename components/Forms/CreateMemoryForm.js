@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { StyledButtonFrame } from "../GlobalStyles";
 import InputAndLabelTextPair from "./Input/InputAndLabelTextPair";
 
+import InputAndLabelDateCheck from "./Input/InputAndLabelDateCheck";
+
 export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
   const [counter, setCounter] = useState();
 
@@ -16,14 +18,12 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
     <StyledCreateForm aria-label="create card form" onSubmit={onAddCreateCard}>
       <StyledFieldset aria-label="insert your memories here">
         <StyledWrapper>
-          <label htmlFor="bookmark">Favorite?</label>
-          <StyledCheckbox
-            id="bookmark"
-            name="bookmark button"
+          <InputAndLabelDateCheck
+            name="bookmark"
+            label="Bookmark"
             type="checkbox"
           />
         </StyledWrapper>
-
         <StyledWrapper>
           <InputAndLabelTextPair
             placeholder="Title"
@@ -31,7 +31,6 @@ export default function CreateMemoryForm({ onAddCreateCard, onImage }) {
             name="headline"
           />
         </StyledWrapper>
-
         <StyledWrapper>
           <label htmlFor="upload">Upload 📸 here</label>
           <StyledFileUpload
@@ -72,14 +71,14 @@ export const StyledCreateForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 1em;
 `;
 
 const StyledFieldset = styled.fieldset`
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 1.8em;
+  gap: 1em;
   align-items: center;
 `;
 

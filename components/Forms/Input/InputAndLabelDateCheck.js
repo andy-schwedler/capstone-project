@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function InputAndLabelDatePair({
+export default function InputAndLabelDateCheck({
   name,
   type,
   defaultValue,

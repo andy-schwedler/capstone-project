@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledGridWrapper } from "..";
 import Footer from "../../components/Footer/Footer";
 import CreateMemoryForm from "../../components/Forms/CreateMemoryForm";
 import { StyledMain } from "../../components/GlobalStyles";
@@ -12,7 +13,7 @@ export default function CreatePage({
   onImage,
 }) {
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>
         <CreateMemoryForm
@@ -23,6 +24,6 @@ export default function CreatePage({
         />
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }

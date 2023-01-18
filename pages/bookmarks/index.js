@@ -4,6 +4,7 @@ import DisplayMessage from "../../components/DisplayMessage";
 import Footer from "../../components/Footer/Footer";
 import { StyledMain } from "../../components/GlobalStyles";
 import MemoryListCard from "../../components/MemoryCard/MemoryListCard";
+import { StyledGridWrapper } from "..";
 
 export default function Bookmarks({
   sampleEvents,
@@ -34,10 +35,10 @@ export default function Bookmarks({
     );
 
   return (
-    <>
+    <StyledGridWrapper>
       <Header />
       <StyledMain>{favList}</StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </>
+    </StyledGridWrapper>
   );
 }
