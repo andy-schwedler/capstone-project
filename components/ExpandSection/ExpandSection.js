@@ -42,5 +42,4 @@ const StyledHeadline = styled(StyledButtonFrame)`
 
 const StyledHead = styled.div`
   display: flex;
-  align-items: center;
 `;

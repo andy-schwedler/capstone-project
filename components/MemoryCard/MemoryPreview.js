@@ -36,13 +36,14 @@ const StyledContainerLink = styled(Link)`
   box-shadow: 0 0 0.9em #ccc;
   background-color: var(--beaver3);
   min-width: 10rem;
-  max-width: 12rem;
+  max-width: 13rem;
   height: 10rem;
   border-radius: 0.2em;
   padding: 0.8rem;
 
-  :visited {
-    color: inherit;
+  :visited,
+  :link {
+    color: var(--beaver2);
   }
 `;
 

@@ -30,7 +30,8 @@ export default function Greeting() {
 
 const StyledGreeting = styled.section`
   align-self: flex-start;
-  margin: 1em;
+  padding: 1em;
+  margin: 0.5em;
 
   h1 {
     margin: 0;

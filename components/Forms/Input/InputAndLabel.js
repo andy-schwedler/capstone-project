@@ -133,7 +133,8 @@ const StyledInput = styled.input`
 
 const StyledCheckbox = styled.input`
   margin: 0;
-  align-self: flex-start;
+  align-self: center;
+  border: none;
 `;
 
 const StyledWrapper = styled.div`

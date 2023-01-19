@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
       }
       *:active{-webkit-tap-highlight-color: transparent;}
 
+    
 :root{
   --beaver: #245669; // blue sapphire
   --beaver1: #629FB5; // maximum blue

@@ -38,8 +38,11 @@ export default function Overview({ sampleEvents, searchTerm, onSearch }) {
         <SearchBar onSearch={onSearch} />
         {searchTerm?.length === 0 ? (
           <>
-            <ExpandSection data={sortedDescending} headline="recently" />
-            <ExpandSection data={sortedAscending} headline="old to new" />
+            <ExpandSection
+              data={sortedDescending}
+              headline="recently created"
+            />
+            <ExpandSection data={sortedAscending} headline="ascending order" />
           </>
         ) : (
           results
