@@ -12,12 +12,10 @@ export default function ExpandSection({ data: renderedChildren, headline }) {
 
   return (
     <StyledExpandedContainer>
-      <div>
-        <StyledButtonFrame onClick={handleExpanded}>
-          {headline}
-        </StyledButtonFrame>
+      <StyledHead>
+        <StyledHeadline onClick={handleExpanded}>{headline}</StyledHeadline>
         <ArrowIcon active fill={"var(--beaver1)"} width="20" />
-      </div>
+      </StyledHead>
       {isExpanded && <StyledShelf>{renderedChildren}</StyledShelf>}
     </StyledExpandedContainer>
   );
@@ -29,19 +27,19 @@ const StyledExpandedContainer = styled.section`
   align-self: flex-start;
   width: 100vw;
   overflow-y: hidden;
-
-  button {
-    color: var(--beaver2);
-    padding: 1em;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-  }
 `;
 
 const StyledShelf = styled.section`
   display: flex;
   overflow-y: hidden;
+`;
+
+const StyledHeadline = styled(StyledButtonFrame)`
+  font-size: large;
+  color: var(--beaver2);
+  padding: 0.4em;
+`;
+
+const StyledHead = styled.div`
+  display: flex;
 `;

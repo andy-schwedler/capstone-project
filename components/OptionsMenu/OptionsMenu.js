@@ -19,6 +19,7 @@ export default function OptionsMenu({
       >
         EDIT
       </StyledButtonFrame>
+
       <StyledButtonFrame
         name="delete"
         aria-label="delete button"
@@ -27,6 +28,7 @@ export default function OptionsMenu({
         REMOVE
       </StyledButtonFrame>
       <StyledButtonFrame onClick={onToggleDisplay}>CANCEL</StyledButtonFrame>
+
       <BookmarkButton
         onToggleFavorite={() => onToggleFavorite(sampleEvent.id)}
         isFavorite={sampleEvent.isFavorite}
@@ -36,14 +38,12 @@ export default function OptionsMenu({
 }
 
 const StyledMenu = styled.div`
-  color: var(--beaver4);
-  background-color: var(--beaver1);
-  grid-column: 1;
+  grid-column: 1 / 4;
   display: flex;
   justify-content: space-evenly;
-  bottom: 1.8em;
-  align-self: center;
-  border-top-right-radius: 1em;
+  border-top-right-radius: 0.5em;
+  color: var(--beaver);
+  background-color: var(--beaver1);
 
   button {
     padding: 0.4rem;

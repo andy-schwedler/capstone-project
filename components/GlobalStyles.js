@@ -12,8 +12,10 @@ const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-    }
+      }
+      *:active{-webkit-tap-highlight-color: transparent;}
 
+    
 :root{
   --beaver: #245669; // blue sapphire
   --beaver1: #629FB5; // maximum blue
@@ -35,6 +37,7 @@ export const StyledGridWrapper = styled.div`
 export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const StyledLink = styled(Link)`

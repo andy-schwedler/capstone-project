@@ -2,77 +2,74 @@ import Link from "next/link";
 import styled from "styled-components";
 import { rearrangeDates } from "../../helpers/sortingLogic";
 import { BookmarkIcon } from "../Icons/BookmarkIcon";
+import CameraIcon from "../Icons/CameraIcon";
 
 export default function MemoryPreview({ sampleEvent }) {
   // this will trim the text to 30 letters and add "..." at the end - needs to be more dynamic
   const previewDetails = sampleEvent.details
     ?.slice()
-    .substring(0, 10)
-    .padEnd(13, ".");
+    .substring(0, 20)
+    .padEnd(23, ".");
 
   const formatDate = rearrangeDates(sampleEvent.date);
 
   return (
     <StyledContainerLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-      <h5>{sampleEvent.headline}</h5>
-      <StyledContainer>
-        <p>{formatDate}</p>
-        <p>{previewDetails}</p>
-      </StyledContainer>
-      {sampleEvent.isFavorite ? (
-        <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
-      ) : (
-        <BookmarkIcon
-          alt="bookmark"
-          fill="var(--beaver)"
-          width={20}
-          height={20}
-        />
-      )}
+      <StyledHead>{sampleEvent.headline}</StyledHead>
+      <StyledDate>{formatDate}</StyledDate>
+      <StyledPreviewContainer>{previewDetails}</StyledPreviewContainer>
+      <StyledIconContainer>
+        {sampleEvent.isFavorite && (
+          <BookmarkIcon alt="bookmark" fill="red" width={20} height={20} />
+        )}
+        {sampleEvent.picture && <CameraIcon width={20} />}
+      </StyledIconContainer>
     </StyledContainerLink>
   );
 }
 
 const StyledContainerLink = styled(Link)`
-  border: 1px solid var(--beaver);
-  background-color: var(--beaver3);
-  display: grid;
-  min-width: 10rem;
-  height: 8em;
-  border-radius: 0.2em;
-  padding: 0.4rem;
-  text-decoration: none;
   margin: 1em 0.5em 1em 0.5em;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  text-decoration: none;
+  box-shadow: 0 0 0.9em #ccc;
+  background-color: var(--beaver3);
+  min-width: 10rem;
+  max-width: 13rem;
+  height: 10rem;
+  border-radius: 0.2em;
+  padding: 0.8rem;
 
-  h5 {
-    grid-column: 1 / span 4;
-    grid-row: 1;
-    margin: 0;
-    padding: 0;
-  }
-
-  div {
-    grid-column: 1 / -1;
-  }
-
-  svg {
-    grid-column: 5;
-    grid-row: 1;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  :link,
-  :visited {
-    color: inherit;
+  :visited,
+  :link {
+    color: var(--beaver2);
   }
 `;
 
-const StyledContainer = styled.div`
+const StyledHead = styled.h5`
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+`;
+
+const StyledDate = styled.p`
+  grid-column-start: 1;
+  grid-row: 2;
+  font-size: smaller;
+  margin: 0;
+`;
+
+const StyledPreviewContainer = styled.div`
+  grid-column: 1 / 6;
+  grid-row: 3;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: small;
+`;
+
+const StyledIconContainer = styled.div`
+  grid-column-start: 5;
+  grid-row: 1;
 `;

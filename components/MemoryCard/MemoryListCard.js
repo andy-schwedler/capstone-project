@@ -22,6 +22,7 @@ export default function MemoryListCard({
     }
     return;
   }
+
   function toggleDisplayOptionMenu() {
     setDisplayOptionMenu(!displayOptionMenu);
   }
@@ -48,7 +49,7 @@ export default function MemoryListCard({
   const formatDate = rearrangeDates(sampleEvent.date);
 
   return (
-    <StyledEventContainer>
+    <StyledMemoryContainer>
       <StyledButtonFrame
         name="options"
         aria-label="options"
@@ -65,10 +66,12 @@ export default function MemoryListCard({
           onCancel={handleCancelButton}
         />
       ) : (
-        <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
-          <p> {formatDate} </p>
-          <h3>{sampleEvent.headline}</h3>
-        </StyledLink>
+        <StyledFrame>
+          <StyledLink aria-label="detailspage" href={`/${sampleEvent.id}`}>
+            <h3>{sampleEvent.headline}</h3>
+            <p> {formatDate} </p>
+          </StyledLink>
+        </StyledFrame>
       )}
       {displayOptionMenu && (
         <OptionsMenu
@@ -79,48 +82,44 @@ export default function MemoryListCard({
           onToggleFavorite={onToggleFavorite}
         />
       )}
-    </StyledEventContainer>
+    </StyledMemoryContainer>
   );
 }
 
-const StyledEventContainer = styled.article`
-  width: 60vw;
+export const StyledMemoryContainer = styled.article`
   display: grid;
   grid-template-columns: repeat(3, auto);
   background-color: var(--beaver);
   border-radius: 0.3rem;
-  color: #fefefe;
-  align-self: center;
-  margin-right: 0;
-  margin-bottom: 1.1rem;
+  color: #efefef;
+  justify-self: center;
+  width: 60vw;
+  margin: 1.2em;
 
   a {
+    grid-column: 1 / 3;
     text-align: left;
-    margin-bottom: 0.8rem;
-    padding: 0.3em;
-    gap: 0.8em;
-    display: flex;
-    flex-direction: column;
-  }
-
-  h3 {
-    font-weight: 400;
-    margin: 0;
-    padding: 0.3em;
   }
 
   button {
-    grid-row-start: 1;
-    grid-column-start: -1;
-    justify-self: flex-end;
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  h3 {
+    font-weight: 300;
+    margin: 0;
   }
 
   p {
-    grid-column: 1 / 2;
-    grid-row: 1;
     font-style: italic;
     font-size: small;
     opacity: 50%;
     margin: 0;
   }
+`;
+
+const StyledFrame = styled.div`
+  padding: 1em;
+  grid-column: 1 / 3;
 `;

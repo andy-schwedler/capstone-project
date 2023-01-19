@@ -5,7 +5,7 @@ import { StyledButtonFrame } from "../GlobalStyles";
 import InputAndLabel from "./Input/InputAndLabel";
 
 export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
-  const [counter, setCounter] = useState();
+  const [counter, setCounter] = useState(0);
 
   const maxLengthTextarea = 200;
 
@@ -36,21 +36,27 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
           />
         </StyledWrapper>
         <InputAndLabel name="bookmark" label="bookmark" type="checkbox" />
-        <InputAndLabel
-          type="textarea"
-          name="details"
-          placeholder="...tell me more"
-          onChange={handleCounter}
-          maxLength={maxLengthTextarea}
-        />
-        <StyledCounterContainer>
-          {counter ? counter : "0"}/{maxLengthTextarea}
-        </StyledCounterContainer>
+        <StyledWrapper>
+          <InputAndLabel
+            type="textarea"
+            name="details"
+            placeholder="...tell me more"
+            onChange={handleCounter}
+            maxLength={maxLengthTextarea}
+          />
+          <StyledCounterContainer>
+            {counter ? counter : "0"}/{maxLengthTextarea}
+          </StyledCounterContainer>
+        </StyledWrapper>
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
             create
           </StyledFormSubmitButton>
-          <StyledFormResetButton aria-label="reset form" type="reset">
+          <StyledFormResetButton
+            aria-label="reset form"
+            type="reset"
+            onClick={() => setCounter(0)}
+          >
             reset
           </StyledFormResetButton>
         </StyledButtonWrapper>
@@ -84,7 +90,7 @@ export const StyledWrapper = styled.div`
   color: var(--beaver);
 `;
 
-const StyledCounterContainer = styled.p`
+const StyledCounterContainer = styled.div`
   align-self: flex-end;
   margin: 0;
   color: var(--beaver1);
