@@ -36,16 +36,18 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
           />
         </StyledWrapper>
         <InputAndLabel name="bookmark" label="bookmark" type="checkbox" />
-        <InputAndLabel
-          type="textarea"
-          name="details"
-          placeholder="...tell me more"
-          onChange={handleCounter}
-          maxLength={maxLengthTextarea}
-        />
-        <StyledCounterContainer>
-          {counter ? counter : "0"}/{maxLengthTextarea}
-        </StyledCounterContainer>
+        <StyledWrapper>
+          <InputAndLabel
+            type="textarea"
+            name="details"
+            placeholder="...tell me more"
+            onChange={handleCounter}
+            maxLength={maxLengthTextarea}
+          />
+          <StyledCounterContainer>
+            {counter ? counter : "0"}/{maxLengthTextarea}
+          </StyledCounterContainer>
+        </StyledWrapper>
         <StyledButtonWrapper>
           <StyledFormSubmitButton aria-label="submit form" type="submit">
             create
@@ -88,7 +90,7 @@ export const StyledWrapper = styled.div`
   color: var(--beaver);
 `;
 
-const StyledCounterContainer = styled.p`
+const StyledCounterContainer = styled.div`
   align-self: flex-end;
   margin: 0;
   color: var(--beaver1);
