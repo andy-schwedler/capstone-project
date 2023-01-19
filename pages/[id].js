@@ -15,13 +15,13 @@ export default function MemoryCardOverview({ sampleEvents, onToggleFavorite }) {
   );
   if (!currentEvent) {
     return (
-      <StyledGridWrapper>
+      <>
         <Header />
         <DisplayMessage message={"ID does not match"} />
         <Link aria-label="overview page" href={"/"}>
           Back to overview
         </Link>
-      </StyledGridWrapper>
+      </>
     );
   }
 

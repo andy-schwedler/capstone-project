@@ -12,7 +12,8 @@ const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-    }
+      }
+      *:active{-webkit-tap-highlight-color: transparent;}
 
 :root{
   --beaver: #245669; // blue sapphire

@@ -27,7 +27,7 @@ export default function MemoryPreview({ sampleEvent }) {
 }
 
 const StyledContainerLink = styled(Link)`
-  border: 1px solid var(--beaver);
+  box-shadow: 0 0 0.9em #ccc;
   background-color: var(--beaver3);
   display: grid;
   min-width: 10rem;
