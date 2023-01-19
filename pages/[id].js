@@ -3,7 +3,6 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import MemoryCardDetail from "../components/MemoryCard/MemoryCardOverview";
 import { StyledGridWrapper, StyledMain } from "../components/GlobalStyles";
-import DisplayMessage from "../components/DisplayMessage";
 import Link from "next/link";
 
 export default function MemoryCardOverview({ sampleEvents, onToggleFavorite }) {
@@ -15,13 +14,15 @@ export default function MemoryCardOverview({ sampleEvents, onToggleFavorite }) {
   );
   if (!currentEvent) {
     return (
-      <>
+      <StyledGridWrapper>
         <Header />
-        <DisplayMessage message={"ID does not match"} />
-        <Link aria-label="overview page" href={"/"}>
-          Back to overview
-        </Link>
-      </>
+        <StyledMain>
+          <h1>ID does not match</h1>
+          <Link aria-label="overview page" href={"/"}>
+            Back to overview
+          </Link>
+        </StyledMain>
+      </StyledGridWrapper>
     );
   }
 

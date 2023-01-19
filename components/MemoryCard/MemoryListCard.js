@@ -86,23 +86,18 @@ export default function MemoryListCard({
   );
 }
 
-const StyledFrame = styled.div`
-  padding: 1em;
-  grid-column: 1 / span 2;
-`;
-
 export const StyledMemoryContainer = styled.article`
-  width: 60vw;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   background-color: var(--beaver);
   border-radius: 0.3rem;
   color: #efefef;
-  align-self: center;
+  justify-self: center;
+  width: 60vw;
   margin: 1.2em;
 
   a {
-    grid-column: span 3;
+    grid-column: 1 / 3;
     text-align: left;
   }
 
@@ -122,4 +117,9 @@ export const StyledMemoryContainer = styled.article`
     opacity: 50%;
     margin: 0;
   }
+`;
+
+const StyledFrame = styled.div`
+  padding: 1em;
+  grid-column: 1 / 3;
 `;

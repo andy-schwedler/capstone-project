@@ -36,6 +36,7 @@ export const StyledGridWrapper = styled.div`
 export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const StyledLink = styled(Link)`

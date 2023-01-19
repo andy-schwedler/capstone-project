@@ -28,6 +28,24 @@ export default function MemoryPreview({ sampleEvent }) {
   );
 }
 
+const StyledContainerLink = styled(Link)`
+  margin: 1em 0.5em 1em 0.5em;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  text-decoration: none;
+  box-shadow: 0 0 0.9em #ccc;
+  background-color: var(--beaver3);
+  min-width: 10rem;
+  max-width: 12rem;
+  height: 10rem;
+  border-radius: 0.2em;
+  padding: 0.8rem;
+
+  :visited {
+    color: inherit;
+  }
+`;
+
 const StyledHead = styled.h5`
   grid-column: 1 / span 2;
   grid-row: 1;
@@ -37,33 +55,14 @@ const StyledHead = styled.h5`
 
 const StyledDate = styled.p`
   grid-column-start: 1;
+  grid-row: 2;
+  font-size: smaller;
   margin: 0;
-`;
-
-const StyledContainerLink = styled(Link)`
-  margin: 1em 0.5em 1em 0.5em;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  text-decoration: none;
-  box-shadow: 0 0 0.9em #ccc;
-  background-color: var(--beaver3);
-  min-width: 8rem;
-  height: 8em;
-  border-radius: 0.2em;
-  padding: 0.5rem;
-
-  svg {
-    grid-column-start: 5;
-    grid-row: 1;
-  }
-
-  :visited {
-    color: inherit;
-  }
 `;
 
 const StyledPreviewContainer = styled.div`
   grid-column: 1 / 6;
+  grid-row: 3;
   display: flex;
   flex-direction: column;
   font-size: small;
