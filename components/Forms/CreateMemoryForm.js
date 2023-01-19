@@ -5,7 +5,7 @@ import { StyledButtonFrame } from "../GlobalStyles";
 import InputAndLabel from "./Input/InputAndLabel";
 
 export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
-  const [counter, setCounter] = useState();
+  const [counter, setCounter] = useState(0);
 
   const maxLengthTextarea = 200;
 
@@ -50,7 +50,11 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
           <StyledFormSubmitButton aria-label="submit form" type="submit">
             create
           </StyledFormSubmitButton>
-          <StyledFormResetButton aria-label="reset form" type="reset">
+          <StyledFormResetButton
+            aria-label="reset form"
+            type="reset"
+            onClick={() => setCounter(0)}
+          >
             reset
           </StyledFormResetButton>
         </StyledButtonWrapper>
