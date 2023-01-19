@@ -87,7 +87,7 @@ const StyledTextarea = styled.textarea`
   border: 0.1em solid darkgray;
   border-radius: 0.3em;
 
-  color: var(--beaver1);
+  color: var(--beaver);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   caret-color: var(--beaver);
 
@@ -111,7 +111,7 @@ const StyledInput = styled.input`
   text-align: center;
   box-shadow: none;
   caret-color: var(--beaver2);
-  color: var(--beaver1);
+  color: var(--beaver);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   background-color: inherit;
