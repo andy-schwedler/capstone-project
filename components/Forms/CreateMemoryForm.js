@@ -28,7 +28,7 @@ export default function CreateMemoryForm({ onAddCreateCard, image, onImage }) {
           <label htmlFor="upload">Upload 📸 here</label>
           <StyledFileUpload
             id="upload"
-            accept="image/png"
+            accept="image/*"
             name="upload button"
             aria-label="upload button"
             type="file"
