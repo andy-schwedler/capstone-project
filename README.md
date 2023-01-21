@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Beaver Memories
 
-## Getting Started
+![](/public/createform.png)
+![](/public/overview.png)
+![](/public/bookmark.png)
+![](/public/detail.png)
 
-First, run the development server:
+### Description
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This app gives you a minimalistic place to dump several thoughts by the minute. It will not forget your memories, thanks to a MongoDB connection. The essential features include:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- create
+- edit
+- delete
+- bookmark
+- search
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+...for memories
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Demo
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can find the hosted version on vercel: This demo is optimized for mobile screens. [Demo Version](https://beavermemories.vercel.app/)
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- React
+  - React Hooks
+  - React Router
+  - NextJS
+  - Styled Components
+- Next.js
+  - Serverless Functions
+  - Hosting
+- Jest
+- Node.js
+- MongoDB
+- Postman
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1.  Clone this repository.
+2.  Install all npm dependencies with `npm install`
+3.  To run the app in development mode npm start, then open [http://localhost:3000](http://localhost:3000/) to view it in the browser
+4.  To run unit and component tests `npm test`
 
-## Deploy on Vercel
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I could not write a single line of code, 3 months ago when I started this journey. Now I know the difference between JavaScript Libraries and Frameworks.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Regardless of the outcome I have taken away many learnings from this application.
+
+## Postscriptum
+
+If you have made it to here, I thank you for taking your time with this project. I would like to acknowledge the support of my family, who had given me time and space for me to develope.
