@@ -67,6 +67,7 @@ const StyledContentContainer = styled.div`
     align-self: center;
     grid-column: 1 / 3;
     grid-row: 3;
+    width: auto;
     height: auto;
     border-radius: 0.5em;
   }

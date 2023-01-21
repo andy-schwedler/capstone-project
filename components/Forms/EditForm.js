@@ -42,6 +42,7 @@ const StyledForm = styled.form`
   input {
     border-radius: 0.5rem;
     height: 2rem;
+    width: 11em;
     caret-color: var(--beaver1);
     color: var(--beaver1);
     margin: 1em;

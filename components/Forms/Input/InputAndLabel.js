@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { BookmarkIcon } from "../../Icons/BookmarkIcon";
 
 export default function InputAndLabel({
   name,
@@ -10,6 +12,7 @@ export default function InputAndLabel({
   maxLength,
   label,
 }) {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <>
       {type === "text" && (
@@ -17,6 +20,7 @@ export default function InputAndLabel({
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledInput
             type="text"
+            id={name}
             name={name}
             maxLength={maxLength}
             placeholder={placeholder}
@@ -31,6 +35,7 @@ export default function InputAndLabel({
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledTextarea
             type="textarea"
+            id={name}
             name={name}
             maxLength={maxLength}
             placeholder={placeholder}
@@ -44,6 +49,7 @@ export default function InputAndLabel({
         <StyledWrapper>
           <StyledLabel htmlFor={name}>{name}</StyledLabel>
           <StyledInput
+            id={name}
             type="text"
             name={name}
             placeholder={placeholder}
@@ -52,16 +58,24 @@ export default function InputAndLabel({
         </StyledWrapper>
       )}
       {type === "checkbox" && (
-        <StyledWrapper>
-          <StyledLabel htmlFor={name}>{label}</StyledLabel>
+        <StyledCheckboxWrapper>
+          <StyledLabel onClick={() => setIsChecked(!isChecked)} htmlFor={name}>
+            {label}
+          </StyledLabel>
           <StyledCheckbox
             type="checkbox"
+            id={name}
             name={name}
             aria-label={name}
             defaultValue={defaultValue}
             placeholder={placeholder}
           />
-        </StyledWrapper>
+          {isChecked ? (
+            <BookmarkIcon width="20" fill="red" />
+          ) : (
+            <BookmarkIcon width="20" fill="var(--beaver)" />
+          )}
+        </StyledCheckboxWrapper>
       )}
     </>
   );
@@ -135,10 +149,18 @@ const StyledCheckbox = styled.input`
   margin: 0;
   align-self: center;
   border: none;
+  display: none;
 `;
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  color: var(--beaver);
+`;
+const StyledCheckboxWrapper = styled.div`
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--beaver);
 `;

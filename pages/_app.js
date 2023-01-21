@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import GlobalStyles from "../components/GlobalStyles";
+import DisplayMessage from "../components/DisplayMessage";
+import GlobalStyles, { StyledGridWrapper } from "../components/GlobalStyles";
+import Header from "../components/Header/Header";
 import { handleDescendingSort } from "../helpers/sortingLogic";
 
 function MyApp({ Component, pageProps }) {
@@ -140,7 +142,10 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyles />
       {!sampleEvents ? (
-        <h3>loading memories</h3>
+        <StyledGridWrapper>
+          <Header />
+          <DisplayMessage message={"...loading"} />
+        </StyledGridWrapper>
       ) : (
         <Component
           {...pageProps}
