@@ -5,7 +5,7 @@
 ![](/public/bookmark.png)
 ![](/public/detail.png)
 
-### Description
+## Description
 
 This app gives you a minimalistic place to dump several thoughts by the minute. It will not forget your memories, thanks to a MongoDB connection. The essential features include:
 
@@ -42,6 +42,12 @@ You can find the hosted version on vercel: This demo is optimized for mobile scr
 2.  Install all npm dependencies with `npm install`
 3.  To run the app in development mode npm start, then open [http://localhost:3000](http://localhost:3000/) to view it in the browser
 4.  To run unit and component tests `npm test`
+
+## Inclusion, Diversity
+
+I am happy to announce that this App has reached an overall Accessibility Score of
+
+![](/public/Screenshot%202023-01-21%20at%2013.09.45.png)
 
 ## Acknowledgments
 
