@@ -39,18 +39,3 @@ export function handleDescendingSort(data) {
   });
   return descendingData;
 }
-
-export function clipYear(memories) {
-  memories
-    ?.filter((memory) => {
-      const formatYear = new Date(memory.date);
-
-      return memory.date > new Date("2022-01-01");
-    })
-    .map((year) => {
-      const date = new Date(year.date);
-      const yearOnly = date.getFullYear();
-
-      return yearOnly;
-    });
-}
