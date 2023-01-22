@@ -12,7 +12,7 @@ This app gives you a minimalistic place to dump several thoughts by the minute. 
 - create
 - edit
 - delete
-- bookmark
+- favorite
 - search
 
 ...for memories
