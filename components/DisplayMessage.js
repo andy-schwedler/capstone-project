@@ -1,7 +1,7 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 
 export default function DisplayMessage({ message }) {
-  return <StyledErrorMessage>{message}</StyledErrorMessage>;
+  return <h1>{message}</h1>;
 }
 
 const StyledErrorMessage = styled.h1`

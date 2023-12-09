@@ -137,9 +137,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <title>🦫 Memories 💭</title>
-      </Head>
+      <title>🦫 Memories 💭</title>
+
       <GlobalStyles />
       {!sampleEvents ? (
         <StyledGridWrapper>
