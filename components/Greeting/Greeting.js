@@ -3,6 +3,7 @@ import styled from "styled-components";
 export default function Greeting() {
   function dynamicGreeting() {
     let greeting;
+
     const date = new Date();
     const hours = date.getHours();
 

@@ -31,7 +31,7 @@ export default function Overview({ sampleEvents, searchTerm, onSearch }) {
   );
 
   return (
-    <StyledGridWrapper>
+    <div>
       <Header />
       <StyledMain>
         <Greeting />
@@ -49,6 +49,6 @@ export default function Overview({ sampleEvents, searchTerm, onSearch }) {
         )}
       </StyledMain>
       <Footer sampleEvents={sampleEvents} />
-    </StyledGridWrapper>
+    </div>
   );
 }
