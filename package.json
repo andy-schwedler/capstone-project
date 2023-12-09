@@ -9,8 +9,6 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "storybook": "start-storybook -p 6006 -s ./public --disable-telemetry",
-    "build-storybook": "build-storybook -s ./public",
     "prettier": "prettier --ignore-path .gitignore --write ."
   },
   "dependencies": {
@@ -24,14 +22,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^7.6.4",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/builder-webpack5": "^6.5.14",
-    "@storybook/manager-webpack5": "^6.5.14",
-    "@storybook/react": "^7.6.4",
-    "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
