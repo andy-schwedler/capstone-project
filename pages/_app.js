@@ -6,11 +6,11 @@ import Header from "../components/Header/Header";
 import { handleDescendingSort } from "../helpers/sortingLogic";
 
 function MyApp({ Component, pageProps }) {
-  // stores data coming from MongoDB
+  // stores data from MongoDB
   const [sampleEvents, setSampleEvents] = useState();
   // stores uploaded image
   const [image, setImage] = useState(null);
-  // stores users input for searching
+  // stores users input
   const [searchTerm, setSearchTerm] = useState([]);
 
   function handleSearch(event) {
